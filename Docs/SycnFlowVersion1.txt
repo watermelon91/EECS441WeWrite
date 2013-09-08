@@ -1,0 +1,1 @@
+User A:insert/delete, record offset for its eventupload event A to serverreceive event Bcheck if update event B with event A’s offset apply (the modified) B----------------User B:insert/delete, record offset for its eventupload event B to serverreceive event Acheck if update event A with event B’s offsetapply (the modified) event A
