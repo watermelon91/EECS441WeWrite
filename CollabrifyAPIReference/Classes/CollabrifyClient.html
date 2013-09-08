@@ -1,0 +1,2352 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CollabrifyClient Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Collabrify </a></h1>
+				<a id="developerHome" href="../index.html">Simplicate</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CollabrifyClient Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/accountGmail">&nbsp;&nbsp;&nbsp;&nbsp;accountGmail</option>
+	
+	<option value="//api/name/backgrounded">&nbsp;&nbsp;&nbsp;&nbsp;backgrounded</option>
+	
+	<option value="//api/name/dataSource">&nbsp;&nbsp;&nbsp;&nbsp;dataSource</option>
+	
+	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
+	
+	<option value="//api/name/displayName">&nbsp;&nbsp;&nbsp;&nbsp;displayName</option>
+	
+	<option value="//api/name/eventsArePaused">&nbsp;&nbsp;&nbsp;&nbsp;eventsArePaused</option>
+	
+	<option value="//api/name/gmail">&nbsp;&nbsp;&nbsp;&nbsp;gmail</option>
+	
+	<option value="//api/name/numberOfPendingEvents">&nbsp;&nbsp;&nbsp;&nbsp;numberOfPendingEvents</option>
+	
+	<option value="//api/name/participantID">&nbsp;&nbsp;&nbsp;&nbsp;participantID</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/hasNetworkConnection">&nbsp;&nbsp;&nbsp;&nbsp;+ hasNetworkConnection</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/beginCollabrifyBackgroundTask:">&nbsp;&nbsp;&nbsp;&nbsp;- beginCollabrifyBackgroundTask:</option>
+	
+	<option value="//api/name/broadcast:eventType:">&nbsp;&nbsp;&nbsp;&nbsp;- broadcast:eventType:</option>
+	
+	<option value="//api/name/createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:</option>
+	
+	<option value="//api/name/createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:</option>
+	
+	<option value="//api/name/createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:</option>
+	
+	<option value="//api/name/createSessionWithName:tags:password:startPaused:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- createSessionWithName:tags:password:startPaused:completionHandler:</option>
+	
+	<option value="//api/name/currentNetworkStatus">&nbsp;&nbsp;&nbsp;&nbsp;- currentNetworkStatus</option>
+	
+	<option value="//api/name/currentSessionHasBaseFile">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionHasBaseFile</option>
+	
+	<option value="//api/name/currentSessionHasEnded">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionHasEnded</option>
+	
+	<option value="//api/name/currentSessionID">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionID</option>
+	
+	<option value="//api/name/currentSessionIsPasswordProtected">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionIsPasswordProtected</option>
+	
+	<option value="//api/name/currentSessionName">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionName</option>
+	
+	<option value="//api/name/currentSessionOrderID">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionOrderID</option>
+	
+	<option value="//api/name/currentSessionOwner">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionOwner</option>
+	
+	<option value="//api/name/currentSessionParticipantCount">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionParticipantCount</option>
+	
+	<option value="//api/name/currentSessionParticipants">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionParticipants</option>
+	
+	<option value="//api/name/currentSessionTags">&nbsp;&nbsp;&nbsp;&nbsp;- currentSessionTags</option>
+	
+	<option value="//api/name/endCollabrifyBackgroundTask">&nbsp;&nbsp;&nbsp;&nbsp;- endCollabrifyBackgroundTask</option>
+	
+	<option value="//api/name/initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:</option>
+	
+	<option value="//api/name/isInSession">&nbsp;&nbsp;&nbsp;&nbsp;- isInSession</option>
+	
+	<option value="//api/name/joinSessionWithID:password:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- joinSessionWithID:password:completionHandler:</option>
+	
+	<option value="//api/name/joinSessionWithID:password:startPaused:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- joinSessionWithID:password:startPaused:completionHandler:</option>
+	
+	<option value="//api/name/leaveAndDeleteSession:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- leaveAndDeleteSession:completionHandler:</option>
+	
+	<option value="//api/name/listSessionsWithTags:completionHandler:">&nbsp;&nbsp;&nbsp;&nbsp;- listSessionsWithTags:completionHandler:</option>
+	
+	<option value="//api/name/pauseEvents">&nbsp;&nbsp;&nbsp;&nbsp;- pauseEvents</option>
+	
+	<option value="//api/name/resumeEvents">&nbsp;&nbsp;&nbsp;&nbsp;- resumeEvents</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_BackgroundServices Methods">BackgroundServices Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accountGmail">accountGmail</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/backgrounded">backgrounded</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dataSource">dataSource</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayName">displayName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/eventsArePaused">eventsArePaused</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/gmail">gmail</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfPendingEvents">numberOfPendingEvents</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/participantID">participantID</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasNetworkConnection">hasNetworkConnection</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginCollabrifyBackgroundTask:">beginCollabrifyBackgroundTask:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/broadcast:eventType:">broadcast:eventType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:">createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:">createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:">createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createSessionWithName:tags:password:startPaused:completionHandler:">createSessionWithName:tags:password:startPaused:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentNetworkStatus">currentNetworkStatus</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionHasBaseFile">currentSessionHasBaseFile</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionHasEnded">currentSessionHasEnded</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionID">currentSessionID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionIsPasswordProtected">currentSessionIsPasswordProtected</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionName">currentSessionName</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionOrderID">currentSessionOrderID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionOwner">currentSessionOwner</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionParticipantCount">currentSessionParticipantCount</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionParticipants">currentSessionParticipants</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentSessionTags">currentSessionTags</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endCollabrifyBackgroundTask">endCollabrifyBackgroundTask</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:">initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isInSession">isInSession</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/joinSessionWithID:password:completionHandler:">joinSessionWithID:password:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/joinSessionWithID:password:startPaused:completionHandler:">joinSessionWithID:password:startPaused:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/leaveAndDeleteSession:completionHandler:">leaveAndDeleteSession:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/listSessionsWithTags:completionHandler:">listSessionsWithTags:completionHandler:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseEvents">pauseEvents</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resumeEvents">resumeEvents</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CollabrifyClient Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CollabrifyClient Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CollabrifyClient.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The main class to interact with the Collabrify service. Used to manage sessions</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dataSource">&nbsp;&nbsp;dataSource</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/gmail">&nbsp;&nbsp;gmail</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayName">&nbsp;&nbsp;displayName</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/accountGmail">&nbsp;&nbsp;accountGmail</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/participantID">&nbsp;&nbsp;participantID</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/eventsArePaused">&nbsp;&nbsp;eventsArePaused</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfPendingEvents">&nbsp;&nbsp;numberOfPendingEvents</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pauseEvents">&ndash;&nbsp;pauseEvents</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resumeEvents">&ndash;&nbsp;resumeEvents</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentNetworkStatus">&ndash;&nbsp;currentNetworkStatus</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:">&ndash;&nbsp;initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createSessionWithName:tags:password:startPaused:completionHandler:">&ndash;&nbsp;createSessionWithName:tags:password:startPaused:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:">&ndash;&nbsp;createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:">&ndash;&nbsp;createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:">&ndash;&nbsp;createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/joinSessionWithID:password:completionHandler:">&ndash;&nbsp;joinSessionWithID:password:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/joinSessionWithID:password:startPaused:completionHandler:">&ndash;&nbsp;joinSessionWithID:password:startPaused:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/leaveAndDeleteSession:completionHandler:">&ndash;&nbsp;leaveAndDeleteSession:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/broadcast:eventType:">&ndash;&nbsp;broadcast:eventType:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/listSessionsWithTags:completionHandler:">&ndash;&nbsp;listSessionsWithTags:completionHandler:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isInSession">&ndash;&nbsp;isInSession</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionHasEnded">&ndash;&nbsp;currentSessionHasEnded</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionHasBaseFile">&ndash;&nbsp;currentSessionHasBaseFile</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionID">&ndash;&nbsp;currentSessionID</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionIsPasswordProtected">&ndash;&nbsp;currentSessionIsPasswordProtected</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionName">&ndash;&nbsp;currentSessionName</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionOrderID">&ndash;&nbsp;currentSessionOrderID</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionOwner">&ndash;&nbsp;currentSessionOwner</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionParticipantCount">&ndash;&nbsp;currentSessionParticipantCount</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionParticipants">&ndash;&nbsp;currentSessionParticipants</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentSessionTags">&ndash;&nbsp;currentSessionTags</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasNetworkConnection">+&nbsp;hasNetworkConnection</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="BackgroundServices Methods" name="task_BackgroundServices Methods"></a>
+						<h3 class="subsubtitle task-title">BackgroundServices Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/backgrounded">&nbsp;&nbsp;backgrounded</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginCollabrifyBackgroundTask:">&ndash;&nbsp;beginCollabrifyBackgroundTask:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endCollabrifyBackgroundTask">&ndash;&nbsp;endCollabrifyBackgroundTask</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/accountGmail" title="accountGmail"></a>
+	<h3 class="subsubtitle method-title">accountGmail</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The account <a href="#//api/name/gmail">gmail</a> of the user. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, copy, nonatomic) NSString *accountGmail</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/backgrounded" title="backgrounded"></a>
+	<h3 class="subsubtitle method-title">backgrounded</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the client is backgrounded.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, assign, getter=isBackgrounded, nonatomic) BOOL backgrounded</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dataSource" title="dataSource"></a>
+	<h3 class="subsubtitle method-title">dataSource</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The data source that the client requests base file data from</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) id&lt;CollabrifyClientDataSource&gt; dataSource</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="subsubtitle method-title">delegate</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The delegate that the client should inform of important events</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) id&lt;CollabrifyClientDelegate&gt; delegate</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayName" title="displayName"></a>
+	<h3 class="subsubtitle method-title">displayName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The display name of the user. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, copy, nonatomic) NSString *displayName</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/eventsArePaused" title="eventsArePaused"></a>
+	<h3 class="subsubtitle method-title">eventsArePaused</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Indicates whether events are currently paused. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, assign, nonatomic) BOOL eventsArePaused</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/gmail" title="gmail"></a>
+	<h3 class="subsubtitle method-title">gmail</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The gmail of the user. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, copy, nonatomic) NSString *gmail</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfPendingEvents" title="numberOfPendingEvents"></a>
+	<h3 class="subsubtitle method-title">numberOfPendingEvents</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The number of events that are currently being paused. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, assign, nonatomic) NSUInteger numberOfPendingEvents</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/participantID" title="participantID"></a>
+	<h3 class="subsubtitle method-title">participantID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The participantID of this user. Value is -1 if not in a session. (read-only)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly, assign, nonatomic) int64_t participantID</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/hasNetworkConnection" title="hasNetworkConnection"></a>
+	<h3 class="subsubtitle method-title">hasNetworkConnection</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the client has a network connection.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (BOOL)hasNetworkConnection</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns a boolean indicating whether the client has a network connection.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/beginCollabrifyBackgroundTask:" title="beginCollabrifyBackgroundTask:"></a>
+	<h3 class="subsubtitle method-title">beginCollabrifyBackgroundTask:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Begin a background task.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)beginCollabrifyBackgroundTask:(CollabrifyError *__autoreleasing *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>An error passed by reference if a problem occurs.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A boolean indicating if the application has begun a background task.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Classes/CollabrifyError.html">CollabrifyError</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/broadcast:eventType:" title="broadcast:eventType:"></a>
+	<h3 class="subsubtitle method-title">broadcast:eventType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Broadcasts data to all participants in the session</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int32_t)broadcast:(NSData *)<em>payload</em> eventType:(NSString *)<em>eventType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>payload</em></dt>
+			<dd><p>The data that is to be sent to all participants</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>eventType</em></dt>
+			<dd><p>A string representing the type of the event being sent</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns a unique submission registration id representing the event you are broadcasting. If an error occurs, -1 is returned.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:" title="createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createSessionWithBaseFileWithName:tags:password:participantLimit:startPaused:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a session with a base file and a participant limit.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createSessionWithBaseFileWithName:(NSString *)<em>sessionName</em> tags:(NSArray *)<em>tags</em> password:(NSString *)<em>password</em> participantLimit:(NSInteger)<em>participantLimit</em> startPaused:(BOOL)<em>startPaused</em> completionHandler:(CreateSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionName</em></dt>
+			<dd><p>The name of the session being created. Needs to be unique.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>The tags that represent the session being created.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>A password to protect the session being created. Pass nil if the session does not need a password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>participantLimit</em></dt>
+			<dd><p>Limits the number of participants that a session can have. 0 is the default, indicating no limit</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>startPaused</em></dt>
+			<dd><p>Tells the client whether or not to immediately pause all events upon creation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after a session has been created.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> CreateSessionCompletionHanler is called on the main thread</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:" title="createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createSessionWithBaseFileWithName:tags:password:startPaused:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a session with a base file and with no participant limit</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createSessionWithBaseFileWithName:(NSString *)<em>sessionName</em> tags:(NSArray *)<em>tags</em> password:(NSString *)<em>password</em> startPaused:(BOOL)<em>startPaused</em> completionHandler:(CreateSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionName</em></dt>
+			<dd><p>The name of the session being created. Needs to be unique.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>The tags that represent the session being created.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>A password to protect the session being created. Pass nil if the session does not need a password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>startPaused</em></dt>
+			<dd><p>Tells the client whether or not to immediately pause all events upon creation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after a session has been created.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> CreateSessionCompletionHanler is called on the main thread</p></div><p>The client will request base file chunks from its data source. This method also creates a session
+with no participant limit.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="../Protocols/CollabrifyClientDataSource.html">CollabrifyClientDataSource</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:" title="createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createSessionWithName:tags:password:participantLimit:startPaused:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a session without a base file but with a participant limit.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createSessionWithName:(NSString *)<em>sessionName</em> tags:(NSArray *)<em>tags</em> password:(NSString *)<em>password</em> participantLimit:(NSInteger)<em>participantLimit</em> startPaused:(BOOL)<em>startPaused</em> completionHandler:(CreateSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionName</em></dt>
+			<dd><p>The name of the session being created. Needs to be unique.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>The tags that represent the session being created.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>A password to protect the session being created. Pass nil if the session does not need a password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>participantLimit</em></dt>
+			<dd><p>Limits the number of participants that a session can have. 0 is the default, indicating no limit</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>startPaused</em></dt>
+			<dd><p>Tells the client whether or not to immediately pause all events upon creation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after a session has been created.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> CreateSessionCompletionHanler is called on the main thread</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createSessionWithName:tags:password:startPaused:completionHandler:" title="createSessionWithName:tags:password:startPaused:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">createSessionWithName:tags:password:startPaused:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a session without a base file and no participant limit.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)createSessionWithName:(NSString *)<em>sessionName</em> tags:(NSArray *)<em>tags</em> password:(NSString *)<em>password</em> startPaused:(BOOL)<em>startPaused</em> completionHandler:(CreateSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionName</em></dt>
+			<dd><p>The name of the session being created. Needs to be unique.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>The tags that represent the session being created.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>A password to protect the session being created. Pass nil if the session does not need a password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>startPaused</em></dt>
+			<dd><p>Tells the client whether or not to immediately pause all events upon creation.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after a session has been created.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This creates a session with no participant limit.</p><div class="warning"><p><strong>Warning:</strong> CreateSessionCompletionHanler is called on the main thread</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentNetworkStatus" title="currentNetworkStatus"></a>
+	<h3 class="subsubtitle method-title">currentNetworkStatus</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get the current client network status</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CollabrifyClientNetworkStatus)currentNetworkStatus</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionHasBaseFile" title="currentSessionHasBaseFile"></a>
+	<h3 class="subsubtitle method-title">currentSessionHasBaseFile</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the current session has a base file.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)currentSessionHasBaseFile</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns whether the current session has a base file.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionHasEnded" title="currentSessionHasEnded"></a>
+	<h3 class="subsubtitle method-title">currentSessionHasEnded</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the current session has ended.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)currentSessionHasEnded</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns whether the current session has ended and is no longer valid.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionID" title="currentSessionID"></a>
+	<h3 class="subsubtitle method-title">currentSessionID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session id.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int64_t)currentSessionID</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the session id.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionIsPasswordProtected" title="currentSessionIsPasswordProtected"></a>
+	<h3 class="subsubtitle method-title">currentSessionIsPasswordProtected</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the current session is password protected.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)currentSessionIsPasswordProtected</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns whether the current session is password protected.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionName" title="currentSessionName"></a>
+	<h3 class="subsubtitle method-title">currentSessionName</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)currentSessionName</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session name.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionOrderID" title="currentSessionOrderID"></a>
+	<h3 class="subsubtitle method-title">currentSessionOrderID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session order id</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (int64_t)currentSessionOrderID</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session order id</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionOwner" title="currentSessionOwner"></a>
+	<h3 class="subsubtitle method-title">currentSessionOwner</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session owner.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CollabrifyParticipant *)currentSessionOwner</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session owner.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionParticipantCount" title="currentSessionParticipantCount"></a>
+	<h3 class="subsubtitle method-title">currentSessionParticipantCount</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session participant count.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)currentSessionParticipantCount</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session participant count.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionParticipants" title="currentSessionParticipants"></a>
+	<h3 class="subsubtitle method-title">currentSessionParticipants</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session participants.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)currentSessionParticipants</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session participants.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentSessionTags" title="currentSessionTags"></a>
+	<h3 class="subsubtitle method-title">currentSessionTags</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current session tags.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)currentSessionTags</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns the current session tags.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endCollabrifyBackgroundTask" title="endCollabrifyBackgroundTask"></a>
+	<h3 class="subsubtitle method-title">endCollabrifyBackgroundTask</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Ends a background task.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)endCollabrifyBackgroundTask</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:" title="initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:"></a>
+	<h3 class="subsubtitle method-title">initWithGmail:displayName:accountGmail:accessToken:getLatestEvent:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes the client. The client cannot be used if this method is not called.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithGmail:(NSString *)<em>gmail</em> displayName:(NSString *)<em>displayName</em> accountGmail:(NSString *)<em>accountGmail</em> accessToken:(NSString *)<em>accessToken</em> getLatestEvent:(BOOL)<em>getLatestEvent</em> error:(NSError **)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>gmail</em></dt>
+			<dd><p>The <a href="#//api/name/gmail">gmail</a> of the user.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>displayName</em></dt>
+			<dd><p>The display name of the user.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>accountGmail</em></dt>
+			<dd><p>The account <a href="#//api/name/gmail">gmail</a> of the user. Needs to be valid.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>accessToken</em></dt>
+			<dd><p>The access token of the user. Needs to be valid.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>getLatestEvent</em></dt>
+			<dd><p>Determines whether to always receive the latest event. Useful for when joining a session that may
+have many events.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>An error object passed by reference, indicating if an error has occurred.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns an initialized client object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isInSession" title="isInSession"></a>
+	<h3 class="subsubtitle method-title">isInSession</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns whether the client is in a session.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)isInSession</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns whether the client is in a session.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/joinSessionWithID:password:completionHandler:" title="joinSessionWithID:password:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">joinSessionWithID:password:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Join a given session.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)joinSessionWithID:(int64_t)<em>sessionID</em> password:(NSString *)<em>password</em> completionHandler:(JoinSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionID</em></dt>
+			<dd><p>The session id of the session you are trying to join.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>The password of the session you are trying to join. If there is no password, pass nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after joining a session.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The completionHandler is called on the main thread.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/joinSessionWithID:password:startPaused:completionHandler:" title="joinSessionWithID:password:startPaused:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">joinSessionWithID:password:startPaused:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Join a given session.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)joinSessionWithID:(int64_t)<em>sessionID</em> password:(NSString *)<em>password</em> startPaused:(BOOL)<em>startPaused</em> completionHandler:(JoinSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sessionID</em></dt>
+			<dd><p>The session id of the session you are trying to join.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>The password of the session you are trying to join. If there is no password, pass nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>startPaused</em></dt>
+			<dd><p>Tells the client to pause events immediately upon joining a session.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after joining a session.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The completionHandler is called on the main thread.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/leaveAndDeleteSession:completionHandler:" title="leaveAndDeleteSession:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">leaveAndDeleteSession:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Leave a session</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)leaveAndDeleteSession:(BOOL)<em>deleteSession</em> completionHandler:(LeaveSessionCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>deleteSession</em></dt>
+			<dd><p>A flag that tells the client to delete the session. This flag is only used if you are the session owner</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back information after leaving a session</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The completionHandler is called on the main thread.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/listSessionsWithTags:completionHandler:" title="listSessionsWithTags:completionHandler:"></a>
+	<h3 class="subsubtitle method-title">listSessionsWithTags:completionHandler:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Lists the current sessions as an array of <a href="../Classes/CollabrifySession.html">CollabrifySession</a> objects</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)listSessionsWithTags:(NSArray *)<em>tags</em> completionHandler:(ListSessionsCompletionHandler)<em>completionHandler</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tags</em></dt>
+			<dd><p>The tags of the sessions you want to retrieve</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionHandler</em></dt>
+			<dd><p>A completion block that passes back an array of <a href="../Classes/CollabrifySession.html">CollabrifySession</a> objects</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The completionHandler is called on the main thread.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pauseEvents" title="pauseEvents"></a>
+	<h3 class="subsubtitle method-title">pauseEvents</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pauses the client from sending events to its <a href="#//api/name/delegate">delegate</a>
+Does not stop an event that is in the middle of being processed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)pauseEvents</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resumeEvents" title="resumeEvents"></a>
+	<h3 class="subsubtitle method-title">resumeEvents</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Resumes the client in sending events to its <a href="#//api/name/delegate">delegate</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resumeEvents</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CollabrifyClient.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Simplicate. All rights reserved. (Last updated: 2013-09-05)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

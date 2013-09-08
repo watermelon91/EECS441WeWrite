@@ -1,0 +1,1537 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CollabrifyErrorType Constants Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Collabrify </a></h1>
+				<a id="developerHome" href="../index.html">Simplicate</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CollabrifyErrorType Constants Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CollabrifyErrorType Constants Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CollabrifyErrorType Constants Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CollabrifyError.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					
+					
+					
+                    
+                    
+                    <h3 class="subsubtitle method-title">CollabrifyErrorType</h3>
+                    
+					
+					<div class="section section-overview">
+                        <p>A type that indicates what kind of error occurred.</p>
+					</div>
+					
+					
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSInteger, CollabrifyErrorType ) {<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorNotSet</a> = CollabrifyErrorType_NOT_SET,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorGeneralError</a> = CollabrifyErrorType_GENERAL_ERROR,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorIOException</a> = CollabrifyErrorType_IO_EXCEPTION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidProtocolBufferException</a> = CollabrifyErrorType_INVALID_PROTOCOL_BUFFER_EXCEPTION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorNotImplementedYet</a> = CollabrifyErrorType_NOT_IMPLEMENTED_YET,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOperationNotPermitted</a> = CollabrifyErrorType_OPERATION_NOT_PERMITTED,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidSettingsForOperation</a> = CollabrifyErrorType_INVALID_SETTINGS_FOR_OPERATION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorClientSideError</a> = CollabrifyErrorType_CLIENT_SIDE_ERROR,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorServerSideError</a> = CollabrifyErrorType_SERVER_SIDE_ERROR,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorAccountAlreadyExists</a> = CollabrifyErrorType_ACCOUNT_ALREADY_EXISTS,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorAccountPasswordMissing</a> = CollabrifyErrorType_ACCOUNT_PASSWORD_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorAccountGmailMissing</a> = CollabrifyErrorType_ACCOUNT_GMAIL_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorAccountNameMissing</a> = CollabrifyErrorType_ACCOUNT_NAME_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorAccountReferenceMissing</a> = CollabrifyErrorType_ACCOUNT_REF_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidAccountGmail</a> = CollabrifyErrorType_INVALID_ACCOUNT_GMAIL,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidAccessToken</a> = CollabrifyErrorType_INVALID_ACCESS_TOKEN,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidAccountGmailOrAccessToken</a> = CollabrifyErrorType_INVALID_ACCOUNT_GMAIL_OR_ACCESS_TOKEN,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidAccountGmailOrPassword</a> = CollabrifyErrorType_INVALID_ACCOUNT_GMAIL_OR_PASSWORD,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionAlreadyExists</a> = CollabrifyErrorType_SESSION_ALREADY_EXISTS,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionIDMissing</a> = CollabrifyErrorType_SESSION_ID_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionNameMissing</a> = CollabrifyErrorType_SESSION_NAME_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionPasswordMissing</a> = CollabrifyErrorType_SESSION_PASSWORD_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionReferenceMissing</a> = CollabrifyErrorType_SESSION_REF_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidSessionID</a> = CollabrifyErrorType_INVALID_SESSION_ID,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidSessionKey</a> = CollabrifyErrorType_INVALID_SESSION_KEY,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidSessionPassword</a> = CollabrifyErrorType_INVALID_SESSION_PASSWORD,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidSessionIDOrPasswrd</a> = CollabrifyErrorType_INVALID_SESSION_ID_OR_PASSWORD,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionTagsMissing</a> = CollabrifyErrorType_SESSION_TAGS_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorTooManySessionTags</a> = CollabrifyErrorType_TOO_MANY_SESSION_TAGS,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorTooFewSessionTags</a> = CollabrifyErrorType_TOO_FEW_SESSION_TAGS,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorSessionTagIsNilOrEmpty</a> = CollabrifyErrorType_SESSION_TAG_IS_NULL_OR_EMPTY,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidBaseFileKey</a> = CollabrifyErrorType_INVALID_BASE_FILE_KEY,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorBaseFileDataMissing</a> = CollabrifyErrorType_BASE_FILE_DATA_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorBaseFileDataTooLarge</a> = CollabrifyErrorType_BASE_FILE_DATA_TOO_LARGE,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorNoBaseFileForSession</a> = CollabrifyErrorType_NO_BASE_FILE_FOR_SESSION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorBaseFileNotCompleteYet</a> = CollabrifyErrorType_BASE_FILE_NOT_COMPLETE_YET,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorBaseFileAlreadyComplete</a> = CollabrifyErrorType_BASE_FILE_ALREADY_COMPLETE,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorFileReferenceIsMissing</a> = CollabrifyErrorType_FILE_REF_IS_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorByeDataIsMissing</a> = CollabrifyErrorType_BYTE_DATA_IS_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorByteDataTooLarge</a> = CollabrifyErrorType_BYTE_DATA_TOO_LARGE,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorByteDataTooLargeForRequest</a> = CollabrifyErrorType_BYTE_DATA_TOO_LARGE_FOR_REQUEST,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorByteDataTooLargeForResponse</a> = CollabrifyErrorType_BYTE_DATA_TOO_LARGE_FOR_RESPONSE,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidStartPositionOrLength</a> = CollabrifyErrorType_INVALID_START_POSITION_OR_LENGTH,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerGmailMissing</a> = CollabrifyErrorType_OWNER_GMAIL_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerDisplayNameMissing</a> = CollabrifyErrorType_OWNER_DISPLAY_NAME_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerNotificationIDMissing</a> = CollabrifyErrorType_OWNER_NOTIFICATION_ID_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerNotificationTypeMissing</a> = CollabrifyErrorType_OWNER_NOTIFICATION_TYPE_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerReferenceMissing</a> = CollabrifyErrorType_OWNER_REF_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorOwnerParticipantIDIsZero</a> = CollabrifyErrorType_OWNER_PARTICIPANT_ID_IS_ZERO,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantGmailMissing</a> = CollabrifyErrorType_PARTICIPANT_GMAIL_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantDisplayNameMissing</a> = CollabrifyErrorType_PARTICIPANT_DISPLAY_NAME_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantNotificationIDMissing</a> = CollabrifyErrorType_PARTICIPANT_NOTIFICATION_ID_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantNotificationTypeMissing</a> = CollabrifyErrorType_PARTICIPANT_NOTIFICATION_TYPE_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantReferenceMissing</a> = CollabrifyErrorType_PARTICIPANT_REF_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantIDIsZero</a> = CollabrifyErrorType_PARTICIPANT_ID_IS_ZERO,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantNotInSession</a> = CollabrifyErrorType_PARTICIPANT_NOT_IN_SESSION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorParticipantAlreadyInSession</a> = CollabrifyErrorType_PARTICIPANT_ALREADY_IN_SESSION,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorInvalidOrderID</a> = CollabrifyErrorType_INVALID_ORDER_ID,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorNoEventWithOrderID</a> = CollabrifyErrorType_NO_EVENT_WITH_ORDER_ID,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorEventDataMissing</a> = CollabrifyErrorType_EVENT_DATA_MISSING,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyServerSideErrorEventDataTooLarge</a> = CollabrifyErrorType_EVENT_DATA_TOO_LARGE,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyClientSideErrorNoNetworkConnection</a> = 200,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyClientSideErrorAlreadyConnectedToASession</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyClientSideErrorNotConnectedToAnySession</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyClientSideErrorCurrentSessionHasEnded</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyClientSideErrorAlreadyPendingSessionAction</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyNetworkConnectionErrorNoNetworkConnectionOrServerNotReachable</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyBackgroundServicesErrorUnknownErrorOccured</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">CollabrifyBackgroundServicesErrorBackgroundingDisabled</a>,<br/>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorNotSet"></a><code>CollabrifyServerSideErrorNotSet</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorGeneralError"></a><code>CollabrifyServerSideErrorGeneralError</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorIOException"></a><code>CollabrifyServerSideErrorIOException</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidProtocolBufferException"></a><code>CollabrifyServerSideErrorInvalidProtocolBufferException</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorNotImplementedYet"></a><code>CollabrifyServerSideErrorNotImplementedYet</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOperationNotPermitted"></a><code>CollabrifyServerSideErrorOperationNotPermitted</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidSettingsForOperation"></a><code>CollabrifyServerSideErrorInvalidSettingsForOperation</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorClientSideError"></a><code>CollabrifyServerSideErrorClientSideError</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorServerSideError"></a><code>CollabrifyServerSideErrorServerSideError</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorAccountAlreadyExists"></a><code>CollabrifyServerSideErrorAccountAlreadyExists</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorAccountPasswordMissing"></a><code>CollabrifyServerSideErrorAccountPasswordMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorAccountGmailMissing"></a><code>CollabrifyServerSideErrorAccountGmailMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorAccountNameMissing"></a><code>CollabrifyServerSideErrorAccountNameMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorAccountReferenceMissing"></a><code>CollabrifyServerSideErrorAccountReferenceMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidAccountGmail"></a><code>CollabrifyServerSideErrorInvalidAccountGmail</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidAccessToken"></a><code>CollabrifyServerSideErrorInvalidAccessToken</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidAccountGmailOrAccessToken"></a><code>CollabrifyServerSideErrorInvalidAccountGmailOrAccessToken</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidAccountGmailOrPassword"></a><code>CollabrifyServerSideErrorInvalidAccountGmailOrPassword</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionAlreadyExists"></a><code>CollabrifyServerSideErrorSessionAlreadyExists</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionIDMissing"></a><code>CollabrifyServerSideErrorSessionIDMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionNameMissing"></a><code>CollabrifyServerSideErrorSessionNameMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionPasswordMissing"></a><code>CollabrifyServerSideErrorSessionPasswordMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionReferenceMissing"></a><code>CollabrifyServerSideErrorSessionReferenceMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidSessionID"></a><code>CollabrifyServerSideErrorInvalidSessionID</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidSessionKey"></a><code>CollabrifyServerSideErrorInvalidSessionKey</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidSessionPassword"></a><code>CollabrifyServerSideErrorInvalidSessionPassword</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidSessionIDOrPasswrd"></a><code>CollabrifyServerSideErrorInvalidSessionIDOrPasswrd</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionTagsMissing"></a><code>CollabrifyServerSideErrorSessionTagsMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorTooManySessionTags"></a><code>CollabrifyServerSideErrorTooManySessionTags</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorTooFewSessionTags"></a><code>CollabrifyServerSideErrorTooFewSessionTags</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorSessionTagIsNilOrEmpty"></a><code>CollabrifyServerSideErrorSessionTagIsNilOrEmpty</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidBaseFileKey"></a><code>CollabrifyServerSideErrorInvalidBaseFileKey</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorBaseFileDataMissing"></a><code>CollabrifyServerSideErrorBaseFileDataMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorBaseFileDataTooLarge"></a><code>CollabrifyServerSideErrorBaseFileDataTooLarge</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorNoBaseFileForSession"></a><code>CollabrifyServerSideErrorNoBaseFileForSession</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorBaseFileNotCompleteYet"></a><code>CollabrifyServerSideErrorBaseFileNotCompleteYet</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorBaseFileAlreadyComplete"></a><code>CollabrifyServerSideErrorBaseFileAlreadyComplete</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorFileReferenceIsMissing"></a><code>CollabrifyServerSideErrorFileReferenceIsMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorByeDataIsMissing"></a><code>CollabrifyServerSideErrorByeDataIsMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorByteDataTooLarge"></a><code>CollabrifyServerSideErrorByteDataTooLarge</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorByteDataTooLargeForRequest"></a><code>CollabrifyServerSideErrorByteDataTooLargeForRequest</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorByteDataTooLargeForResponse"></a><code>CollabrifyServerSideErrorByteDataTooLargeForResponse</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidStartPositionOrLength"></a><code>CollabrifyServerSideErrorInvalidStartPositionOrLength</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerGmailMissing"></a><code>CollabrifyServerSideErrorOwnerGmailMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerDisplayNameMissing"></a><code>CollabrifyServerSideErrorOwnerDisplayNameMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerNotificationIDMissing"></a><code>CollabrifyServerSideErrorOwnerNotificationIDMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerNotificationTypeMissing"></a><code>CollabrifyServerSideErrorOwnerNotificationTypeMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerReferenceMissing"></a><code>CollabrifyServerSideErrorOwnerReferenceMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorOwnerParticipantIDIsZero"></a><code>CollabrifyServerSideErrorOwnerParticipantIDIsZero</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantGmailMissing"></a><code>CollabrifyServerSideErrorParticipantGmailMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantDisplayNameMissing"></a><code>CollabrifyServerSideErrorParticipantDisplayNameMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantNotificationIDMissing"></a><code>CollabrifyServerSideErrorParticipantNotificationIDMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantNotificationTypeMissing"></a><code>CollabrifyServerSideErrorParticipantNotificationTypeMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantReferenceMissing"></a><code>CollabrifyServerSideErrorParticipantReferenceMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantIDIsZero"></a><code>CollabrifyServerSideErrorParticipantIDIsZero</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantNotInSession"></a><code>CollabrifyServerSideErrorParticipantNotInSession</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorParticipantAlreadyInSession"></a><code>CollabrifyServerSideErrorParticipantAlreadyInSession</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorInvalidOrderID"></a><code>CollabrifyServerSideErrorInvalidOrderID</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorNoEventWithOrderID"></a><code>CollabrifyServerSideErrorNoEventWithOrderID</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorEventDataMissing"></a><code>CollabrifyServerSideErrorEventDataMissing</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyServerSideErrorEventDataTooLarge"></a><code>CollabrifyServerSideErrorEventDataTooLarge</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyClientSideErrorNoNetworkConnection"></a><code>CollabrifyClientSideErrorNoNetworkConnection</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyClientSideErrorAlreadyConnectedToASession"></a><code>CollabrifyClientSideErrorAlreadyConnectedToASession</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyClientSideErrorNotConnectedToAnySession"></a><code>CollabrifyClientSideErrorNotConnectedToAnySession</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyClientSideErrorCurrentSessionHasEnded"></a><code>CollabrifyClientSideErrorCurrentSessionHasEnded</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyClientSideErrorAlreadyPendingSessionAction"></a><code>CollabrifyClientSideErrorAlreadyPendingSessionAction</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyNetworkConnectionErrorNoNetworkConnectionOrServerNotReachable"></a><code>CollabrifyNetworkConnectionErrorNoNetworkConnectionOrServerNotReachable</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyBackgroundServicesErrorUnknownErrorOccured"></a><code>CollabrifyBackgroundServicesErrorUnknownErrorOccured</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="CollabrifyBackgroundServicesErrorBackgroundingDisabled"></a><code>CollabrifyBackgroundServicesErrorBackgroundingDisabled</code></dt>
+<dd>
+
+
+<p>A type that indicates what kind of error occurred.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">CollabrifyError.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+                    
+                    
+                    
+
+                    
+                    
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">Declared In</h4>
+                        <code class="declared-in-ref">CollabrifyError.h</code><br />
+                    </div>				
+                    
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Simplicate. All rights reserved. (Last updated: 2013-09-05)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
