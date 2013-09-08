@@ -1,0 +1,11 @@
+/** WeWriteApp TO-DO List **/
+
+09/08/2013:
+
+* implement CollabrifySession
+    - sort of the root of the entire app backend.
+
+* incorporate collabrifyClient into the controller (delegate)
+
+* ideas for UI update in real-time
+    - do we use the xCode text fields? etc. 
