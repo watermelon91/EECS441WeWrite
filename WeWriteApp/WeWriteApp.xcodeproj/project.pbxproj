@@ -55,6 +55,7 @@
 		A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE3117DA656D00AC31A9 /* wire_format_lite.cc */; };
 		A70ABE5617DA65AD00AC31A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5517DA65AD00AC31A9 /* SystemConfiguration.framework */; };
 		A70ABE5817DA65B200AC31A9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5717DA65B200AC31A9 /* libz.dylib */; };
+		A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,8 @@
 		A70ABE3317DA656D00AC31A9 /* wire_format_lite_inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire_format_lite_inl.h; sourceTree = "<group>"; };
 		A70ABE5517DA65AD00AC31A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A70ABE5717DA65B200AC31A9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatatype.h; sourceTree = "<group>"; };
+		A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatatype.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 		A70ABDBA17DA64E500AC31A9 /* WeWriteApp */ = {
 			isa = PBXGroup;
 			children = (
+				A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */,
+				A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */,
 				A70ABDDB17DA654B00AC31A9 /* config.h */,
 				A70ABDC317DA64E500AC31A9 /* UserAppDelegate.h */,
 				A70ABDC417DA64E500AC31A9 /* UserAppDelegate.m */,
@@ -473,6 +478,7 @@
 				A70ABE5217DA656D00AC31A9 /* unknown_field_set.cc in Sources */,
 				A70ABE5317DA656D00AC31A9 /* wire_format.cc in Sources */,
 				A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */,
+				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +615,7 @@
 				A70ABDD617DA64E500AC31A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

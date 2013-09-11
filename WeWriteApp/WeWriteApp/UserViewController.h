@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
-
-@interface UserViewController : UIViewController
-
+@interface myTextView : UITextView {}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 @end
+
+@interface UserViewController : UIViewController <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet myTextView *textViewForUser;
+@end
+
