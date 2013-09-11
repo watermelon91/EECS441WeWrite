@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
-@interface myTextView : UITextView {}
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-@end
 
-@interface UserViewController : UIViewController <UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet myTextView *textViewForUser;
+@interface UserViewController : UIViewController <UITextViewDelegate>{
+    NSInteger startPosition;
+    NSInteger endPosition;
+}
+
+@property (weak, nonatomic) IBOutlet UITextView *textViewForUser;
 @end
 

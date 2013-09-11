@@ -9,20 +9,6 @@
 #import "UserViewController.h"
 #import "CustomDatatype.h"
 
-@interface myTextView ()
-
-@end
-
-@implementation myTextView
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"CursorPositionAfterTouch: %d, %d", self.selectedRange.length, self.selectedRange.location);
-    [super touchesBegan:touches withEvent:event];
-}
-
-@end
-
 @interface UserViewController ()
 
 @end
@@ -34,6 +20,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.textViewForUser.delegate = self;
+    startPosition = 0;
+    endPosition = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +52,16 @@
     
     NSLog(@"SelectedRange: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
     
+    // Update end position
+    
     return YES;
+}
+
+-(BOOL)submitLastPacketOfChanges
+{
+    // Update start and end position
+    
+    return YES; // UPDATE HERE to reflect actual submission status
 }
 
 @end
