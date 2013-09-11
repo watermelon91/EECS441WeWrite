@@ -22,6 +22,9 @@
     self.textViewForUser.delegate = self;
     startPosition = 0;
     endPosition = 0;
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,10 +60,17 @@
     return YES;
 }
 
+-(void)timerTriggeredSubmission
+{
+    [self submitLastPacketOfChanges];
+    NSLog(@"TimerTriggeredSubmission called.");
+}
+
 -(BOOL)submitLastPacketOfChanges
 {
     // Update start and end position
-    
+    endPosition = startPosition;
+    NSLog(@"Submission of last packet called.");
     return YES; // UPDATE HERE to reflect actual submission status
 }
 
