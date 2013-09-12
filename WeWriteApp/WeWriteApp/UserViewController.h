@@ -9,11 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
 
+@interface bufferNode : NSObject
+@property (nonatomic) NSInteger sizeOfBuffer;
+@property (nonatomic) BOOL lockIsFree;
+@end
+
+@interface pendingChangeBuffer : NSObject
+@property (nonatomic) NSInteger startPosition;
+@property (strong, nonatomic) NSString *content;
+@end
+
 @interface UserViewController : UIViewController <UITextViewDelegate>{
-    NSInteger startPosition;
-    NSInteger endPosition;
+    pendingChangeBuffer *localBuffer;
+    NSInteger currentPosition;
+    NSMutableArray *bufferList;
+    NSMutableArray *undoStack;
+    NSMutableArray *redoStack;
 }
 
+@property (weak, nonatomic) IBOutlet UIButton *undoButton;
+@property (weak, nonatomic) IBOutlet UIButton *redoButton;
 @property (weak, nonatomic) IBOutlet UITextView *textViewForUser;
 @end
 

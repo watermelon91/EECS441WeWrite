@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.m"
-         timestampString = "400623489.095541"
+         timestampString = "400696309.890358"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "-textViewDidEndEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.m"
-         timestampString = "400623489.095541"
+         timestampString = "400696309.890358"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "-textViewDidBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.m"
-         timestampString = "400623489.095541"
+         timestampString = "400696309.890358"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-timerTriggeredSubmission"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
+         landmarkName = "-submitLastPacketOfChanges"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

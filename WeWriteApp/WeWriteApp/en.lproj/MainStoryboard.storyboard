@@ -37,6 +37,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="redoButtonPressed:" destination="2" eventType="touchDown" id="QwN-j2-6Oo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9K-Bb-kve">
                                 <constraints>
@@ -50,6 +53,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="undoButtonPressed:" destination="2" eventType="touchDown" id="Cvb-TA-QDT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WeWrite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou5-ug-ep8">
                                 <constraints>
@@ -75,7 +81,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="redoButton" destination="VcA-o6-a4t" id="5WI-Iw-eb7"/>
                         <outlet property="textViewForUser" destination="7BJ-eJ-l09" id="hbk-pK-rTQ"/>
+                        <outlet property="undoButton" destination="c9K-Bb-kve" id="UGT-Bn-IC3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -89,7 +97,10 @@
         <class className="UserViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
             <relationships>
+                <relationship kind="action" name="redoButtonPressed:"/>
+                <relationship kind="outlet" name="redoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textViewForUser" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="undoButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

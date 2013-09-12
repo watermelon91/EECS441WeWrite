@@ -9,6 +9,47 @@
 #import "UserViewController.h"
 #import "CustomDatatype.h"
 
+@interface bufferNode ()
+@end
+
+@implementation bufferNode
+
+@synthesize sizeOfBuffer, lockIsFree;
+
+-(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        sizeOfBuffer = 0;
+        lockIsFree = YES;
+    }
+    return self;
+}
+
+@end
+
+@interface pendingChangeBuffer ()
+@end
+
+@implementation pendingChangeBuffer
+
+@synthesize startPosition, content;
+
+-(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        startPosition = 0;
+        content = [[NSString alloc] init];
+    }
+    return self;
+}
+
+@end
+
+
 @interface UserViewController ()
 
 @end
@@ -20,10 +61,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.textViewForUser.delegate = self;
-    startPosition = 0;
-    endPosition = 0;
+    localBuffer = [[pendingChangeBuffer alloc] init];
+    currentPosition = 0;
+    bufferList = [[NSMutableArray alloc] init];
+    undoStack = [[NSMutableArray alloc] init];
+    redoStack = [[NSMutableArray alloc] init];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
@@ -43,21 +87,45 @@
     NSLog(@"End");
 }
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (IBAction)redoButtonPressed:(id)sender
 {
-    /*
-    CGPoint cursorPosition;
-    if (textView.selectedTextRange.empty) {
-        // get cursor position and do stuff ...
-        cursorPosition = [textView caretRectForPosition:textView.selectedTextRange.start].origin;
-        NSLog(@"CursorPosition: (%f, %f)", cursorPosition.x, cursorPosition.y);
-    }*/
-    
+    NSLog(@"Redo button pressed.");
+    // Pop redoStack;
+    // Push undoStack;
+}
+
+- (IBAction)undoButtonPressed:(id)sender
+{
+    NSLog(@"Undo button pressed");
+    // Pop undoStack;
+    // Push redoStack;
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{    
     NSLog(@"SelectedRange: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
     
-    // Update end position
+    // Record newly typed/deleted words in localBuffer
+    
+    // Update current cursor position
     
     return YES;
+}
+
+-(void)textViewDidChangeSelection:(UITextView *)textView
+{
+    NSLog(@"cursor location chagned");
+    NSLog(@"current cursor location: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
+    
+    // Pack latest changes
+    
+    // Request lock
+    
+    // Submit event
+    //[self submitLastPacketOfChanges];
+    
+    // Update current cursor position
+    //currentPosition = textView.selectedRange.location;
 }
 
 -(void)timerTriggeredSubmission
@@ -69,7 +137,6 @@
 -(BOOL)submitLastPacketOfChanges
 {
     // Update start and end position
-    endPosition = startPosition;
     NSLog(@"Submission of last packet called.");
     return YES; // UPDATE HERE to reflect actual submission status
 }

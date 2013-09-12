@@ -14,5 +14,6 @@ NSString *const INSERT_EVENT = @"InsertEvent";
 NSString *const DELETE_EVENT = @"DeleteEvent";
 NSString *const MOVE_EVENT = @"MoveEvent";
 NSString *const REPLACE_EVENT = @"ReplaceEvent";
+NSInteger const MAX_BUFFER_SIZE = 64; 
 
 @end
