@@ -19,13 +19,18 @@
 @property (strong, nonatomic) NSString *content;
 @end
 
-@interface UserViewController : UIViewController <UITextViewDelegate>{
+@interface UserViewController : UIViewController <UITextViewDelegate, CollabrifyClientDelegate, CollabrifyClientDataSource>{
     pendingChangeBuffer *localBuffer;
     NSInteger currentPosition;
     NSMutableArray *bufferList;
     NSMutableArray *undoStack;
     NSMutableArray *redoStack;
+    NSTimer *timer;
 }
+
+//-(void)setClientFromLogin:(CollabrifyClient *)inClient;
+
+@property (strong, nonatomic) CollabrifyClient *client;
 
 @property (weak, nonatomic) IBOutlet UIButton *undoButton;
 @property (weak, nonatomic) IBOutlet UIButton *redoButton;

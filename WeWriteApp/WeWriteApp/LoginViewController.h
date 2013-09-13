@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
+#import "UserViewController.h"
 
 @interface LoginViewController : UIViewController <CollabrifyClientDelegate, CollabrifyClientDataSource>
 

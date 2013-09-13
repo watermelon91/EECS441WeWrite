@@ -56,6 +56,8 @@
 
 @implementation UserViewController
 
+@synthesize client;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,7 +69,7 @@
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
@@ -83,6 +85,11 @@
     }
 }
 
+/*-(void)setClientFromLogin:(CollabrifyClient *)inClient
+{
+ 
+}*/
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"Begin");
@@ -95,7 +102,14 @@
 
 - (IBAction)exitSessionButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"LogoutTransitionSegue" sender:sender];
+    // CHECK IF IS OWNER
+    [[self client] leaveAndDeleteSession:NO completionHandler:^(BOOL success, CollabrifyError *error){
+        if(success)
+        {
+            [timer invalidate];
+            [self performSegueWithIdentifier:@"LogoutTransitionSegue" sender:sender];
+        }
+    }];
 }
 
 - (IBAction)redoButtonPressed:(id)sender

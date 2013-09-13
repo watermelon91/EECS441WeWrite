@@ -45,14 +45,19 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"LoginTransitionSegue"]){
-        UIViewController * destC = [segue destinationViewController];
+        UserViewController * destC = [segue destinationViewController];
+        destC.client = client;
     }
 }
 
 - (IBAction)createSessionButtonPressed:(id)sender
 {
+    srand(time(NULL));
+    int tempID = rand();
     NSArray * tagArray = [[NSArray alloc] initWithObjects:@"MaizeSession", nil];
-    [[self client] createSessionWithBaseFileWithName:@"MaizeIceCream" tags:tagArray password:@"IceCream" participantLimit:0 startPaused:NO completionHandler:^(int64_t sessionID, CollabrifyError *error){
+    NSString * sessionName = [[NSString alloc] initWithFormat:@"MaizeIceCream%d", tempID];
+    
+    [[self client] createSessionWithBaseFileWithName:sessionName tags:tagArray password:@"IceCream" participantLimit:0 startPaused:NO completionHandler:^(int64_t sessionID, CollabrifyError *error){
         if(!error)
         {
             [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
