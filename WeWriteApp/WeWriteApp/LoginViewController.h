@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Collabrify/Collabrify.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <CollabrifyClientDelegate, CollabrifyClientDataSource>
+
+@property (strong, nonatomic) CollabrifyClient *client;
+@property (strong, nonatomic) NSData *baseFileData;
+
 
 @end
