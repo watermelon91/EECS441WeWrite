@@ -56,6 +56,7 @@
 		A70ABE5617DA65AD00AC31A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5517DA65AD00AC31A9 /* SystemConfiguration.framework */; };
 		A70ABE5817DA65B200AC31A9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5717DA65B200AC31A9 /* libz.dylib */; };
 		A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */; };
+		A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,8 @@
 		A70ABE5717DA65B200AC31A9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatatype.h; sourceTree = "<group>"; };
 		A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatatype.m; sourceTree = "<group>"; };
+		A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,8 @@
 				A70ABDC317DA64E500AC31A9 /* UserAppDelegate.h */,
 				A70ABDC417DA64E500AC31A9 /* UserAppDelegate.m */,
 				A70ABDCC17DA64E500AC31A9 /* MainStoryboard.storyboard */,
+				A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */,
+				A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */,
 				A70ABDCF17DA64E500AC31A9 /* UserViewController.h */,
 				A70ABDD017DA64E500AC31A9 /* UserViewController.m */,
 				A70ABDBB17DA64E500AC31A9 /* Supporting Files */,
@@ -479,6 +484,7 @@
 				A70ABE5317DA656D00AC31A9 /* wire_format.cc in Sources */,
 				A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */,
 				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
+				A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

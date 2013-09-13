@@ -77,6 +77,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"LogoutTransitionSegue"]){
+        UIViewController * destC = [segue destinationViewController];
+    }
+}
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"Begin");
@@ -85,6 +91,11 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     NSLog(@"End");
+}
+
+- (IBAction)exitSessionButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"LogoutTransitionSegue" sender:sender];
 }
 
 - (IBAction)redoButtonPressed:(id)sender
