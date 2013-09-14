@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/LoginViewController.m"
-         timestampString = "400798813.575745"
+         timestampString = "400815464.927477"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "-client:receivedBaseFileChunk:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -160,15 +160,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/LoginViewController.m"
-         timestampString = "400814626.926049"
+         timestampString = "400815464.927477"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-client:requestsBaseFileChunkForCurrentBaseFileSize:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -85,6 +85,9 @@
     }];
 }
 
+// The part below is only needed when we need to support basefile
+// Also need to add receive function in JoinSession portion
+/*
 -(void)client:(CollabrifyClient *)client receivedBaseFileChunk:(NSData *)data
 {
     if (data == nil) {
@@ -112,6 +115,6 @@
     }
     
     return [NSData dataWithBytes:([[self baseFileData] bytes] + baseFileSize) length:length];
-}
+}*/
 
 @end
