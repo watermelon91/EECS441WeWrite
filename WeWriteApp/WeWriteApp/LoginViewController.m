@@ -54,10 +54,10 @@
 {
     srand(time(NULL));
     int tempID = rand();
-    NSArray * tagArray = [[NSArray alloc] initWithObjects:@"MaizeSession", nil];
+    NSArray * tagArray = [[NSArray alloc] initWithObjects:@"MaizeIceCream", nil];
     NSString * sessionName = [[NSString alloc] initWithFormat:@"MaizeIceCream%d", tempID];
     
-    [[self client] createSessionWithBaseFileWithName:sessionName tags:tagArray password:@"IceCream" participantLimit:0 startPaused:NO completionHandler:^(int64_t sessionID, CollabrifyError *error){
+    [[self client] createSessionWithName:sessionName tags:tagArray password:@"IceCream" participantLimit:0 startPaused:NO completionHandler:^(int64_t sessionID, CollabrifyError *error){
         if(!error)
         {
             [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
@@ -71,7 +71,29 @@
 
 - (IBAction)joinSessionButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
+    NSArray * tagArray = [[NSArray alloc] initWithObjects:@"MaizeIceCream", nil];
+    [[self client] listSessionsWithTags:tagArray completionHandler:^(NSArray *sessionList, CollabrifyError *error){
+        if (!error) {
+            assert([sessionList count] > 0);
+            CollabrifySession *thisSession = [sessionList objectAtIndex:0];
+            [[self client] joinSessionWithID: thisSession.sessionID password:@"IceCream" completionHandler:^(int64_t maxOrderID, int32_t baseFileSize, CollabrifyError *error){
+                if(!error){
+                   [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
+                }
+            }];
+        }
+    }];
+}
+
+-(void)client:(CollabrifyClient *)client receivedBaseFileChunk:(NSData *)data
+{
+    if (data == nil) {
+        // Done
+    }
+    else
+    {
+        // APPEND DATA and UPDATE UI WHEN DONE
+    }
 }
 
 -(NSData *) client:(CollabrifyClient *)client requestsBaseFileChunkForCurrentBaseFileSize:(NSInteger)baseFileSize
