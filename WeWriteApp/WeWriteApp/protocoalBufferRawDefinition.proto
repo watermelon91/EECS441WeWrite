@@ -1,0 +1,17 @@
+message EventBuffer
+{
+    bytes contents = 1;
+    fixed64 startLocation = 2;
+    fixed32 lengthUsed = 3;
+    
+    enum EventType
+    {
+        UNKNOWN = 0;
+        INSERT = 1;
+        DELETE = 2;
+        UNDO = 3;
+        REDO = 4;
+    }
+    
+    EventType eventType = 4 [default = UNKNOWN];
+}

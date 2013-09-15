@@ -170,6 +170,7 @@
 		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A70ABE6117E62D8E00AC31A9 /* userTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userTextView.h; sourceTree = "<group>"; };
 		A70ABE6217E62D8E00AC31A9 /* userTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userTextView.m; sourceTree = "<group>"; };
+		A70ABE6517E64E8B00AC31A9 /* protocoalBufferRawDefinition.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocoalBufferRawDefinition.proto; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +245,7 @@
 		A70ABDBB17DA64E500AC31A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A70ABE6517E64E8B00AC31A9 /* protocoalBufferRawDefinition.proto */,
 				A70ABDBC17DA64E500AC31A9 /* WeWriteApp-Info.plist */,
 				A70ABDBD17DA64E500AC31A9 /* InfoPlist.strings */,
 				A70ABDC017DA64E500AC31A9 /* main.m */,

@@ -141,12 +141,13 @@
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     // Disable multi-deletion
-    if (range.length > 0)
+    if (range.length > 1)
     {
         return NO;
     }
     
     NSLog(@"SelectedRange: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
+    NSLog(@"%hu", [textView.text characterAtIndex:textView.selectedRange.location-1]);
     
     // Record newly typed/deleted words in localBuffer
     
