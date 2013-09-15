@@ -1,8 +1,10 @@
+package wewriteapp;
+
 message EventBuffer
 {
-    bytes contents = 1;
-    fixed64 startLocation = 2;
-    fixed32 lengthUsed = 3;
+    optional bytes contents = 1;
+    optional fixed64 startLocation = 2;
+    optional fixed32 lengthUsed = 3;
     
     enum EventType
     {
@@ -13,5 +15,9 @@ message EventBuffer
         REDO = 4;
     }
     
-    EventType eventType = 4 [default = UNKNOWN];
+    optional EventType eventType = 4 [default = UNKNOWN];
+}
+
+message protocoalBufferRawDefinition {
+    required EventBuffer eventBuffer = 1;
 }
