@@ -85,6 +85,16 @@
     }
 }
 
+- (void)addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
+    {
+        [(UITapGestureRecognizer *)gestureRecognizer setNumberOfTapsRequired:1];
+    }
+    
+    [self addGestureRecognizer:gestureRecognizer];
+}
+
 /*-(void)setClientFromLogin:(CollabrifyClient *)inClient
 {
  
@@ -127,7 +137,13 @@
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{    
+{
+    // Disable multi-deletion
+    if (range.length > 0)
+    {
+        return NO;
+    }
+    
     NSLog(@"SelectedRange: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
     
     // Record newly typed/deleted words in localBuffer

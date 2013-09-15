@@ -57,6 +57,7 @@
 		A70ABE5817DA65B200AC31A9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5717DA65B200AC31A9 /* libz.dylib */; };
 		A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */; };
 		A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */; };
+		A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6217E62D8E00AC31A9 /* userTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,8 @@
 		A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatatype.m; sourceTree = "<group>"; };
 		A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A70ABE6117E62D8E00AC31A9 /* userTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userTextView.h; sourceTree = "<group>"; };
+		A70ABE6217E62D8E00AC31A9 /* userTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,8 @@
 				A70ABDCC17DA64E500AC31A9 /* MainStoryboard.storyboard */,
 				A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */,
 				A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */,
+				A70ABE6117E62D8E00AC31A9 /* userTextView.h */,
+				A70ABE6217E62D8E00AC31A9 /* userTextView.m */,
 				A70ABDCF17DA64E500AC31A9 /* UserViewController.h */,
 				A70ABDD017DA64E500AC31A9 /* UserViewController.m */,
 				A70ABDBB17DA64E500AC31A9 /* Supporting Files */,
@@ -485,6 +490,7 @@
 				A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */,
 				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
 				A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */,
+				A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
