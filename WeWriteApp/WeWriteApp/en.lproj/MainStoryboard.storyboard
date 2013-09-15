@@ -31,9 +31,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqK-w0-XUh">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="s34-EE-wg0"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="JoinSession">
                                     <attributedString key="attributedTitle">
@@ -49,18 +46,29 @@
                                     <action selector="joinSessionButtonPressed:" destination="y6U-TE-F0e" eventType="touchUpInside" id="X59-z2-RxU"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFv-Aj-a0N">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="oXt-Pp-0xU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RqK-w0-XUh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="4wX-MI-Ylw"/>
+                            <constraint firstItem="oFv-Aj-a0N" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="187" id="A8R-Df-m4p"/>
+                            <constraint firstAttribute="trailing" secondItem="oFv-Aj-a0N" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ccs-Wr-bc5"/>
+                            <constraint firstItem="RqK-w0-XUh" firstAttribute="top" secondItem="oFv-Aj-a0N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="N7A-kK-mJP"/>
                             <constraint firstItem="jAc-Vz-crM" firstAttribute="leading" secondItem="VT2-ki-145" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="O5Z-6i-tk5"/>
-                            <constraint firstItem="RqK-w0-XUh" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="225" id="SPE-Io-1Up"/>
                             <constraint firstItem="oP5-l9-bkY" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="14" id="eVv-97-vCa"/>
                             <constraint firstAttribute="trailing" secondItem="oP5-l9-bkY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hSZ-Ox-zcO"/>
                             <constraint firstItem="jAc-Vz-crM" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="91" id="tcL-RI-dBQ"/>
+                            <constraint firstItem="oFv-Aj-a0N" firstAttribute="leading" secondItem="RqK-w0-XUh" secondAttribute="leading" type="default" id="xV5-aW-UKQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginScreenSessionIDTextView" destination="oFv-Aj-a0N" id="kLg-iK-ppH"/>
                         <segue destination="2" kind="modal" identifier="LoginTransitionSegue" id="AxC-iM-Qi3"/>
                     </connections>
                 </viewController>
@@ -146,6 +154,14 @@
                                     <action selector="exitSessionButtonPressed:" destination="2" eventType="touchDown" id="nQs-hi-RYa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciu-L6-2dA">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="6hW-HV-7gD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -153,11 +169,14 @@
                             <constraint firstItem="Ou5-ug-ep8" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="240" id="Atj-I8-dRQ"/>
                             <constraint firstItem="VU6-Mf-dN5" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="14" id="GAR-dt-CeC"/>
                             <constraint firstItem="VcA-o6-a4t" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="47" id="NIK-V1-ziO"/>
+                            <constraint firstItem="ciu-L6-2dA" firstAttribute="top" secondItem="VU6-Mf-dN5" secondAttribute="top" type="default" id="T1u-hP-GZa"/>
                             <constraint firstItem="VU6-Mf-dN5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="5" id="Vz4-IK-sxz"/>
                             <constraint firstItem="7BJ-eJ-l09" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="dSh-Sb-EEh"/>
                             <constraint firstItem="VcA-o6-a4t" firstAttribute="top" secondItem="c9K-Bb-kve" secondAttribute="top" type="default" id="etf-UM-SVC"/>
+                            <constraint firstItem="VU6-Mf-dN5" firstAttribute="bottom" secondItem="ciu-L6-2dA" secondAttribute="bottom" type="default" id="h3V-1f-jTB"/>
                             <constraint firstItem="7BJ-eJ-l09" firstAttribute="top" secondItem="Ou5-ug-ep8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hZE-NB-cDl"/>
                             <constraint firstItem="7BJ-eJ-l09" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="m8G-H6-Pcm"/>
+                            <constraint firstItem="ciu-L6-2dA" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="129" id="nNj-nN-Nme"/>
                             <constraint firstItem="Ou5-ug-ep8" firstAttribute="top" secondItem="3" secondAttribute="top" constant="11" id="pKi-2x-Zma"/>
                             <constraint firstAttribute="bottom" secondItem="VcA-o6-a4t" secondAttribute="bottom" constant="227" id="vqc-uW-z0z"/>
                             <constraint firstAttribute="trailing" secondItem="c9K-Bb-kve" secondAttribute="trailing" constant="62" id="y07-Op-Gca"/>
@@ -166,6 +185,7 @@
                     <navigationItem key="navigationItem" id="kWu-nf-rDG"/>
                     <connections>
                         <outlet property="redoButton" destination="VcA-o6-a4t" id="5WI-Iw-eb7"/>
+                        <outlet property="sessionIDLabel" destination="ciu-L6-2dA" id="NX1-qT-3yk"/>
                         <outlet property="textViewForUser" destination="7BJ-eJ-l09" id="hbk-pK-rTQ"/>
                         <outlet property="undoButton" destination="c9K-Bb-kve" id="UGT-Bn-IC3"/>
                         <segue destination="y6U-TE-F0e" kind="modal" identifier="LogoutTransitionSegue" id="aCL-io-BW0"/>
@@ -179,6 +199,11 @@
     <classes>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createSessionButtonPressed:"/>
+                <relationship kind="action" name="joinSessionButtonPressed:"/>
+                <relationship kind="outlet" name="loginScreenSessionIDTextView" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -186,7 +211,11 @@
         <class className="UserViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
             <relationships>
+                <relationship kind="action" name="exitSessionButtonPressed:"/>
+                <relationship kind="action" name="redoButtonPressed:"/>
+                <relationship kind="action" name="undoButtonPressed:"/>
                 <relationship kind="outlet" name="redoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sessionIDLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textViewForUser" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="undoButton" candidateClass="UIButton"/>
             </relationships>

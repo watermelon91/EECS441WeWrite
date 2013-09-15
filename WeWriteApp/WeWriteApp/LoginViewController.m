@@ -14,7 +14,7 @@
 
 @implementation LoginViewController
 
-@synthesize client, baseFileData;
+@synthesize client, baseFileData, loginScreenSessionIDTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,14 +73,24 @@
 {
     NSArray * tagArray = [[NSArray alloc] initWithObjects:@"MaizeIceCream", nil];
     [[self client] listSessionsWithTags:tagArray completionHandler:^(NSArray *sessionList, CollabrifyError *error){
-        if (!error) {
+        if (!error)
+        {
             assert([sessionList count] > 0);
             CollabrifySession *thisSession = [sessionList objectAtIndex:0];
-            [[self client] joinSessionWithID: thisSession.sessionID password:@"IceCream" completionHandler:^(int64_t maxOrderID, int32_t baseFileSize, CollabrifyError *error){
-                if(!error){
-                   [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
+            int64_t userIuputSessionID = [[loginScreenSessionIDTextView text] longLongValue];
+            
+            for (CollabrifySession *s in sessionList)
+            {
+                if(s.sessionID == userIuputSessionID)
+                {
+                    [[self client] joinSessionWithID: s.sessionID password:@"IceCream" completionHandler:^(int64_t maxOrderID, int32_t baseFileSize, CollabrifyError *error){
+                        if(!error){
+                            [self performSegueWithIdentifier:@"LoginTransitionSegue" sender:sender];
+                        }
+                    }];
+                    break;
                 }
-            }];
+            }
         }
     }];
 }

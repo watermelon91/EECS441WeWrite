@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) CollabrifyClient *client;
 @property (strong, nonatomic) NSData *baseFileData;
+@property (weak, nonatomic) IBOutlet UITextField *loginScreenSessionIDTextView;
 
 
 @end

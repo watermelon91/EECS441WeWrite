@@ -56,7 +56,7 @@
 
 @implementation UserViewController
 
-@synthesize client;
+@synthesize client, sessionIDLabel;
 
 - (void)viewDidLoad
 {
@@ -71,6 +71,8 @@
     
     timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    sessionIDLabel.text = [NSString stringWithFormat:@"%lld", [client currentSessionID]];
 }
 
 - (void)didReceiveMemoryWarning

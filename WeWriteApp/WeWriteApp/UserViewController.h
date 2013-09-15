@@ -30,6 +30,8 @@
 
 //-(void)setClientFromLogin:(CollabrifyClient *)inClient;
 
+@property (weak, nonatomic) IBOutlet UILabel *sessionIDLabel;
+
 @property (strong, nonatomic) CollabrifyClient *client;
 
 @property (weak, nonatomic) IBOutlet UIButton *undoButton;
