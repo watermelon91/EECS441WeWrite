@@ -76,7 +76,6 @@
         if (!error)
         {
             assert([sessionList count] > 0);
-            CollabrifySession *thisSession = [sessionList objectAtIndex:0];
             int64_t userIuputSessionID = [[loginScreenSessionIDTextView text] longLongValue];
             
             for (CollabrifySession *s in sessionList)

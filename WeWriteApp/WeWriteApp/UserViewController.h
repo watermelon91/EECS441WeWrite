@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
 #import "protocoalBufferRawDefinition.pb.h"
+#import <google/protobuf/io/zero_copy_stream_impl_lite.h>
+#import <google/protobuf/io/coded_stream.h>
 
 @interface bufferNode : NSObject
 @property (nonatomic) NSInteger sizeOfBuffer;
