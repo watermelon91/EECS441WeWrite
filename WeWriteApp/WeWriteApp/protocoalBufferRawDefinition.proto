@@ -2,9 +2,9 @@ package wewriteapp;
 
 message EventBuffer
 {
-    optional bytes contents = 1;
-    optional fixed64 startLocation = 2;
-    optional fixed32 lengthUsed = 3;
+    optional string contents = 1;
+    required int32 startLocation = 2;
+    optional int32 lengthUsed = 3;
     
     enum EventType
     {
