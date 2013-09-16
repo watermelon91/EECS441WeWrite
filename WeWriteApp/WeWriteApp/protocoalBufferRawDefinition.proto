@@ -18,6 +18,3 @@ message EventBuffer
     optional EventType eventType = 4 [default = UNKNOWN];
 }
 
-message protocoalBufferRawDefinition {
-    required EventBuffer eventBuffer = 1;
-}
