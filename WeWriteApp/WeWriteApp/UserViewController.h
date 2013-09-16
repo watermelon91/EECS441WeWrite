@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
+#import "protocoalBufferRawDefinition.pb.h"
 
 @interface bufferNode : NSObject
 @property (nonatomic) NSInteger sizeOfBuffer;

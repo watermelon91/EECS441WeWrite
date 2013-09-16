@@ -8,6 +8,7 @@
 
 #import "UserViewController.h"
 #import "CustomDatatype.h"
+#import "protocoalBufferRawDefinition.pb.h"
 
 @interface bufferNode ()
 @end
