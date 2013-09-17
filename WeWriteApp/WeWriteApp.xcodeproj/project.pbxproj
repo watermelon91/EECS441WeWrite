@@ -17,7 +17,7 @@
 		A70ABDC917DA64E500AC31A9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A70ABDC817DA64E500AC31A9 /* Default@2x.png */; };
 		A70ABDCB17DA64E500AC31A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A70ABDCA17DA64E500AC31A9 /* Default-568h@2x.png */; };
 		A70ABDCE17DA64E500AC31A9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A70ABDCC17DA64E500AC31A9 /* MainStoryboard.storyboard */; };
-		A70ABDD117DA64E500AC31A9 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABDD017DA64E500AC31A9 /* UserViewController.m */; };
+		A70ABDD117DA64E500AC31A9 /* UserViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A70ABDD017DA64E500AC31A9 /* UserViewController.mm */; };
 		A70ABDD917DA652800AC31A9 /* Collabrify.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A70ABDD717DA652800AC31A9 /* Collabrify.bundle */; };
 		A70ABDDA17DA652800AC31A9 /* Collabrify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABDD817DA652800AC31A9 /* Collabrify.framework */; };
 		A70ABE3417DA656D00AC31A9 /* descriptor.cc in Sources */ = {isa = PBXBuildFile; fileRef = A70ABDDF17DA656D00AC31A9 /* descriptor.cc */; };
@@ -56,8 +56,9 @@
 		A70ABE5617DA65AD00AC31A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5517DA65AD00AC31A9 /* SystemConfiguration.framework */; };
 		A70ABE5817DA65B200AC31A9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A70ABE5717DA65B200AC31A9 /* libz.dylib */; };
 		A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */; };
-		A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */; };
+		A70ABE6017E2B6A200AC31A9 /* LoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */; };
 		A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6217E62D8E00AC31A9 /* userTextView.m */; };
+		A70ABE6817E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +77,7 @@
 		A70ABDCA17DA64E500AC31A9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABDCD17DA64E500AC31A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A70ABDCF17DA64E500AC31A9 /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		A70ABDD017DA64E500AC31A9 /* UserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		A70ABDD017DA64E500AC31A9 /* UserViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UserViewController.mm; sourceTree = "<group>"; };
 		A70ABDD717DA652800AC31A9 /* Collabrify.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Collabrify.bundle; sourceTree = "<group>"; };
 		A70ABDD817DA652800AC31A9 /* Collabrify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Collabrify.framework; sourceTree = "<group>"; };
 		A70ABDDB17DA654B00AC31A9 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
@@ -167,10 +168,12 @@
 		A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatatype.h; sourceTree = "<group>"; };
 		A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatatype.m; sourceTree = "<group>"; };
 		A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoginViewController.mm; sourceTree = "<group>"; };
 		A70ABE6117E62D8E00AC31A9 /* userTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userTextView.h; sourceTree = "<group>"; };
 		A70ABE6217E62D8E00AC31A9 /* userTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userTextView.m; sourceTree = "<group>"; };
 		A70ABE6517E64E8B00AC31A9 /* protocoalBufferRawDefinition.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocoalBufferRawDefinition.proto; sourceTree = "<group>"; };
+		A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = protocoalBufferRawDefinition.pb.cpp; sourceTree = "<group>"; };
+		A70ABE6717E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocoalBufferRawDefinition.pb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 		A70ABDBA17DA64E500AC31A9 /* WeWriteApp */ = {
 			isa = PBXGroup;
 			children = (
+				A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */,
+				A70ABE6717E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.h */,
 				A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */,
 				A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */,
 				A70ABDDB17DA654B00AC31A9 /* config.h */,
@@ -234,9 +239,9 @@
 				A70ABE6117E62D8E00AC31A9 /* userTextView.h */,
 				A70ABE6217E62D8E00AC31A9 /* userTextView.m */,
 				A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */,
-				A70ABE5F17E2B6A200AC31A9 /* LoginViewController.m */,
+				A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */,
 				A70ABDCF17DA64E500AC31A9 /* UserViewController.h */,
-				A70ABDD017DA64E500AC31A9 /* UserViewController.m */,
+				A70ABDD017DA64E500AC31A9 /* UserViewController.mm */,
 				A70ABDBB17DA64E500AC31A9 /* Supporting Files */,
 			);
 			path = WeWriteApp;
@@ -456,7 +461,7 @@
 			files = (
 				A70ABDC117DA64E500AC31A9 /* main.m in Sources */,
 				A70ABDC517DA64E500AC31A9 /* UserAppDelegate.m in Sources */,
-				A70ABDD117DA64E500AC31A9 /* UserViewController.m in Sources */,
+				A70ABDD117DA64E500AC31A9 /* UserViewController.mm in Sources */,
 				A70ABE3417DA656D00AC31A9 /* descriptor.cc in Sources */,
 				A70ABE3517DA656D00AC31A9 /* descriptor.pb.cc in Sources */,
 				A70ABE3617DA656D00AC31A9 /* descriptor_database.cc in Sources */,
@@ -491,8 +496,9 @@
 				A70ABE5317DA656D00AC31A9 /* wire_format.cc in Sources */,
 				A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */,
 				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
-				A70ABE6017E2B6A200AC31A9 /* LoginViewController.m in Sources */,
+				A70ABE6017E2B6A200AC31A9 /* LoginViewController.mm in Sources */,
 				A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */,
+				A70ABE6817E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +589,7 @@
 		A70ABDD517DA64E500AC31A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -591,6 +598,7 @@
 				GCC_PREFIX_HEADER = "WeWriteApp/WeWriteApp-Prefix.pch";
 				INFOPLIST_FILE = "WeWriteApp/WeWriteApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -598,6 +606,7 @@
 		A70ABDD617DA64E500AC31A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -606,6 +615,7 @@
 				GCC_PREFIX_HEADER = "WeWriteApp/WeWriteApp-Prefix.pch";
 				INFOPLIST_FILE = "WeWriteApp/WeWriteApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

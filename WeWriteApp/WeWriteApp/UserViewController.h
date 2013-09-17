@@ -12,22 +12,25 @@
 #import <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #import <google/protobuf/io/coded_stream.h>
 
+using namespace wewriteapp;
+
 @interface bufferNode : NSObject
-@property (nonatomic) NSInteger sizeOfBuffer;
+@property (nonatomic) EventBuffer *eventBuffer;
 @property (nonatomic) BOOL lockIsFree;
 @end
 
-@interface pendingChangeBuffer : NSObject
-@property (nonatomic) NSInteger startPosition;
-@property (strong, nonatomic) NSString *content;
-@end
-
 @interface UserViewController : UIViewController <UITextViewDelegate, CollabrifyClientDelegate, CollabrifyClientDataSource>{
-    pendingChangeBuffer *localBuffer;
-    NSInteger currentPosition;
-    NSMutableArray *bufferList;
-    NSMutableArray *undoStack;
-    NSMutableArray *redoStack;
+    NSInteger startCursorPosition;
+    NSInteger currentCursorPosition;
+    char currentChar;
+    NSInteger deletedLength;
+    NSMutableString *newlyInsertedChars;
+    NSMutableArray *bufferList; /* list of locks
+                                 *  if lock is occupied: eventBuffer has pending changes to be submitted
+                                 *  if lock is free: eventBuffer = NULL
+                                 */
+    NSMutableArray *undoStack;  // stack containing EventBuffer objects
+    NSMutableArray *redoStack;  // stack containing EventBuffer objects
     NSTimer *timer;
 }
 

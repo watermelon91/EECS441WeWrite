@@ -9,46 +9,27 @@
 #import "UserViewController.h"
 #import "CustomDatatype.h"
 
+using namespace wewriteapp;
+
 @interface bufferNode ()
 @end
 
 @implementation bufferNode
 
-@synthesize sizeOfBuffer, lockIsFree;
+@synthesize eventBuffer, lockIsFree;
 
 -(id)init
 {
     self = [super init];
     if(self)
     {
-        sizeOfBuffer = 0;
+        eventBuffer = NULL;
         lockIsFree = YES;
     }
     return self;
 }
 
 @end
-
-@interface pendingChangeBuffer ()
-@end
-
-@implementation pendingChangeBuffer
-
-@synthesize startPosition, content;
-
--(id)init
-{
-    self = [super init];
-    if(self)
-    {
-        startPosition = 0;
-        content = [[NSString alloc] init];
-    }
-    return self;
-}
-
-@end
-
 
 @interface UserViewController ()
 
@@ -63,13 +44,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.textViewForUser.delegate = self;
-    localBuffer = [[pendingChangeBuffer alloc] init];
-    currentPosition = 0;
+    currentCursorPosition = 0;
+    startCursorPosition = -1;
+    deletedLength = 0;
+    newlyInsertedChars = [[NSMutableString alloc] init];
     bufferList = [[NSMutableArray alloc] init];
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     sessionIDLabel.text = [NSString stringWithFormat:@"%lld", [client currentSessionID]];
@@ -146,30 +129,59 @@
         return NO;
     }
     
-    NSLog(@"SelectedRange: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
-    NSLog(@"%hu", [textView.text characterAtIndex:textView.selectedRange.location-1]);
+    NSInteger newCursorPosition = textView.selectedRange.location;
+    char newChar = 0;
+    NSLog(@"NewCursorPosition for typing %d; text length: %d", newCursorPosition, [text length]);
     
     // Record newly typed/deleted words in localBuffer
+    if (newCursorPosition <= currentCursorPosition)
+    {
+        // Delete
+        NSLog(@"delte");
+        deletedLength++;
+    }
+    else
+    {
+        // Insert
+        NSLog(@"insert");
+        if ([text length] == 0) { // no real input
+            return YES;
+        }
+
+        newChar = [text characterAtIndex:0];
+        [newlyInsertedChars appendFormat:@"%c", newChar];
+        
+        // Check if reached MAX_BUFFER_SIZE
+        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE ) {
+            [self submitLastPacketOfChanges];
+        }
+        NSLog(@"newlyInsertedChars: %@", newlyInsertedChars);
+    }
     
-    // Update current cursor position
+    // Update current cursor position & char
+    if (startCursorPosition == -1) {
+        startCursorPosition = newCursorPosition;
+    }
+    currentChar = newChar;
+    currentCursorPosition = newCursorPosition;
     
     return YES;
 }
 
 -(void)textViewDidChangeSelection:(UITextView *)textView
 {
-    NSLog(@"cursor location chagned");
-    NSLog(@"current cursor location: %d, %d", textView.selectedRange.length, textView.selectedRange.location);
-    
-    // Pack latest changes
-    
-    // Request lock
-    
     // Submit event
-    //[self submitLastPacketOfChanges];
+    [self submitLastPacketOfChanges];
     
     // Update current cursor position
-    //currentPosition = textView.selectedRange.location;
+    if (startCursorPosition == -1) {
+        startCursorPosition = textView.selectedRange.location;
+    }
+    currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+    currentCursorPosition = textView.selectedRange.location;
+    
+    NSLog(@"CursorLocation Manually changed.");
+    NSLog(@"current cursor location: %d; currentChar: %c", textView.selectedRange.location, currentChar);
 }
 
 -(void)timerTriggeredSubmission
@@ -180,9 +192,39 @@
 
 -(BOOL)submitLastPacketOfChanges
 {
-    // Update start and end position
     NSLog(@"Submission of last packet called.");
+    
+    // Pack localBuffer into Protocol Buffer
+    
+    // Clear local storage
+    [newlyInsertedChars setString:@""];
+    deletedLength = 0;
+    startCursorPosition = -1;
+    
+    // Push Protocol Buffer onto undo stack;
+    
+    // Request for lock
+    
+    // Broadcast Event
+    
     return YES; // UPDATE HERE to reflect actual submission status
 }
+
+#warning listen to broadcasted event
+/* if request lock event:
+ *      lock free-reply OK
+ *      lock busy-reply NO
+ * if request lock response:
+ *      OK - wait till receive all responses;
+ *      NO - keep send request
+ * if receipt confirmation for this device's event:
+ *      release lock
+ *      free EventLock memory and set NULL
+ * if not this device's events:
+ *      update UITextView
+ *      send update confirmation
+ * all other events:
+ *      ignore
+ */
 
 @end
