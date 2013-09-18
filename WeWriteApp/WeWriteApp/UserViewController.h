@@ -14,21 +14,12 @@
 
 using namespace wewriteapp;
 
-@interface bufferNode : NSObject
-@property (nonatomic) EventBuffer *eventBuffer;
-@property (nonatomic) BOOL lockIsFree;
-@end
-
 @interface UserViewController : UIViewController <UITextViewDelegate, CollabrifyClientDelegate, CollabrifyClientDataSource>{
     NSInteger startCursorPosition;
     NSInteger currentCursorPosition;
     char currentChar;
     NSInteger deletedLength;
     NSMutableString *newlyInsertedChars;
-    NSMutableArray *bufferList; /* list of locks
-                                 *  if lock is occupied: eventBuffer has pending changes to be submitted
-                                 *  if lock is free: eventBuffer = NULL
-                                 */
     NSMutableArray *undoStack;  // stack containing EventBuffer objects
     NSMutableArray *redoStack;  // stack containing EventBuffer objects
     NSTimer *timer;

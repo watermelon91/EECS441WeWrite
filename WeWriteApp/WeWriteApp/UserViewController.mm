@@ -11,26 +11,6 @@
 
 using namespace wewriteapp;
 
-@interface bufferNode ()
-@end
-
-@implementation bufferNode
-
-@synthesize eventBuffer, lockIsFree;
-
--(id)init
-{
-    self = [super init];
-    if(self)
-    {
-        eventBuffer = NULL;
-        lockIsFree = YES;
-    }
-    return self;
-}
-
-@end
-
 @interface UserViewController ()
 
 @end
@@ -52,7 +32,6 @@ using namespace wewriteapp;
     startCursorPosition = -1;
     deletedLength = 0;
     newlyInsertedChars = [[NSMutableString alloc] init];
-    bufferList = [[NSMutableArray alloc] init];
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     
