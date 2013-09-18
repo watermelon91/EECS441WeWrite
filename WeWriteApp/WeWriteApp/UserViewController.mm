@@ -210,21 +210,4 @@ using namespace wewriteapp;
     return YES; // UPDATE HERE to reflect actual submission status
 }
 
-#warning listen to broadcasted event
-/* if request lock event:
- *      lock free-reply OK
- *      lock busy-reply NO
- * if request lock response:
- *      OK - wait till receive all responses;
- *      NO - keep send request
- * if receipt confirmation for this device's event:
- *      release lock
- *      free EventLock memory and set NULL
- * if not this device's events:
- *      update UITextView
- *      send update confirmation
- * all other events:
- *      ignore
- */
-
 @end
