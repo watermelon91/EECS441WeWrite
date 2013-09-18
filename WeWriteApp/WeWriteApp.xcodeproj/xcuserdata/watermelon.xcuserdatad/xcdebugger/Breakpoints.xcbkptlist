@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
+         timestampString = "401160115.025494"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,20 +190,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
-         landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
+         timestampString = "401158921.604554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "139"
@@ -216,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
+         timestampString = "401158921.604554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
          landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
+         timestampString = "401158921.604554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "131"
-         endingLineNumber = "131"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,13 +229,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WeWriteApp/UserViewController.mm"
-         timestampString = "401138691.337509"
+         timestampString = "401158921.604554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "148"
-         endingLineNumber = "148"
+         startingLineNumber = "136"
+         endingLineNumber = "136"
          landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WeWriteApp/UserViewController.mm"
+         timestampString = "401158921.604554"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
+         landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WeWriteApp/protocoalBufferRawDefinition.pb.h"
+         timestampString = "401139983.740951"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "191"
+         endingLineNumber = "191">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

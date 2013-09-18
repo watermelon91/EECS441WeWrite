@@ -42,6 +42,10 @@ using namespace wewriteapp;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_textViewForUser becomeFirstResponder];
+    [_textViewForUser selectedRange] = NSMakeRange(0, 1);
+    
 	// Do any additional setup after loading the view, typically from a nib.
     self.textViewForUser.delegate = self;
     currentCursorPosition = 0;
@@ -123,6 +127,7 @@ using namespace wewriteapp;
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    NSLog(@"Text: %@; Range: %d; %d", text, range.location, range.length);
     // Disable multi-deletion
     if (range.length > 1)
     {
@@ -134,13 +139,21 @@ using namespace wewriteapp;
     NSLog(@"NewCursorPosition for typing %d; text length: %d", newCursorPosition, [text length]);
     
     // Record newly typed/deleted words in localBuffer
-    if (newCursorPosition <= currentCursorPosition)
+    if (range.length == 1)
     {
         // Delete
         NSLog(@"delte");
         deletedLength++;
+        if([newlyInsertedChars length] > 0)
+        {
+            NSRange tempRange;
+            tempRange.length = 1;
+            tempRange.location = [newlyInsertedChars length] - 1;
+            [newlyInsertedChars deleteCharactersInRange: tempRange];
+        }
+        NSLog(@"deletedLength: %d", deletedLength);
     }
-    else
+    else if(range.length == 0)
     {
         // Insert
         NSLog(@"insert");
@@ -151,11 +164,19 @@ using namespace wewriteapp;
         newChar = [text characterAtIndex:0];
         [newlyInsertedChars appendFormat:@"%c", newChar];
         
+        if (deletedLength > 0) {
+            deletedLength--;
+        }
+        
         // Check if reached MAX_BUFFER_SIZE
         if ([newlyInsertedChars length] > MAX_BUFFER_SIZE ) {
             [self submitLastPacketOfChanges];
         }
         NSLog(@"newlyInsertedChars: %@", newlyInsertedChars);
+    }
+    else
+    {
+        abort();
     }
     
     // Update current cursor position & char
