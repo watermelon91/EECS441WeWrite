@@ -50,6 +50,9 @@ using namespace wewriteapp;
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     
+    [[self client] setDelegate:self];
+    [[self client] setDataSource:self];
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
