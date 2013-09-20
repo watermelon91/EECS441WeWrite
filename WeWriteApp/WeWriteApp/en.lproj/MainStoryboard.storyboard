@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="y6U-TE-F0e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="y6U-TE-F0e">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="ndZ-6d-azn">
             <objects>
                 <viewController id="y6U-TE-F0e" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s5i-0f-wBc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y0J-cg-onT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VT2-ki-145">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WeWrite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP5-l9-bkY">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="WeWrite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP5-l9-bkY">
+                                <rect key="frame" x="236" y="33" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAc-Vz-crM">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAc-Vz-crM">
+                                <rect key="frame" x="31" y="89.5" width="126" height="44"/>
                                 <state key="normal" title="CreateSession">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="createSessionButtonPressed:" destination="y6U-TE-F0e" eventType="touchUpInside" id="4cQ-28-Djt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqK-w0-XUh">
+                                <rect key="frame" x="171" y="225" width="129" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="JoinSession">
                                     <attributedString key="attributedTitle">
@@ -47,6 +50,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFv-Aj-a0N">
+                                <rect key="frame" x="171" y="187" width="129" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="oXt-Pp-0xU"/>
                                 </constraints>
@@ -56,15 +60,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RqK-w0-XUh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="4wX-MI-Ylw"/>
+                            <constraint firstAttribute="trailing" secondItem="RqK-w0-XUh" secondAttribute="trailing" constant="20" symbolic="YES" id="4wX-MI-Ylw"/>
                             <constraint firstItem="oFv-Aj-a0N" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="187" id="A8R-Df-m4p"/>
-                            <constraint firstAttribute="trailing" secondItem="oFv-Aj-a0N" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ccs-Wr-bc5"/>
-                            <constraint firstItem="RqK-w0-XUh" firstAttribute="top" secondItem="oFv-Aj-a0N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="N7A-kK-mJP"/>
-                            <constraint firstItem="jAc-Vz-crM" firstAttribute="leading" secondItem="VT2-ki-145" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="O5Z-6i-tk5"/>
+                            <constraint firstAttribute="trailing" secondItem="oFv-Aj-a0N" secondAttribute="trailing" constant="20" symbolic="YES" id="Ccs-Wr-bc5"/>
+                            <constraint firstItem="RqK-w0-XUh" firstAttribute="top" secondItem="oFv-Aj-a0N" secondAttribute="bottom" constant="8" symbolic="YES" id="N7A-kK-mJP"/>
+                            <constraint firstItem="jAc-Vz-crM" firstAttribute="leading" secondItem="VT2-ki-145" secondAttribute="leading" constant="20" symbolic="YES" id="O5Z-6i-tk5"/>
                             <constraint firstItem="oP5-l9-bkY" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="14" id="eVv-97-vCa"/>
-                            <constraint firstAttribute="trailing" secondItem="oP5-l9-bkY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hSZ-Ox-zcO"/>
+                            <constraint firstAttribute="trailing" secondItem="oP5-l9-bkY" secondAttribute="trailing" constant="20" symbolic="YES" id="hSZ-Ox-zcO"/>
                             <constraint firstItem="jAc-Vz-crM" firstAttribute="top" secondItem="VT2-ki-145" secondAttribute="top" constant="91" id="tcL-RI-dBQ"/>
-                            <constraint firstItem="oFv-Aj-a0N" firstAttribute="leading" secondItem="RqK-w0-XUh" secondAttribute="leading" type="default" id="xV5-aW-UKQ"/>
+                            <constraint firstItem="oFv-Aj-a0N" firstAttribute="leading" secondItem="RqK-w0-XUh" secondAttribute="leading" id="xV5-aW-UKQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -80,11 +84,16 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="UserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XFM-7L-F7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="N0O-JI-PDT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="" text="This is for testing." translatesAutoresizingMaskIntoConstraints="NO" id="7BJ-eJ-l09" customClass="userTextView">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="" text="This is for testing." translatesAutoresizingMaskIntoConstraints="NO" id="7BJ-eJ-l09" customClass="userTextView">
+                                <rect key="frame" x="0.0" y="58" width="320" height="231"/>
                                 <color key="backgroundColor" red="0.9852885198297413" green="1" blue="0.83741736503327369" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="231" id="LLr-mM-nMt"/>
@@ -95,40 +104,33 @@
                                     <outlet property="delegate" destination="2" id="8o2-l7-wav"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcA-o6-a4t">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcA-o6-a4t">
+                                <rect key="frame" x="47" y="292.5" width="74" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="1a4-fR-Dzi"/>
                                     <constraint firstAttribute="height" constant="31" id="2WD-kd-DEk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Redo">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="redoButtonPressed:" destination="2" eventType="touchDown" id="QwN-j2-6Oo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9K-Bb-kve">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9K-Bb-kve">
+                                <rect key="frame" x="192" y="292.5" width="74" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="Bp6-vC-DA2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Undo">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="undoButtonPressed:" destination="2" eventType="touchDown" id="Cvb-TA-QDT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WeWrite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou5-ug-ep8">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="WeWrite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou5-ug-ep8">
+                                <rect key="frame" x="234" y="29" width="99" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="SEn-Kp-hPo"/>
                                 </constraints>
@@ -136,24 +138,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU6-Mf-dN5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU6-Mf-dN5">
+                                <rect key="frame" x="14" y="24" width="98" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="O6f-sz-5B4"/>
                                     <constraint firstAttribute="height" constant="31" id="R3y-1Y-rRF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="ExitSession">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="exitSessionButtonPressed:" destination="2" eventType="touchDown" id="nQs-hi-RYa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciu-L6-2dA">
+                                <rect key="frame" x="129" y="5" width="97" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="6hW-HV-7gD"/>
                                 </constraints>
@@ -164,17 +163,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="c9K-Bb-kve" firstAttribute="bottom" secondItem="VcA-o6-a4t" secondAttribute="bottom" type="default" id="5c7-8P-I4u"/>
+                            <constraint firstItem="c9K-Bb-kve" firstAttribute="bottom" secondItem="VcA-o6-a4t" secondAttribute="bottom" id="5c7-8P-I4u"/>
                             <constraint firstItem="Ou5-ug-ep8" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="240" id="Atj-I8-dRQ"/>
                             <constraint firstItem="VU6-Mf-dN5" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="14" id="GAR-dt-CeC"/>
                             <constraint firstItem="VcA-o6-a4t" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="47" id="NIK-V1-ziO"/>
-                            <constraint firstItem="ciu-L6-2dA" firstAttribute="top" secondItem="VU6-Mf-dN5" secondAttribute="top" type="default" id="T1u-hP-GZa"/>
+                            <constraint firstItem="ciu-L6-2dA" firstAttribute="top" secondItem="VU6-Mf-dN5" secondAttribute="top" id="T1u-hP-GZa"/>
                             <constraint firstItem="VU6-Mf-dN5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="5" id="Vz4-IK-sxz"/>
-                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="dSh-Sb-EEh"/>
-                            <constraint firstItem="VcA-o6-a4t" firstAttribute="top" secondItem="c9K-Bb-kve" secondAttribute="top" type="default" id="etf-UM-SVC"/>
-                            <constraint firstItem="VU6-Mf-dN5" firstAttribute="bottom" secondItem="ciu-L6-2dA" secondAttribute="bottom" type="default" id="h3V-1f-jTB"/>
-                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="top" secondItem="Ou5-ug-ep8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hZE-NB-cDl"/>
-                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="m8G-H6-Pcm"/>
+                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="dSh-Sb-EEh"/>
+                            <constraint firstItem="VcA-o6-a4t" firstAttribute="top" secondItem="c9K-Bb-kve" secondAttribute="top" id="etf-UM-SVC"/>
+                            <constraint firstItem="VU6-Mf-dN5" firstAttribute="bottom" secondItem="ciu-L6-2dA" secondAttribute="bottom" id="h3V-1f-jTB"/>
+                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="top" secondItem="Ou5-ug-ep8" secondAttribute="bottom" constant="8" symbolic="YES" id="hZE-NB-cDl"/>
+                            <constraint firstItem="7BJ-eJ-l09" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="m8G-H6-Pcm"/>
                             <constraint firstItem="ciu-L6-2dA" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="129" id="nNj-nN-Nme"/>
                             <constraint firstItem="Ou5-ug-ep8" firstAttribute="top" secondItem="3" secondAttribute="top" constant="11" id="pKi-2x-Zma"/>
                             <constraint firstAttribute="bottom" secondItem="VcA-o6-a4t" secondAttribute="bottom" constant="227" id="vqc-uW-z0z"/>
@@ -195,32 +194,6 @@
             <point key="canvasLocation" x="153" y="-1"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loginScreenSessionIDTextView" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exitSessionButtonPressed:"/>
-                <relationship kind="action" name="redoButtonPressed:"/>
-                <relationship kind="action" name="undoButtonPressed:"/>
-                <relationship kind="outlet" name="redoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sessionIDLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textViewForUser" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="undoButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="userTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/userTextView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -11,6 +11,21 @@
 
 using namespace wewriteapp;
 
+@interface EventBufferWrapper ()
+
+@end
+
+@implementation EventBufferWrapper
+-(id)initWithBuffer:(wewriteapp::EventBuffer *)inBuffer
+{
+    self = [super init];
+    if (self) {
+        buffer = inBuffer;
+    }
+    return self;
+}
+@end
+
 @interface UserViewController ()
 
 @end
@@ -174,10 +189,19 @@ using namespace wewriteapp;
     [self submitLastPacketOfChanges];
     
     // Update current cursor position
-    if (startCursorPosition == -1) {
+    if (startCursorPosition == -1)
+    {
         startCursorPosition = textView.selectedRange.location;
     }
-    currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+    
+    if (textView.selectedRange.location <= [textView.text length])
+    {
+        currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+    }
+    else
+    {
+        currentChar = 0;
+    }
     currentCursorPosition = textView.selectedRange.location;
     
     NSLog(@"CursorLocation Manually changed.");
@@ -195,6 +219,28 @@ using namespace wewriteapp;
     NSLog(@"Submission of last packet called.");
     
     // Pack localBuffer into Protocol Buffer
+    EventBuffer *pendingChangeBuffer = new EventBuffer;
+    if (deletedLength > 0)
+    {
+        assert([newlyInsertedChars length] == 0);
+        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
+        pendingChangeBuffer->set_startlocation(startCursorPosition);
+        pendingChangeBuffer->set_contents(NULL);
+        pendingChangeBuffer->set_lengthused(0);
+    }
+    else
+    {
+        assert(deletedLength == 0);
+        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_INSERT);
+        pendingChangeBuffer->set_startlocation(startCursorPosition);
+        pendingChangeBuffer->set_contents([newlyInsertedChars UTF8String]);
+        pendingChangeBuffer->set_lengthused([newlyInsertedChars length]);
+    }
+
+    // Serialzie Protocol buffer
+    std::string dataForSubmissionStr;
+    pendingChangeBuffer->SerializeToString(&dataForSubmissionStr);
+    NSString *dataForSubmission = [NSString stringWithFormat:@"%s", dataForSubmissionStr.c_str()];
     
     // Clear local storage
     [newlyInsertedChars setString:@""];
@@ -202,12 +248,56 @@ using namespace wewriteapp;
     startCursorPosition = -1;
     
     // Push Protocol Buffer onto undo stack;
+    EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
+    [undoStack insertObject:pendingBufferWrapper atIndex:0];
     
     // Request for lock
     
     // Broadcast Event
+    int32_t submissionRegistrationID = -1;
+    if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_DELETE)
+    {
+        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:DELETE_EVENT];
+    }
+    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_INSERT)
+    {
+        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:INSERT_EVENT];
+    }
+    else
+    {
+        NSLog(@"Other event type: %d", pendingChangeBuffer->eventtype());
+    }
+ 
+    NSLog(@"SubmissionID: %d", submissionRegistrationID);
     
     return YES; // UPDATE HERE to reflect actual submission status
+}
+
+- (void) client:(CollabrifyClient *)client receivedEventWithOrderID:(int64_t)orderID submissionRegistrationID:(int32_t)submissionRegistrationID eventType:(NSString *)eventType data:(NSData *)data
+{
+    NSLog(@"Server listener is called!");
+}
+
+-(void)client:(CollabrifyClient *)client encounteredError:(CollabrifyError *)error
+{
+    if ([error isMemberOfClass:[CollabrifyUnrecoverableError class]]) {
+        NSLog(@"Unrecoverable Error");
+    }
+    
+    switch ([error classType]) {
+        case CollabrifyClassTypeAddEvent:
+        {
+            int32_t submissionRegID;
+            NSData *eventData;
+            
+            submissionRegID = [[[error userInfo] valueForKey:CollabrifySubmissionRegistrationIDKey] intValue];
+            eventData = [[error userInfo] valueForKey:CollabrifyDataKey];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 @end
