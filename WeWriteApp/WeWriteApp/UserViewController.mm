@@ -52,6 +52,7 @@ using namespace wewriteapp;
     
     [[self client] setDelegate:self];
     [[self client] setDataSource:self];
+    [[self client] resumeEvents];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];

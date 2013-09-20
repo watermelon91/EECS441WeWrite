@@ -47,6 +47,7 @@
     if([[segue identifier] isEqualToString:@"LoginTransitionSegue"]){
         UserViewController * destC = [segue destinationViewController];
         destC.client = client;
+        [[self client] pauseEvents];
     }
 }
 
