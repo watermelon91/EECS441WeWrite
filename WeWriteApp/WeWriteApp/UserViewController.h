@@ -14,6 +14,12 @@
 
 using namespace wewriteapp;
 
+@interface EventBufferWrapper : NSObject{
+    EventBuffer *buffer;
+}
+-(id)initWithBuffer:(EventBuffer*) inBuffer;
+@end
+
 @interface UserViewController : UIViewController <UITextViewDelegate, CollabrifyClientDelegate, CollabrifyClientDataSource>{
     NSInteger startCursorPosition;
     NSInteger currentCursorPosition;
