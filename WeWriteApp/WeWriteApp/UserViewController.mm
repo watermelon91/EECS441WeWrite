@@ -263,6 +263,14 @@ using namespace wewriteapp;
     {
         submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:INSERT_EVENT];
     }
+    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_LOCK_REQUEST)
+    {
+        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:LOCK_REQUEST_EVENT];
+    }
+    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_RECEIPT_CONFIRMATION)
+    {
+        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:RECEIPT_CONFIRMATION_EVENT];
+    }
     else
     {
         NSLog(@"Other event type: %d", pendingChangeBuffer->eventtype());
