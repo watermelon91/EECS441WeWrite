@@ -35,9 +35,10 @@ void protobuf_AssignDesc_protocoalBufferRawDefinition_2eproto() {
       "protocoalBufferRawDefinition.proto");
   GOOGLE_CHECK(file != NULL);
   EventBuffer_descriptor_ = file->message_type(0);
-  static const int EventBuffer_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, contents_),
+  static const int EventBuffer_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, participantid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, startlocation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, contents_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, lengthused_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EventBuffer, eventtype_),
   };
@@ -84,13 +85,14 @@ void protobuf_AddDesc_protocoalBufferRawDefinition_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\"protocoalBufferRawDefinition.proto\022\nwe"
-    "writeapp\"\373\001\n\013EventBuffer\022\020\n\010contents\030\001 \001"
-    "(\t\022\025\n\rstartLocation\030\002 \002(\005\022\022\n\nlengthUsed\030"
-    "\003 \001(\005\022=\n\teventType\030\004 \001(\0162!.wewriteapp.Ev"
-    "entBuffer.EventType:\007UNKNOWN\"p\n\tEventTyp"
-    "e\022\013\n\007UNKNOWN\020\000\022\n\n\006INSERT\020\001\022\n\n\006DELETE\020\002\022\010"
-    "\n\004UNDO\020\003\022\010\n\004REDO\020\004\022\020\n\014LOCK_REQUEST\020\005\022\030\n\024"
-    "RECEIPT_CONFIRMATION\020\006", 302);
+    "writeapp\"\222\002\n\013EventBuffer\022\025\n\rparticipantI"
+    "D\030\001 \002(\005\022\025\n\rstartLocation\030\002 \002(\005\022\020\n\010conten"
+    "ts\030\003 \001(\t\022\022\n\nlengthUsed\030\004 \001(\005\022=\n\teventTyp"
+    "e\030\005 \001(\0162!.wewriteapp.EventBuffer.EventTy"
+    "pe:\007UNKNOWN\"p\n\tEventType\022\013\n\007UNKNOWN\020\000\022\n\n"
+    "\006INSERT\020\001\022\n\n\006DELETE\020\002\022\010\n\004UNDO\020\003\022\010\n\004REDO\020"
+    "\004\022\020\n\014LOCK_REQUEST\020\005\022\030\n\024RECEIPT_CONFIRMAT"
+    "ION\020\006", 325);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "protocoalBufferRawDefinition.proto", &protobuf_RegisterTypes);
   EventBuffer::default_instance_ = new EventBuffer();
@@ -139,8 +141,9 @@ const EventBuffer_EventType EventBuffer::EventType_MAX;
 const int EventBuffer::EventType_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
-const int EventBuffer::kContentsFieldNumber;
+const int EventBuffer::kParticipantIDFieldNumber;
 const int EventBuffer::kStartLocationFieldNumber;
+const int EventBuffer::kContentsFieldNumber;
 const int EventBuffer::kLengthUsedFieldNumber;
 const int EventBuffer::kEventTypeFieldNumber;
 #endif  // !_MSC_VER
@@ -161,8 +164,9 @@ EventBuffer::EventBuffer(const EventBuffer& from)
 
 void EventBuffer::SharedCtor() {
   _cached_size_ = 0;
-  contents_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  participantid_ = 0;
   startlocation_ = 0;
+  contents_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   lengthused_ = 0;
   eventtype_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -203,12 +207,13 @@ EventBuffer* EventBuffer::New() const {
 
 void EventBuffer::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    participantid_ = 0;
+    startlocation_ = 0;
     if (has_contents()) {
       if (contents_ != &::google::protobuf::internal::kEmptyString) {
         contents_->clear();
       }
     }
-    startlocation_ = 0;
     lengthused_ = 0;
     eventtype_ = 0;
   }
@@ -222,15 +227,14 @@ bool EventBuffer::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string contents = 1;
+      // required int32 participantID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_contents()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->contents().data(), this->contents().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &participantid_)));
+          set_has_participantid();
         } else {
           goto handle_uninterpreted;
         }
@@ -250,12 +254,29 @@ bool EventBuffer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_lengthUsed;
+        if (input->ExpectTag(26)) goto parse_contents;
         break;
       }
 
-      // optional int32 lengthUsed = 3;
+      // optional string contents = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_contents:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_contents()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->contents().data(), this->contents().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_lengthUsed;
+        break;
+      }
+
+      // optional int32 lengthUsed = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_lengthUsed:
@@ -266,12 +287,12 @@ bool EventBuffer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_eventType;
+        if (input->ExpectTag(40)) goto parse_eventType;
         break;
       }
 
-      // optional .wewriteapp.EventBuffer.EventType eventType = 4 [default = UNKNOWN];
-      case 4: {
+      // optional .wewriteapp.EventBuffer.EventType eventType = 5 [default = UNKNOWN];
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_eventType:
@@ -282,7 +303,7 @@ bool EventBuffer::MergePartialFromCodedStream(
           if (::wewriteapp::EventBuffer_EventType_IsValid(value)) {
             set_eventtype(static_cast< ::wewriteapp::EventBuffer_EventType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(4, value);
+            mutable_unknown_fields()->AddVarint(5, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -309,13 +330,9 @@ bool EventBuffer::MergePartialFromCodedStream(
 
 void EventBuffer::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string contents = 1;
-  if (has_contents()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->contents().data(), this->contents().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->contents(), output);
+  // required int32 participantID = 1;
+  if (has_participantid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->participantid(), output);
   }
 
   // required int32 startLocation = 2;
@@ -323,15 +340,24 @@ void EventBuffer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->startlocation(), output);
   }
 
-  // optional int32 lengthUsed = 3;
-  if (has_lengthused()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->lengthused(), output);
+  // optional string contents = 3;
+  if (has_contents()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->contents().data(), this->contents().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->contents(), output);
   }
 
-  // optional .wewriteapp.EventBuffer.EventType eventType = 4 [default = UNKNOWN];
+  // optional int32 lengthUsed = 4;
+  if (has_lengthused()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->lengthused(), output);
+  }
+
+  // optional .wewriteapp.EventBuffer.EventType eventType = 5 [default = UNKNOWN];
   if (has_eventtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->eventtype(), output);
+      5, this->eventtype(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -342,14 +368,9 @@ void EventBuffer::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EventBuffer::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional string contents = 1;
-  if (has_contents()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->contents().data(), this->contents().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->contents(), target);
+  // required int32 participantID = 1;
+  if (has_participantid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->participantid(), target);
   }
 
   // required int32 startLocation = 2;
@@ -357,15 +378,25 @@ void EventBuffer::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->startlocation(), target);
   }
 
-  // optional int32 lengthUsed = 3;
-  if (has_lengthused()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->lengthused(), target);
+  // optional string contents = 3;
+  if (has_contents()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->contents().data(), this->contents().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->contents(), target);
   }
 
-  // optional .wewriteapp.EventBuffer.EventType eventType = 4 [default = UNKNOWN];
+  // optional int32 lengthUsed = 4;
+  if (has_lengthused()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->lengthused(), target);
+  }
+
+  // optional .wewriteapp.EventBuffer.EventType eventType = 5 [default = UNKNOWN];
   if (has_eventtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->eventtype(), target);
+      5, this->eventtype(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -379,11 +410,11 @@ int EventBuffer::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string contents = 1;
-    if (has_contents()) {
+    // required int32 participantID = 1;
+    if (has_participantid()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->contents());
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->participantid());
     }
 
     // required int32 startLocation = 2;
@@ -393,14 +424,21 @@ int EventBuffer::ByteSize() const {
           this->startlocation());
     }
 
-    // optional int32 lengthUsed = 3;
+    // optional string contents = 3;
+    if (has_contents()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->contents());
+    }
+
+    // optional int32 lengthUsed = 4;
     if (has_lengthused()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->lengthused());
     }
 
-    // optional .wewriteapp.EventBuffer.EventType eventType = 4 [default = UNKNOWN];
+    // optional .wewriteapp.EventBuffer.EventType eventType = 5 [default = UNKNOWN];
     if (has_eventtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->eventtype());
@@ -433,11 +471,14 @@ void EventBuffer::MergeFrom(const ::google::protobuf::Message& from) {
 void EventBuffer::MergeFrom(const EventBuffer& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_contents()) {
-      set_contents(from.contents());
+    if (from.has_participantid()) {
+      set_participantid(from.participantid());
     }
     if (from.has_startlocation()) {
       set_startlocation(from.startlocation());
+    }
+    if (from.has_contents()) {
+      set_contents(from.contents());
     }
     if (from.has_lengthused()) {
       set_lengthused(from.lengthused());
@@ -462,15 +503,16 @@ void EventBuffer::CopyFrom(const EventBuffer& from) {
 }
 
 bool EventBuffer::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000002) != 0x00000002) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
 void EventBuffer::Swap(EventBuffer* other) {
   if (other != this) {
-    std::swap(contents_, other->contents_);
+    std::swap(participantid_, other->participantid_);
     std::swap(startlocation_, other->startlocation_);
+    std::swap(contents_, other->contents_);
     std::swap(lengthused_, other->lengthused_);
     std::swap(eventtype_, other->eventtype_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

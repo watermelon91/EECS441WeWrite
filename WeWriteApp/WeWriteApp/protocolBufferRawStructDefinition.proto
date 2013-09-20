@@ -2,10 +2,11 @@ package wewriteapp;
 
 message EventBuffer
 {
-    optional string contents = 1;
+    required int32 participantID = 1;
     required int32 startLocation = 2;
-    optional int32 lengthUsed = 3;
-    
+    optional string contents = 3;
+    optional int32 lengthUsed = 4;
+
     enum EventType
     {
         UNKNOWN = 0;
@@ -17,6 +18,6 @@ message EventBuffer
         RECEIPT_CONFIRMATION = 6;
     }
     
-    optional EventType eventType = 4 [default = UNKNOWN];
+    optional EventType eventType = 5 [default = UNKNOWN];
 }
 

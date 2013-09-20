@@ -54,6 +54,9 @@ using namespace wewriteapp;
     [[self client] setDataSource:self];
     [[self client] resumeEvents];
     
+    participantID = [[self client] participantID];
+    NSLog(@"participantID: %lld", participantID);
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
@@ -114,6 +117,7 @@ using namespace wewriteapp;
     NSLog(@"Redo button pressed.");
     // Pop redoStack;
     // Push undoStack;
+    // Submit event to server. // OFFSET
 }
 
 - (IBAction)undoButtonPressed:(id)sender
@@ -121,6 +125,7 @@ using namespace wewriteapp;
     NSLog(@"Undo button pressed");
     // Pop undoStack;
     // Push redoStack;
+    // Submit reverse event to server. // OFFSET
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -224,9 +229,11 @@ using namespace wewriteapp;
     
     // Pack localBuffer into Protocol Buffer
     EventBuffer *pendingChangeBuffer = new EventBuffer;
+    participantID = [[self client] participantID];
     if (deletedLength > 0)
     {
         assert([newlyInsertedChars length] == 0);
+        pendingChangeBuffer->set_participantid(participantID);
         pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
         pendingChangeBuffer->set_startlocation(startCursorPosition);
         pendingChangeBuffer->set_contents(NULL);
@@ -235,6 +242,7 @@ using namespace wewriteapp;
     else
     {
         assert(deletedLength == 0);
+        pendingChangeBuffer->set_participantid(participantID);
         pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_INSERT);
         pendingChangeBuffer->set_startlocation(startCursorPosition);
         pendingChangeBuffer->set_contents([newlyInsertedChars UTF8String]);
@@ -242,9 +250,9 @@ using namespace wewriteapp;
     }
 
     // Serialzie Protocol buffer
-    std::string dataForSubmissionStr;
-    pendingChangeBuffer->SerializeToString(&dataForSubmissionStr);
-    NSString *dataForSubmission = [NSString stringWithFormat:@"%s", dataForSubmissionStr.c_str()];
+    char * dataForSubmissionStr = (char *)malloc(pendingChangeBuffer->ByteSize());
+    pendingChangeBuffer->SerializeToArray(dataForSubmissionStr, pendingChangeBuffer->ByteSize());
+    NSData * serializedData = [NSData dataWithBytesNoCopy:dataForSubmissionStr length:pendingChangeBuffer->ByteSize()];
     
     // Clear local storage
     [newlyInsertedChars setString:@""];
@@ -261,25 +269,25 @@ using namespace wewriteapp;
     int32_t submissionRegistrationID = -1;
     if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_DELETE)
     {
-        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:DELETE_EVENT];
+        submissionRegistrationID = [[self client] broadcast:serializedData eventType:DELETE_EVENT];
     }
     else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_INSERT)
     {
-        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:INSERT_EVENT];
+        submissionRegistrationID = [[self client] broadcast:serializedData eventType:INSERT_EVENT];
     }
     else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_LOCK_REQUEST)
     {
-        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:LOCK_REQUEST_EVENT];
+        submissionRegistrationID = [[self client] broadcast:serializedData eventType:LOCK_REQUEST_EVENT];
     }
     else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_RECEIPT_CONFIRMATION)
     {
-        submissionRegistrationID = [[self client] broadcast:[dataForSubmission dataUsingEncoding:NSUTF8StringEncoding] eventType:RECEIPT_CONFIRMATION_EVENT];
+        submissionRegistrationID = [[self client] broadcast:serializedData eventType:RECEIPT_CONFIRMATION_EVENT];
     }
     else
     {
         NSLog(@"Other event type: %d", pendingChangeBuffer->eventtype());
     }
- 
+
     NSLog(@"SubmissionID: %d", submissionRegistrationID);
     
     return YES; // UPDATE HERE to reflect actual submission status
@@ -288,6 +296,24 @@ using namespace wewriteapp;
 - (void) client:(CollabrifyClient *)client receivedEventWithOrderID:(int64_t)orderID submissionRegistrationID:(int32_t)submissionRegistrationID eventType:(NSString *)eventType data:(NSData *)data
 {
     NSLog(@"Server listener is called!");
+    [self parseReceivedEvent:eventType data:data];
+}
+
+- (void) parseReceivedEvent:(NSString *) eventType
+                       data:(NSData *)data
+{
+    EventBuffer bufferReceived;
+    bufferReceived.ParseFromArray([data bytes], [data length]);
+    NSLog(@"parsedResult: %d, %s, %d, %d, %d", bufferReceived.participantid(), bufferReceived.contents().c_str(), bufferReceived.lengthused(), bufferReceived.eventtype(), bufferReceived.startlocation());
+    if(bufferReceived.participantid() == participantID)
+    {
+        // user's own event
+        NSLog(@"User's own event!");
+    }
+    else
+    {
+        // other user's event
+    }
 }
 
 -(void)client:(CollabrifyClient *)client encounteredError:(CollabrifyError *)error

@@ -58,7 +58,7 @@
 		A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */; };
 		A70ABE6017E2B6A200AC31A9 /* LoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */; };
 		A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6217E62D8E00AC31A9 /* userTextView.m */; };
-		A70ABE6817E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */; };
+		A726BF8817ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = A726BF8617ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,9 +171,9 @@
 		A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoginViewController.mm; sourceTree = "<group>"; };
 		A70ABE6117E62D8E00AC31A9 /* userTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userTextView.h; sourceTree = "<group>"; };
 		A70ABE6217E62D8E00AC31A9 /* userTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userTextView.m; sourceTree = "<group>"; };
-		A70ABE6517E64E8B00AC31A9 /* protocoalBufferRawDefinition.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocoalBufferRawDefinition.proto; sourceTree = "<group>"; };
-		A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = protocoalBufferRawDefinition.pb.cpp; sourceTree = "<group>"; };
-		A70ABE6717E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocoalBufferRawDefinition.pb.h; sourceTree = "<group>"; };
+		A726BF8517ECE607003E1728 /* protocolBufferRawStructDefinition.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocolBufferRawStructDefinition.proto; sourceTree = "<group>"; };
+		A726BF8617ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = protocolBufferRawStructDefinition.pb.cc; sourceTree = "<group>"; };
+		A726BF8717ECE961003E1728 /* protocolBufferRawStructDefinition.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocolBufferRawStructDefinition.pb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,8 +228,8 @@
 		A70ABDBA17DA64E500AC31A9 /* WeWriteApp */ = {
 			isa = PBXGroup;
 			children = (
-				A70ABE6617E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp */,
-				A70ABE6717E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.h */,
+				A726BF8617ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc */,
+				A726BF8717ECE961003E1728 /* protocolBufferRawStructDefinition.pb.h */,
 				A70ABE5B17DFE4FC00AC31A9 /* CustomDatatype.h */,
 				A70ABE5C17DFE4FC00AC31A9 /* CustomDatatype.m */,
 				A70ABDDB17DA654B00AC31A9 /* config.h */,
@@ -250,7 +250,7 @@
 		A70ABDBB17DA64E500AC31A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A70ABE6517E64E8B00AC31A9 /* protocoalBufferRawDefinition.proto */,
+				A726BF8517ECE607003E1728 /* protocolBufferRawStructDefinition.proto */,
 				A70ABDBC17DA64E500AC31A9 /* WeWriteApp-Info.plist */,
 				A70ABDBD17DA64E500AC31A9 /* InfoPlist.strings */,
 				A70ABDC017DA64E500AC31A9 /* main.m */,
@@ -474,6 +474,7 @@
 				A70ABE3D17DA656D00AC31A9 /* printer.cc in Sources */,
 				A70ABE3E17DA656D00AC31A9 /* tokenizer.cc in Sources */,
 				A70ABE3F17DA656D00AC31A9 /* zero_copy_stream.cc in Sources */,
+				A726BF8817ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc in Sources */,
 				A70ABE4017DA656D00AC31A9 /* zero_copy_stream_impl.cc in Sources */,
 				A70ABE4117DA656D00AC31A9 /* zero_copy_stream_impl_lite.cc in Sources */,
 				A70ABE4217DA656D00AC31A9 /* message.cc in Sources */,
@@ -498,7 +499,6 @@
 				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
 				A70ABE6017E2B6A200AC31A9 /* LoginViewController.mm in Sources */,
 				A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */,
-				A70ABE6817E6928D00AC31A9 /* protocoalBufferRawDefinition.pb.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,9 +549,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Google Protocol Buffers\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Google Protocol Buffers\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -576,9 +574,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Google Protocol Buffers\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Google Protocol Buffers\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;

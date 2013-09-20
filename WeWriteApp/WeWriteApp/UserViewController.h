@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Collabrify/Collabrify.h>
-#import "protocoalBufferRawDefinition.pb.h"
 #import <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #import <google/protobuf/io/coded_stream.h>
+#import "protocolBufferRawStructDefinition.pb.h"
 
 using namespace wewriteapp;
 
@@ -26,9 +26,12 @@ using namespace wewriteapp;
     char currentChar;
     NSInteger deletedLength;
     NSMutableString *newlyInsertedChars;
+    
     NSMutableArray *undoStack;  // stack containing EventBuffer objects
     NSMutableArray *redoStack;  // stack containing EventBuffer objects
+    
     NSTimer *timer;
+    int64_t participantID;
 }
 
 //-(void)setClientFromLogin:(CollabrifyClient *)inClient;
