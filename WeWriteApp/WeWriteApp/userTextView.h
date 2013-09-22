@@ -10,4 +10,6 @@
 
 @interface userTextView : UITextView
 
+@property (nonatomic) BOOL touchIsWithinView;
+
 @end

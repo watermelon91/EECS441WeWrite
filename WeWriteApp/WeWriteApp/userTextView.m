@@ -10,6 +10,8 @@
 
 @implementation userTextView
 
+@synthesize touchIsWithinView;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -35,6 +37,19 @@
     return [super canPerformAction:action withSender:sender];
 }
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    CGPoint locationPoint = [[touches anyObject] locationInView:self];
+    if (CGRectContainsPoint(self.bounds, locationPoint))
+    {
+        touchIsWithinView = YES;
+    }
+    else
+    {
+        touchIsWithinView = NO;
+    }
+    [super touchesBegan:touches withEvent:event];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

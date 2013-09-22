@@ -11,7 +11,7 @@
 #import <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #import <google/protobuf/io/coded_stream.h>
 #import "protocolBufferRawStructDefinition.pb.h"
-
+#import "userTextView.h"
 using namespace wewriteapp;
 
 @interface EventBufferWrapper : NSObject{
@@ -50,6 +50,6 @@ using namespace wewriteapp;
 
 @property (weak, nonatomic) IBOutlet UIButton *undoButton;
 @property (weak, nonatomic) IBOutlet UIButton *redoButton;
-@property (weak, nonatomic) IBOutlet UITextView *textViewForUser;
+@property (weak, nonatomic) IBOutlet userTextView *textViewForUser;
 @end
 

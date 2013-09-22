@@ -200,29 +200,35 @@ using namespace wewriteapp;
 
 -(void)textViewDidChangeSelection:(UITextView *)textView
 {
-    // Submit event
-    dispatch_async(submissionQueue, ^{
-        [self submitLastPacketOfChanges];
-         });
-    
-    // Update current cursor position
-    if (startCursorPosition == -1)
-    {
-        startCursorPosition = textView.selectedRange.location;
-    }
-    
-    if (textView.selectedRange.location <= [textView.text length])
-    {
-        currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+    if ([_textViewForUser touchIsWithinView] ) {
+        // Submit event
+        dispatch_async(submissionQueue, ^{
+            [self submitLastPacketOfChanges];
+        });
+        
+        // Update current cursor position
+        if (startCursorPosition == -1)
+        {
+            startCursorPosition = textView.selectedRange.location;
+        }
+        
+        if (textView.selectedRange.location <= [textView.text length])
+        {
+            currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+        }
+        else
+        {
+            currentChar = 0;
+        }
+        currentCursorPosition = textView.selectedRange.location;
+        
+        NSLog(@"CursorLocation Manually changed.");
+        NSLog(@"current cursor location: %d; currentChar: %c", textView.selectedRange.location, currentChar);
     }
     else
     {
-        currentChar = 0;
+        NSLog(@"Touch outside UITextView");
     }
-    currentCursorPosition = textView.selectedRange.location;
-    
-    NSLog(@"CursorLocation Manually changed.");
-    NSLog(@"current cursor location: %d; currentChar: %c", textView.selectedRange.location, currentChar);
 }
 
 -(void)timerTriggeredSubmission
@@ -437,6 +443,8 @@ using namespace wewriteapp;
     char * dataForSubmissionStr = (char *)malloc(lockReqBuffer->ByteSize());
     lockReqBuffer->SerializeToArray(dataForSubmissionStr, lockReqBuffer->ByteSize());
     NSData * serializedData = [NSData dataWithBytesNoCopy:dataForSubmissionStr length:lockReqBuffer->ByteSize()];
+    
+    delete lockReqBuffer;
     
     return serializedData;
 }
