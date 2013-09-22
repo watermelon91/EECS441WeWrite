@@ -175,7 +175,7 @@ using namespace wewriteapp;
         }
         
         // Check if reached MAX_BUFFER_SIZE
-        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE ) {
+        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE || deletedLength > MAX_BUFFER_SIZE) {
             dispatch_async(submissionQueue, ^{
                 [self submitLastPacketOfChanges];
                  });
@@ -275,11 +275,12 @@ using namespace wewriteapp;
     if (deletedLength > 0)
     {
         assert([newlyInsertedChars length] == 0);
+        assert(startCursorPosition - deletedLength >= 0);
         pendingChangeBuffer->set_participantid(participantID);
         pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
         pendingChangeBuffer->set_startlocation(startCursorPosition);
         pendingChangeBuffer->set_contents("");
-        pendingChangeBuffer->set_lengthused(0);
+        pendingChangeBuffer->set_lengthused(deletedLength);
     }
     else
     {
@@ -410,7 +411,16 @@ using namespace wewriteapp;
             NSLog(@"Other Delete event received");
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update UI with other users' changes
-                
+                if (bufferReceived.startlocation() >= 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        // Update UI with other users' changes
+                        _textViewForUser.scrollEnabled = NO;
+                        _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                                 [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-bufferReceived.lengthused()],
+                                                 [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
+                        _textViewForUser.scrollEnabled = YES;
+                    });
+                }
             });
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
