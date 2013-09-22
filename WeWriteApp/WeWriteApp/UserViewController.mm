@@ -393,10 +393,25 @@ using namespace wewriteapp;
         if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
         {
             NSLog(@"Other Insert event received");
+            if (bufferReceived.startlocation() >= 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // Update UI with other users' changes
+                    _textViewForUser.scrollEnabled = NO;
+                    _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                             [_textViewForUser.text substringToIndex:bufferReceived.startlocation()],
+                                             [NSString stringWithFormat:@"%s", bufferReceived.contents().substr(0, bufferReceived.lengthused()).c_str()],
+                                             [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
+                    _textViewForUser.scrollEnabled = YES;
+                });
+            }
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
         {
             NSLog(@"Other Delete event received");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update UI with other users' changes
+                
+            });
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
         {
