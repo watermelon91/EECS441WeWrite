@@ -128,9 +128,59 @@ using namespace wewriteapp;
         [self submitLastPacketOfChanges];
     });
     
-    // Pop redoStack;
+    // Pop redoStack
     // We don't push to undoStack, leave it to the SubmitLastPacket function
-    // Submit event to server. // OFFSET
+    if ([redoStack count] == 0) {
+        return;
+    }
+    
+    EventBufferWrapper *redoEvent = [redoStack objectAtIndex:0];
+    [redoStack removeObjectAtIndex:0];
+    
+    // Submit event to server.
+    EventBuffer *originalEvent = [redoEvent buffer];
+    if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
+    {
+        startCursorPosition = originalEvent->startlocation();
+        newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        
+        // Update UI
+        _textViewForUser.scrollEnabled = NO;
+        _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                 [_textViewForUser.text substringToIndex:startCursorPosition],
+                                 newlyInsertedChars,
+                                 [_textViewForUser.text substringFromIndex:startCursorPosition]];
+        _textViewForUser.scrollEnabled = YES;
+        
+        
+    }
+    else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
+    {
+        startCursorPosition = originalEvent->startlocation();
+        deletedLength = originalEvent->lengthused();
+        deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        
+        // Update UI
+        if (startCursorPosition >= 0) {
+            // Update UI with other users' changes
+            _textViewForUser.scrollEnabled = NO;
+            _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                     [_textViewForUser.text substringToIndex:startCursorPosition],
+                                     [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+            _textViewForUser.scrollEnabled = YES;
+        }
+    }
+    else
+    {
+        NSLog(@"Events other than insert and delete on redo stack.");
+        assert(false);
+    }
+    
+    // Submit event to server.
+    dispatch_async(submissionQueue, ^{
+        [self submitLastPacketOfChanges];
+    });
+    userJustSubmitted = YES;
 }
 
 - (IBAction)undoButtonPressed:(id)sender
@@ -165,14 +215,12 @@ using namespace wewriteapp;
         
         // Update UI
         if (startCursorPosition >= 0) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update UI with other users' changes
-                _textViewForUser.scrollEnabled = NO;
-                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
-                                         [_textViewForUser.text substringToIndex:startCursorPosition],
-                                         [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
-                _textViewForUser.scrollEnabled = YES;
-            });
+            // Update UI with other users' changes
+            _textViewForUser.scrollEnabled = NO;
+            _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                     [_textViewForUser.text substringToIndex:startCursorPosition],
+                                     [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+            _textViewForUser.scrollEnabled = YES;
         }
 
     }
@@ -183,14 +231,12 @@ using namespace wewriteapp;
         newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
         
         // Update UI
-         dispatch_async(dispatch_get_main_queue(), ^{
-             _textViewForUser.scrollEnabled = NO;
-             _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                      [_textViewForUser.text substringToIndex:startCursorPosition],
-                                      newlyInsertedChars,
-                                      [_textViewForUser.text substringFromIndex:startCursorPosition]];
-             _textViewForUser.scrollEnabled = YES;
-         });
+        _textViewForUser.scrollEnabled = NO;
+        _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                 [_textViewForUser.text substringToIndex:startCursorPosition],
+                                 newlyInsertedChars,
+                                 [_textViewForUser.text substringFromIndex:startCursorPosition]];
+        _textViewForUser.scrollEnabled = YES;
     }
     else
     {
