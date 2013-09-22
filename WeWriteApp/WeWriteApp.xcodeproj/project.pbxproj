@@ -420,6 +420,11 @@
 				CLASSPREFIX = User;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Yijia Tang";
+				TargetAttributes = {
+					A70ABDB017DA64E500AC31A9 = {
+						DevelopmentTeam = M6G7X45B7F;
+					};
+				};
 			};
 			buildConfigurationList = A70ABDAC17DA64E500AC31A9 /* Build configuration list for PBXProject "WeWriteApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -586,6 +591,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -594,6 +601,7 @@
 				GCC_PREFIX_HEADER = "WeWriteApp/WeWriteApp-Prefix.pch";
 				INFOPLIST_FILE = "WeWriteApp/WeWriteApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -603,6 +611,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -611,6 +621,7 @@
 				GCC_PREFIX_HEADER = "WeWriteApp/WeWriteApp-Prefix.pch";
 				INFOPLIST_FILE = "WeWriteApp/WeWriteApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};

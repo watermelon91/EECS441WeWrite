@@ -49,6 +49,7 @@ using namespace wewriteapp;
     newlyInsertedChars = [[NSMutableString alloc] init];
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
+    userJustSubmitted = NO;
     
     [[self client] setDelegate:self];
     [[self client] setDataSource:self];
@@ -56,6 +57,13 @@ using namespace wewriteapp;
     
     participantID = [[self client] participantID];
     NSLog(@"participantID: %lld", participantID);
+    
+    submissionQueue = dispatch_queue_create("SubmissionQueue", 0);
+    receiptionQueue = dispatch_queue_create("ReceptionQueue", 0);
+    requestLockCond = [[NSCondition alloc] init];
+    requestLockIsSuccess = NO;
+    isWaitingForLockRequestResponse = NO;
+    otherUserHasRequestLockEarlier = NO;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -84,11 +92,6 @@ using namespace wewriteapp;
     
     [self addGestureRecognizer:gestureRecognizer];
 }
-
-/*-(void)setClientFromLogin:(CollabrifyClient *)inClient
-{
- 
-}*/
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -173,7 +176,10 @@ using namespace wewriteapp;
         
         // Check if reached MAX_BUFFER_SIZE
         if ([newlyInsertedChars length] > MAX_BUFFER_SIZE ) {
-            [self submitLastPacketOfChanges];
+            dispatch_async(submissionQueue, ^{
+                [self submitLastPacketOfChanges];
+                 });
+            userJustSubmitted = YES;
         }
         NSLog(@"newlyInsertedChars: %@", newlyInsertedChars);
     }
@@ -195,7 +201,9 @@ using namespace wewriteapp;
 -(void)textViewDidChangeSelection:(UITextView *)textView
 {
     // Submit event
-    [self submitLastPacketOfChanges];
+    dispatch_async(submissionQueue, ^{
+        [self submitLastPacketOfChanges];
+         });
     
     // Update current cursor position
     if (startCursorPosition == -1)
@@ -219,13 +227,41 @@ using namespace wewriteapp;
 
 -(void)timerTriggeredSubmission
 {
-    [self submitLastPacketOfChanges];
-    NSLog(@"TimerTriggeredSubmission called.");
+    if (!userJustSubmitted)
+    {
+        dispatch_async(submissionQueue, ^{
+            [self submitLastPacketOfChanges];
+        });
+        NSLog(@"TimerTriggeredSubmission called. Submission performed.");
+    }
+    else
+    {
+        userJustSubmitted = NO;
+        NSLog(@"TimerTriggeredSubmission called. Submission NOT performed.");
+    }
+    
 }
 
 -(BOOL)submitLastPacketOfChanges
 {
     NSLog(@"Submission of last packet called.");
+    
+    // Request for lock
+    NSData *serialziedLockRequest = [self requestLock];
+    [requestLockCond lock];
+    int32_t submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
+    while (!requestLockIsSuccess) {
+        isWaitingForLockRequestResponse = YES;
+        if (otherUserHasRequestLockEarlier) {
+            // Broadcast request for lock
+            submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
+            otherUserHasRequestLockEarlier = NO;
+        }
+        [requestLockCond wait];
+    }
+    requestLockIsSuccess = NO;
+    [requestLockCond unlock];
+    NSLog(@"Lock obtained. SubmissionID: %d", submissionRegID);
     
     // Pack localBuffer into Protocol Buffer
     EventBuffer *pendingChangeBuffer = new EventBuffer;
@@ -236,7 +272,7 @@ using namespace wewriteapp;
         pendingChangeBuffer->set_participantid(participantID);
         pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
         pendingChangeBuffer->set_startlocation(startCursorPosition);
-        pendingChangeBuffer->set_contents(NULL);
+        pendingChangeBuffer->set_contents("");
         pendingChangeBuffer->set_lengthused(0);
     }
     else
@@ -263,8 +299,6 @@ using namespace wewriteapp;
     EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
     [undoStack insertObject:pendingBufferWrapper atIndex:0];
     
-    // Request for lock
-    
     // Broadcast Event
     int32_t submissionRegistrationID = -1;
     if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_DELETE)
@@ -274,14 +308,6 @@ using namespace wewriteapp;
     else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_INSERT)
     {
         submissionRegistrationID = [[self client] broadcast:serializedData eventType:INSERT_EVENT];
-    }
-    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_LOCK_REQUEST)
-    {
-        submissionRegistrationID = [[self client] broadcast:serializedData eventType:LOCK_REQUEST_EVENT];
-    }
-    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_RECEIPT_CONFIRMATION)
-    {
-        submissionRegistrationID = [[self client] broadcast:serializedData eventType:RECEIPT_CONFIRMATION_EVENT];
     }
     else
     {
@@ -296,11 +322,12 @@ using namespace wewriteapp;
 - (void) client:(CollabrifyClient *)client receivedEventWithOrderID:(int64_t)orderID submissionRegistrationID:(int32_t)submissionRegistrationID eventType:(NSString *)eventType data:(NSData *)data
 {
     NSLog(@"Server listener is called!");
-    [self parseReceivedEvent:eventType data:data];
+    dispatch_async(receiptionQueue, ^{
+        [self parseReceivedEvent:eventType data:data];
+        });
 }
 
-- (void) parseReceivedEvent:(NSString *) eventType
-                       data:(NSData *)data
+- (void) parseReceivedEvent:(NSString *)eventType data:(NSData *)data
 {
     EventBuffer bufferReceived;
     bufferReceived.ParseFromArray([data bytes], [data length]);
@@ -308,12 +335,110 @@ using namespace wewriteapp;
     if(bufferReceived.participantid() == participantID)
     {
         // user's own event
-        NSLog(@"User's own event!");
+        if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
+        {
+            NSLog(@"Own Insert event received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
+        {
+            NSLog(@"Own Delete event received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
+        {
+            NSLog(@"Own Lock request event received");
+            [requestLockCond lock];
+            if (otherUserHasRequestLockEarlier)
+            {
+                // Need to wait for the next event
+                requestLockIsSuccess = NO;
+                isWaitingForLockRequestResponse = NO;
+                [requestLockCond broadcast];
+            }
+            else
+            {
+                // Get one's own lock request event without being interfered by others' lock event
+                requestLockIsSuccess = YES;
+                isWaitingForLockRequestResponse = NO;
+                [requestLockCond broadcast];
+            }
+            [requestLockCond unlock];
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
+        {
+            NSLog(@"Own Event Receipt confirmation event received");
+        }
+        else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
+        {
+            NSLog(@"Own Undo Event Received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
+        {
+            NSLog(@"Own Redo Event Received");
+        }
+        else
+        {
+            assert(bufferReceived.eventtype() == EventBuffer_EventType_UNKNOWN);
+            NSLog(@"Own Unknown Event Received");
+        }
     }
     else
     {
         // other user's event
+        if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
+        {
+            NSLog(@"Other Insert event received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
+        {
+            NSLog(@"Other Delete event received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
+        {
+            NSLog(@"Other Lock request event received");
+            [requestLockCond lock];
+            if (isWaitingForLockRequestResponse)
+            {
+                // User waiting for its lock and received some other user's request first
+                otherUserHasRequestLockEarlier = YES;
+            }
+            [requestLockCond unlock];
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
+        {
+            NSLog(@"Other Event Receipt confirmation event received");
+        }
+        else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
+        {
+            NSLog(@"Other Undo Event Received");
+        }
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
+        {
+            NSLog(@"Other Redo Event Received");
+        }
+        else
+        {
+            assert(bufferReceived.eventtype() == EventBuffer_EventType_UNKNOWN);
+            NSLog(@"Other Unknown Event Received");
+        }
     }
+}
+
+- (NSData *) requestLock
+{
+    // Construct lock buffer
+    EventBuffer *lockReqBuffer = new EventBuffer;
+    lockReqBuffer->set_participantid(participantID);
+    lockReqBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_LOCK_REQUEST);
+    lockReqBuffer->set_startlocation(-1);
+    lockReqBuffer->set_contents("");
+    lockReqBuffer->set_lengthused(0);
+    
+    // Serialzie Protocol buffer
+    char * dataForSubmissionStr = (char *)malloc(lockReqBuffer->ByteSize());
+    lockReqBuffer->SerializeToArray(dataForSubmissionStr, lockReqBuffer->ByteSize());
+    NSData * serializedData = [NSData dataWithBytesNoCopy:dataForSubmissionStr length:lockReqBuffer->ByteSize()];
+    
+    return serializedData;
 }
 
 -(void)client:(CollabrifyClient *)client encounteredError:(CollabrifyError *)error

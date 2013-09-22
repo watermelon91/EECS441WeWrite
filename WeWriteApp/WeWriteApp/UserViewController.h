@@ -32,6 +32,14 @@ using namespace wewriteapp;
     
     NSTimer *timer;
     int64_t participantID;
+    dispatch_queue_t submissionQueue;
+    dispatch_queue_t receiptionQueue;
+    
+    BOOL userJustSubmitted; // for disable timer right after a typing-triggered submission
+    NSCondition *requestLockCond; // condition var for requestLock lock
+    BOOL requestLockIsSuccess;
+    BOOL isWaitingForLockRequestResponse;
+    BOOL otherUserHasRequestLockEarlier;
 }
 
 //-(void)setClientFromLogin:(CollabrifyClient *)inClient;
