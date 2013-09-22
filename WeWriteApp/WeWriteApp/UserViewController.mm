@@ -16,6 +16,9 @@ using namespace wewriteapp;
 @end
 
 @implementation EventBufferWrapper
+
+@synthesize buffer;
+
 -(id)initWithBuffer:(wewriteapp::EventBuffer *)inBuffer
 {
     self = [super init];
@@ -47,6 +50,7 @@ using namespace wewriteapp;
     startCursorPosition = -1;
     deletedLength = 0;
     newlyInsertedChars = [[NSMutableString alloc] init];
+    deletedChars = [[NSMutableString alloc] init];
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     userJustSubmitted = NO;
@@ -65,7 +69,7 @@ using namespace wewriteapp;
     isWaitingForLockRequestResponse = NO;
     otherUserHasRequestLockEarlier = NO;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:10000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:100000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     sessionIDLabel.text = [NSString stringWithFormat:@"%lld", [client currentSessionID]];
@@ -118,17 +122,87 @@ using namespace wewriteapp;
 - (IBAction)redoButtonPressed:(id)sender
 {
     NSLog(@"Redo button pressed.");
+    
+    // submit pending changes
+    dispatch_async(submissionQueue, ^{
+        [self submitLastPacketOfChanges];
+    });
+    
     // Pop redoStack;
-    // Push undoStack;
+    // We don't push to undoStack, leave it to the SubmitLastPacket function
     // Submit event to server. // OFFSET
 }
 
 - (IBAction)undoButtonPressed:(id)sender
 {
     NSLog(@"Undo button pressed");
+    
+    // submit pending changes
+    dispatch_async(submissionQueue, ^{
+        [self submitLastPacketOfChanges];
+    });
+    
     // Pop undoStack;
+    if ([undoStack count] == 0)
+    {
+        return;
+    }
+    
+    EventBufferWrapper *undoEvent = [undoStack objectAtIndex:0];
+    [undoStack removeObjectAtIndex:0];
+    
     // Push redoStack;
-    // Submit reverse event to server. // OFFSET
+    [redoStack insertObject:undoEvent atIndex:0];
+    
+    // Submit reverse event to server.
+    EventBuffer *originalEvent = [undoEvent buffer];
+    if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
+    {
+        // Change to delete event
+        startCursorPosition = originalEvent->startlocation();
+        deletedLength = originalEvent->lengthused();
+        deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        
+        // Update UI
+        if (startCursorPosition >= 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update UI with other users' changes
+                _textViewForUser.scrollEnabled = NO;
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                         [_textViewForUser.text substringToIndex:startCursorPosition],
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+                _textViewForUser.scrollEnabled = YES;
+            });
+        }
+
+    }
+    else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
+    {
+        // Change to insert event
+        startCursorPosition = originalEvent->startlocation();
+        newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        
+        // Update UI
+         dispatch_async(dispatch_get_main_queue(), ^{
+             _textViewForUser.scrollEnabled = NO;
+             _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                      [_textViewForUser.text substringToIndex:startCursorPosition],
+                                      newlyInsertedChars,
+                                      [_textViewForUser.text substringFromIndex:startCursorPosition]];
+             _textViewForUser.scrollEnabled = YES;
+         });
+    }
+    else
+    {
+        NSLog(@"Events other than insert and delete on undo stack.");
+        assert(false);
+    }
+    
+    isFromUndoStack = YES;
+    dispatch_async(submissionQueue, ^{
+        [self submitLastPacketOfChanges];
+    });
+    userJustSubmitted = YES;
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -148,16 +222,26 @@ using namespace wewriteapp;
     if (range.length == 1)
     {
         // Delete
-        NSLog(@"delte");
+        NSLog(@"delete");
         deletedLength++;
+        newChar = [[_textViewForUser text] characterAtIndex:newCursorPosition-2];
+        [deletedChars insertString:[NSString stringWithFormat:@"%c", currentChar] atIndex:0];
         if([newlyInsertedChars length] > 0)
         {
             NSRange tempRange;
             tempRange.length = 1;
             tempRange.location = [newlyInsertedChars length] - 1;
             [newlyInsertedChars deleteCharactersInRange: tempRange];
+            deletedLength--;
         }
-        NSLog(@"deletedLength: %d", deletedLength);
+        // Check if reached MAX_BUFFER_SIZE
+        if (deletedLength > MAX_BUFFER_SIZE) {
+            dispatch_async(submissionQueue, ^{
+                [self submitLastPacketOfChanges];
+            });
+            userJustSubmitted = YES;
+        }
+        NSLog(@"deletedLength: %d, chars: %@", deletedLength, deletedChars);
     }
     else if(range.length == 0)
     {
@@ -175,7 +259,7 @@ using namespace wewriteapp;
         }
         
         // Check if reached MAX_BUFFER_SIZE
-        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE || deletedLength > MAX_BUFFER_SIZE) {
+        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE) {
             dispatch_async(submissionQueue, ^{
                 [self submitLastPacketOfChanges];
                  });
@@ -252,6 +336,10 @@ using namespace wewriteapp;
 {
     NSLog(@"Submission of last packet called.");
     
+    if (startCursorPosition < 0) {
+        return NO;
+    }
+    
     // Request for lock
     NSData *serialziedLockRequest = [self requestLock];
     [requestLockCond lock];
@@ -272,24 +360,30 @@ using namespace wewriteapp;
     // Pack localBuffer into Protocol Buffer
     EventBuffer *pendingChangeBuffer = new EventBuffer;
     participantID = [[self client] participantID];
-    if (deletedLength > 0)
+    if ([newlyInsertedChars length] > 0)
     {
-        assert([newlyInsertedChars length] == 0);
-        assert(startCursorPosition - deletedLength >= 0);
-        pendingChangeBuffer->set_participantid(participantID);
-        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
-        pendingChangeBuffer->set_startlocation(startCursorPosition);
-        pendingChangeBuffer->set_contents("");
-        pendingChangeBuffer->set_lengthused(deletedLength);
-    }
-    else
-    {
-        assert(deletedLength == 0);
+        if (deletedLength > 0)
+        {
+            startCursorPosition = startCursorPosition - deletedLength;
+        }
         pendingChangeBuffer->set_participantid(participantID);
         pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_INSERT);
         pendingChangeBuffer->set_startlocation(startCursorPosition);
         pendingChangeBuffer->set_contents([newlyInsertedChars UTF8String]);
         pendingChangeBuffer->set_lengthused([newlyInsertedChars length]);
+    }
+    else
+    {
+        assert([newlyInsertedChars length] == 0);
+        if (!isFromUndoStack)
+        {
+            assert(startCursorPosition - deletedLength >= 0);
+        }
+        pendingChangeBuffer->set_participantid(participantID);
+        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
+        pendingChangeBuffer->set_startlocation(startCursorPosition);
+        pendingChangeBuffer->set_contents([deletedChars UTF8String]);
+        pendingChangeBuffer->set_lengthused(deletedLength);
     }
 
     // Serialzie Protocol buffer
@@ -299,12 +393,16 @@ using namespace wewriteapp;
     
     // Clear local storage
     [newlyInsertedChars setString:@""];
+    [deletedChars setString:@""];
     deletedLength = 0;
     startCursorPosition = -1;
     
     // Push Protocol Buffer onto undo stack;
-    EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
-    [undoStack insertObject:pendingBufferWrapper atIndex:0];
+    if (!isFromUndoStack) {
+        EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
+        [undoStack insertObject:pendingBufferWrapper atIndex:0];
+    }
+    isFromUndoStack = NO;
     
     // Broadcast Event
     int32_t submissionRegistrationID = -1;

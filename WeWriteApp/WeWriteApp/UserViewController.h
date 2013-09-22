@@ -14,9 +14,8 @@
 #import "userTextView.h"
 using namespace wewriteapp;
 
-@interface EventBufferWrapper : NSObject{
-    EventBuffer *buffer;
-}
+@interface EventBufferWrapper : NSObject
+@property (nonatomic) EventBuffer *buffer;
 -(id)initWithBuffer:(EventBuffer*) inBuffer;
 @end
 
@@ -26,6 +25,7 @@ using namespace wewriteapp;
     char currentChar;
     NSInteger deletedLength;
     NSMutableString *newlyInsertedChars;
+    NSMutableString *deletedChars;
     
     NSMutableArray *undoStack;  // stack containing EventBuffer objects
     NSMutableArray *redoStack;  // stack containing EventBuffer objects
@@ -40,6 +40,7 @@ using namespace wewriteapp;
     BOOL requestLockIsSuccess;
     BOOL isWaitingForLockRequestResponse;
     BOOL otherUserHasRequestLockEarlier;
+    BOOL isFromUndoStack;
 }
 
 //-(void)setClientFromLogin:(CollabrifyClient *)inClient;
