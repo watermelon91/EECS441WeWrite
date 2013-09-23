@@ -75,7 +75,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "599"
             endingLineNumber = "599"
-            landmarkName = "-parseReceivedEvent:data:"
+            landmarkName = "-updateUndoRedoStackOffset:withContents:withEventType:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -459,12 +459,12 @@
                   symbolName = "-[UserViewController client:encounteredError:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401579005.958841"
+                  timestampString = "401579165.079272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "623"
                   endingLineNumber = "623"
-                  offsetFromSymbolStart = "89">
+                  offsetFromSymbolStart = "62">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -473,12 +473,26 @@
                   symbolName = "-[UserViewController client:encounteredError:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401579005.959278"
+                  timestampString = "401579165.079627"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "623"
                   endingLineNumber = "623"
-                  offsetFromSymbolStart = "207">
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UserViewController client:encounteredError:]"
+                  moduleName = "WeWriteApp"
+                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
+                  timestampString = "401579165.079938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "623"
+                  endingLineNumber = "623"
+                  offsetFromSymbolStart = "744">
                </Location>
             </Locations>
          </BreakpointContent>

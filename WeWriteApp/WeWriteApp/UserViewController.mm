@@ -408,6 +408,7 @@ using namespace wewriteapp;
     participantID = [[self client] participantID];
     if ([newlyInsertedChars length] > 0)
     {
+        assert(deletedLength >= 0);
         if (deletedLength > 0)
         {
             startCursorPosition = startCursorPosition - deletedLength;
@@ -489,10 +490,12 @@ using namespace wewriteapp;
         if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
         {
             NSLog(@"Own Insert event received");
+            // Do nothing.
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
         {
             NSLog(@"Own Delete event received");
+            // Do nothing.
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
         {
@@ -517,14 +520,17 @@ using namespace wewriteapp;
         else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
         {
             NSLog(@"Own Event Receipt confirmation event received");
+            // Do nothing. Only counts receipts from other users.
         }
         else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
         {
             NSLog(@"Own Undo Event Received");
+            // Do nothing. Changes already applied.
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
         {
             NSLog(@"Own Redo Event Received");
+            // Do nothing. Changes already applied.
         }
         else
         {
@@ -548,6 +554,16 @@ using namespace wewriteapp;
                                              [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
                     _textViewForUser.scrollEnabled = YES;
                 });
+
+                // Update offsets in undo and redo stacks
+                [self updateStackOffset:bufferReceived.startlocation()
+                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                          withEventType:bufferReceived.eventtype()
+                               forStack:undoStack];
+                [self updateStackOffset:bufferReceived.startlocation()
+                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                          withEventType:bufferReceived.eventtype()
+                               forStack:redoStack];
             }
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
@@ -565,6 +581,16 @@ using namespace wewriteapp;
                         _textViewForUser.scrollEnabled = YES;
                     });
                 }
+                
+                // Update offsets in undo and redo stacks
+                [self updateStackOffset:bufferReceived.startlocation()
+                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                          withEventType:bufferReceived.eventtype()
+                               forStack:undoStack];
+                [self updateStackOffset:bufferReceived.startlocation()
+                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                          withEventType:bufferReceived.eventtype()
+                               forStack:redoStack];
             });
         }
         else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
@@ -594,6 +620,129 @@ using namespace wewriteapp;
         {
             assert(bufferReceived.eventtype() == EventBuffer_EventType_UNKNOWN);
             NSLog(@"Other Unknown Event Received");
+        }
+    }
+}
+
+- (void) updateStackOffset:(NSInteger) startLocation
+              withContents:(NSString *) contents
+             withEventType:(EventBuffer_EventType) eventType
+                  forStack:(NSMutableArray *) stack
+{
+    for (int i = 0; i < [stack count]; i++)
+    {
+        EventBufferWrapper *ebw = [stack objectAtIndex:i];
+        assert(ebw.buffer->eventtype() == EventBuffer_EventType_DELETE ||
+               ebw.buffer->eventtype() == EventBuffer_EventType_INSERT);
+        EventBufferWrapper *possibleSplittedBuffer;
+        if (eventType == EventBuffer_EventType_INSERT)
+        {
+            possibleSplittedBuffer = [self updateOffsetForInsert:startLocation withContents:contents forEventBuffer:ebw];
+            if (possibleSplittedBuffer != nil) {
+                [stack insertObject:possibleSplittedBuffer atIndex:i];
+            }
+        }
+        else
+        {
+            [self updateOffsetForDelete:startLocation withContents:contents forEventBuffer:ebw];
+        }
+    }
+}
+
+-(EventBufferWrapper *)updateOffsetForInsert:(NSInteger) startLocation
+                                withContents:(NSString *) contents
+                              forEventBuffer:(EventBufferWrapper *)ebw
+{
+    if (ebw.buffer->eventtype() == EventBuffer_EventType_INSERT)
+    {
+        if(startLocation <= ebw.buffer->startlocation())
+        {
+            // insert before this insert chunk
+            ebw.buffer->set_startlocation(ebw.buffer->startlocation() + [contents length]);
+            return nil;
+        }
+        else if ((startLocation > ebw.buffer->startlocation()) &&
+                 (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+        {
+            // insert in the middle of this insert chunk
+            // we need to split on insert event into two
+            EventBuffer *secondHalfBuffer = new EventBuffer;
+            secondHalfBuffer->set_participantid(ebw.buffer->participantid());
+            secondHalfBuffer->set_eventtype(ebw.buffer->eventtype());
+            secondHalfBuffer->set_startlocation(startLocation+[contents length]);
+            secondHalfBuffer->set_contents(ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-1));
+            secondHalfBuffer->set_lengthused(ebw.buffer->lengthused() - startLocation);
+            
+            ebw.buffer->set_contents(ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation()-1));
+            ebw.buffer->set_lengthused(startLocation);
+            
+            EventBufferWrapper *splittedBufferSecondHalf = [[EventBufferWrapper alloc] initWithBuffer:secondHalfBuffer];
+            return splittedBufferSecondHalf;
+        }
+        else
+        {
+            // insert after this insert chunk. don't care.
+            return nil;
+        }
+    }
+    else // delete event
+    {
+        if (startLocation <= ebw.buffer->startlocation()) {
+            // delete before this insert chunk
+            ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
+            return nil;
+        }
+        else
+        {
+            // since it's delete, the contents are no longer on the screen.
+            // so no one can affect the deleted contents besides shifting the whole
+            // chunk forward or backward.
+            return nil;
+        }
+    }
+}
+
+-(void)updateOffsetForDelete:(NSInteger) startLocation
+                                withContents:(NSString *) contents
+                              forEventBuffer:(EventBufferWrapper *)ebw
+{
+    if (ebw.buffer->eventtype() == EventBuffer_EventType_INSERT) {
+        if(startLocation <= ebw.buffer->startlocation())
+        {
+            // insert before this delete chunk
+            ebw.buffer->set_startlocation(ebw.buffer->startlocation() + [contents length]);
+        }
+        else if ((startLocation > ebw.buffer->startlocation()) &&
+                 (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+        {
+            // delete in the middle of this insert chunk
+            std::string firstHalf;
+            if (startLocation - ebw.buffer->startlocation() >= [contents length])
+            {
+                firstHalf = ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation() - [contents length]);
+            }
+            else
+            {
+                firstHalf = "";
+            }
+            std::string secondHalf = ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused());
+            ebw.buffer->set_contents(firstHalf.append(secondHalf));
+            ebw.buffer->set_lengthused(ebw.buffer->contents().length());
+        }
+        else
+        {
+            // insert after this delete chunk. don't care.
+        }
+    }
+    else // delete event
+    {
+        if (startLocation <= ebw.buffer->startlocation()) {
+            // delete before this delete chunk
+            ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
+        }
+        else
+        {
+            // delete after this delete starting point. don't care
         }
     }
 }
