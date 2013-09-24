@@ -12,6 +12,8 @@
 #import <google/protobuf/io/coded_stream.h>
 #import "protocolBufferRawStructDefinition.pb.h"
 #import "userTextView.h"
+#import "SingletonLock.h"
+
 using namespace wewriteapp;
 
 @interface EventBufferWrapper : NSObject
@@ -20,15 +22,15 @@ using namespace wewriteapp;
 @end
 
 @interface UserViewController : UIViewController <UITextViewDelegate, CollabrifyClientDelegate, CollabrifyClientDataSource>{
-    NSInteger startCursorPosition;
+    NSInteger startCursorPosition;  // submissionLastPacket, parseReceivedEvent, main
     NSInteger currentCursorPosition;
     char currentChar;
-    NSInteger deletedLength;
-    NSMutableString *newlyInsertedChars;
-    NSMutableString *deletedChars;
+    NSInteger deletedLength; // parseReceivedEvent, main
+    NSMutableString *newlyInsertedChars; // submitLastPacket, main
+    NSMutableString *deletedChars; // submitLastPacket, main
     
-    NSMutableArray *undoStack;  // stack containing EventBuffer objects
-    NSMutableArray *redoStack;  // stack containing EventBuffer objects
+    NSMutableArray *undoStack;  // stack containing EventBuffer objects; main, submit, parse
+    NSMutableArray *redoStack;  // stack containing EventBuffer objects; parse, main
     
     NSTimer *timer;
     int64_t participantID;
@@ -40,7 +42,9 @@ using namespace wewriteapp;
     BOOL requestLockIsSuccess;
     BOOL isWaitingForLockRequestResponse;
     BOOL otherUserHasRequestLockEarlier;
-    BOOL isFromUndoStack;
+    BOOL isFromUndoStack; // main, submit
+    
+    SingletonLock *globalLock;
 }
 
 //-(void)setClientFromLogin:(CollabrifyClient *)inClient;

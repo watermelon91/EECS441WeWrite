@@ -54,6 +54,7 @@ using namespace wewriteapp;
     undoStack = [[NSMutableArray alloc] init];
     redoStack = [[NSMutableArray alloc] init];
     userJustSubmitted = NO;
+    globalLock = [[SingletonLock alloc] init];
     
     [[self client] setDelegate:self];
     [[self client] setDataSource:self];
@@ -128,52 +129,55 @@ using namespace wewriteapp;
         [self submitLastPacketOfChanges];
     });
     
-    // Pop redoStack
-    // We don't push to undoStack, leave it to the SubmitLastPacket function
-    if ([redoStack count] == 0) {
-        return;
-    }
-    
-    EventBufferWrapper *redoEvent = [redoStack objectAtIndex:0];
-    [redoStack removeObjectAtIndex:0];
-    
-    // Submit event to server.
-    EventBuffer *originalEvent = [redoEvent buffer];
-    if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
+    @synchronized(globalLock)
     {
-        startCursorPosition = originalEvent->startlocation();
-        newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
-        
-        // Update UI
-        _textViewForUser.scrollEnabled = NO;
-        _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                 [_textViewForUser.text substringToIndex:startCursorPosition],
-                                 newlyInsertedChars,
-                                 [_textViewForUser.text substringFromIndex:startCursorPosition]];
-        _textViewForUser.scrollEnabled = YES;
-        
-        
-    }
-    else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
-    {
-        startCursorPosition = originalEvent->startlocation();
-        deletedLength = originalEvent->lengthused();
-        deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
-        
-        // Update UI
-        if (startCursorPosition >= 0) {
-            // Update UI with other users' changes
-            _textViewForUser.scrollEnabled = NO;
-            _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
-                                     [_textViewForUser.text substringToIndex:startCursorPosition],
-                                     [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
-            _textViewForUser.scrollEnabled = YES;
+        // Pop redoStack
+        // We don't push to undoStack, leave it to the SubmitLastPacket function
+        if ([redoStack count] == 0) {
+            return;
         }
-    }
-    else
-    {
-        NSLog(@"Events other than insert and delete on redo stack.");
-        assert(false);
+        
+        EventBufferWrapper *redoEvent = [redoStack objectAtIndex:0];
+        [redoStack removeObjectAtIndex:0];
+        
+        // Submit event to server.
+        EventBuffer *originalEvent = [redoEvent buffer];
+        if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
+        {
+            startCursorPosition = originalEvent->startlocation();
+            newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+            
+            // Update UI
+            _textViewForUser.scrollEnabled = NO;
+            _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                     [_textViewForUser.text substringToIndex:startCursorPosition],
+                                     newlyInsertedChars,
+                                     [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            _textViewForUser.scrollEnabled = YES;
+            
+            
+        }
+        else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
+        {
+            startCursorPosition = originalEvent->startlocation();
+            deletedLength = originalEvent->lengthused();
+            deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+            
+            // Update UI
+            if (startCursorPosition >= 0) {
+                // Update UI with other users' changes
+                _textViewForUser.scrollEnabled = NO;
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                         [_textViewForUser.text substringToIndex:startCursorPosition],
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+                _textViewForUser.scrollEnabled = YES;
+            }
+        }
+        else
+        {
+            NSLog(@"Events other than insert and delete on redo stack.");
+            assert(false);
+        }
     }
     
     // Submit event to server.
@@ -192,59 +196,63 @@ using namespace wewriteapp;
         [self submitLastPacketOfChanges];
     });
     
-    // Pop undoStack;
-    if ([undoStack count] == 0)
+    @synchronized(globalLock)
     {
-        return;
-    }
-    
-    EventBufferWrapper *undoEvent = [undoStack objectAtIndex:0];
-    [undoStack removeObjectAtIndex:0];
-    
-    // Push redoStack;
-    [redoStack insertObject:undoEvent atIndex:0];
-    
-    // Submit reverse event to server.
-    EventBuffer *originalEvent = [undoEvent buffer];
-    if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
-    {
-        // Change to delete event
-        startCursorPosition = originalEvent->startlocation();
-        deletedLength = originalEvent->lengthused();
-        deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        // Pop undoStack;
+        if ([undoStack count] == 0)
+        {
+            return;
+        }
         
-        // Update UI
-        if (startCursorPosition >= 0) {
-            // Update UI with other users' changes
+        EventBufferWrapper *undoEvent = [undoStack objectAtIndex:0];
+        [undoStack removeObjectAtIndex:0];
+        
+        // Push redoStack;
+        [redoStack insertObject:undoEvent atIndex:0];
+        
+        // Submit reverse event to server.
+        EventBuffer *originalEvent = [undoEvent buffer];
+        if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
+        {
+            // Change to delete event
+            startCursorPosition = originalEvent->startlocation();
+            deletedLength = originalEvent->lengthused();
+            deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+            
+            // Update UI
+            if (startCursorPosition >= 0) {
+                // Update UI with other users' changes
+                _textViewForUser.scrollEnabled = NO;
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                         [_textViewForUser.text substringToIndex:startCursorPosition],
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+                _textViewForUser.scrollEnabled = YES;
+            }
+            
+        }
+        else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
+        {
+            // Change to insert event
+            startCursorPosition = originalEvent->startlocation();
+            newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+            
+            // Update UI
             _textViewForUser.scrollEnabled = NO;
-            _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+            _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
                                      [_textViewForUser.text substringToIndex:startCursorPosition],
-                                     [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+                                     newlyInsertedChars,
+                                     [_textViewForUser.text substringFromIndex:startCursorPosition]];
             _textViewForUser.scrollEnabled = YES;
         }
-
-    }
-    else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
-    {
-        // Change to insert event
-        startCursorPosition = originalEvent->startlocation();
-        newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
+        else
+        {
+            NSLog(@"Events other than insert and delete on undo stack.");
+            assert(false);
+        }
         
-        // Update UI
-        _textViewForUser.scrollEnabled = NO;
-        _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                 [_textViewForUser.text substringToIndex:startCursorPosition],
-                                 newlyInsertedChars,
-                                 [_textViewForUser.text substringFromIndex:startCursorPosition]];
-        _textViewForUser.scrollEnabled = YES;
-    }
-    else
-    {
-        NSLog(@"Events other than insert and delete on undo stack.");
-        assert(false);
+        isFromUndoStack = YES;
     }
     
-    isFromUndoStack = YES;
     dispatch_async(submissionQueue, ^{
         [self submitLastPacketOfChanges];
     });
@@ -264,66 +272,69 @@ using namespace wewriteapp;
     char newChar = 0;
     NSLog(@"NewCursorPosition for typing %d; text length: %d", newCursorPosition, [text length]);
     
-    // Record newly typed/deleted words in localBuffer
-    if (range.length == 1)
+    @synchronized(globalLock)
     {
-        // Delete
-        NSLog(@"delete");
-        deletedLength++;
-        newChar = [[_textViewForUser text] characterAtIndex:newCursorPosition-2];
-        [deletedChars insertString:[NSString stringWithFormat:@"%c", currentChar] atIndex:0];
-        if([newlyInsertedChars length] > 0)
+        // Record newly typed/deleted words in localBuffer
+        if (range.length == 1)
         {
-            NSRange tempRange;
-            tempRange.length = 1;
-            tempRange.location = [newlyInsertedChars length] - 1;
-            [newlyInsertedChars deleteCharactersInRange: tempRange];
-            deletedLength--;
+            // Delete
+            NSLog(@"delete");
+            deletedLength++;
+            newChar = [[_textViewForUser text] characterAtIndex:newCursorPosition-2];
+            [deletedChars insertString:[NSString stringWithFormat:@"%c", currentChar] atIndex:0];
+            if([newlyInsertedChars length] > 0)
+            {
+                NSRange tempRange;
+                tempRange.length = 1;
+                tempRange.location = [newlyInsertedChars length] - 1;
+                [newlyInsertedChars deleteCharactersInRange: tempRange];
+                deletedLength--;
+            }
+            // Check if reached MAX_BUFFER_SIZE
+            if (deletedLength > MAX_BUFFER_SIZE) {
+                dispatch_async(submissionQueue, ^{
+                    [self submitLastPacketOfChanges];
+                });
+                userJustSubmitted = YES;
+            }
+            NSLog(@"deletedLength: %d, chars: %@", deletedLength, deletedChars);
         }
-        // Check if reached MAX_BUFFER_SIZE
-        if (deletedLength > MAX_BUFFER_SIZE) {
-            dispatch_async(submissionQueue, ^{
-                [self submitLastPacketOfChanges];
-            });
-            userJustSubmitted = YES;
+        else if(range.length == 0)
+        {
+            // Insert
+            NSLog(@"insert");
+            if ([text length] == 0) { // no real input
+                return YES;
+            }
+            
+            newChar = [text characterAtIndex:0];
+            [newlyInsertedChars appendFormat:@"%c", newChar];
+            
+            if (deletedLength > 0) {
+                deletedLength--;
+            }
+            
+            // Check if reached MAX_BUFFER_SIZE
+            if ([newlyInsertedChars length] > MAX_BUFFER_SIZE) {
+                dispatch_async(submissionQueue, ^{
+                    [self submitLastPacketOfChanges];
+                });
+                userJustSubmitted = YES;
+            }
+            NSLog(@"newlyInsertedChars: %@", newlyInsertedChars);
         }
-        NSLog(@"deletedLength: %d, chars: %@", deletedLength, deletedChars);
-    }
-    else if(range.length == 0)
-    {
-        // Insert
-        NSLog(@"insert");
-        if ([text length] == 0) { // no real input
-            return YES;
+        else
+        {
+            abort();
         }
-
-        newChar = [text characterAtIndex:0];
-        [newlyInsertedChars appendFormat:@"%c", newChar];
         
-        if (deletedLength > 0) {
-            deletedLength--;
+        // Update current cursor position & char
+        if (startCursorPosition == -1) {
+            startCursorPosition = newCursorPosition;
         }
-        
-        // Check if reached MAX_BUFFER_SIZE
-        if ([newlyInsertedChars length] > MAX_BUFFER_SIZE) {
-            dispatch_async(submissionQueue, ^{
-                [self submitLastPacketOfChanges];
-                 });
-            userJustSubmitted = YES;
-        }
-        NSLog(@"newlyInsertedChars: %@", newlyInsertedChars);
+        currentChar = newChar;
+        currentCursorPosition = newCursorPosition;
     }
-    else
-    {
-        abort();
-    }
-    
-    // Update current cursor position & char
-    if (startCursorPosition == -1) {
-        startCursorPosition = newCursorPosition;
-    }
-    currentChar = newChar;
-    currentCursorPosition = newCursorPosition;
     
     return YES;
 }
@@ -336,24 +347,27 @@ using namespace wewriteapp;
             [self submitLastPacketOfChanges];
         });
         
-        // Update current cursor position
-        if (startCursorPosition == -1)
+        @synchronized(globalLock)
         {
-            startCursorPosition = textView.selectedRange.location;
+            // Update current cursor position
+            if (startCursorPosition == -1)
+            {
+                startCursorPosition = textView.selectedRange.location;
+            }
+            
+            if (textView.selectedRange.location <= [textView.text length])
+            {
+                currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
+            }
+            else
+            {
+                currentChar = 0;
+            }
+            currentCursorPosition = textView.selectedRange.location;
+            
+            NSLog(@"CursorLocation Manually changed.");
+            NSLog(@"current cursor location: %d; currentChar: %c", textView.selectedRange.location, currentChar);
         }
-        
-        if (textView.selectedRange.location <= [textView.text length])
-        {
-            currentChar = [textView.text characterAtIndex:textView.selectedRange.location-1];
-        }
-        else
-        {
-            currentChar = 0;
-        }
-        currentCursorPosition = textView.selectedRange.location;
-        
-        NSLog(@"CursorLocation Manually changed.");
-        NSLog(@"current cursor location: %d; currentChar: %c", textView.selectedRange.location, currentChar);
     }
     else
     {
@@ -382,14 +396,20 @@ using namespace wewriteapp;
 {
     NSLog(@"Submission of last packet called.");
     
-    if (startCursorPosition < 0) {
-        return NO;
+    int32_t submissionRegID = -1;
+    NSData *serialziedLockRequest = nil;
+    @synchronized(globalLock)
+    {
+        if (startCursorPosition < 0) {
+            return NO;
+        }
+        
+        // Request for lock
+        serialziedLockRequest = [self requestLock];
+        [requestLockCond lock];
+        submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
     }
     
-    // Request for lock
-    NSData *serialziedLockRequest = [self requestLock];
-    [requestLockCond lock];
-    int32_t submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
     while (!requestLockIsSuccess) {
         isWaitingForLockRequestResponse = YES;
         if (otherUserHasRequestLockEarlier) {
@@ -399,74 +419,78 @@ using namespace wewriteapp;
         }
         [requestLockCond wait];
     }
-    requestLockIsSuccess = NO;
-    [requestLockCond unlock];
-    NSLog(@"Lock obtained. SubmissionID: %d", submissionRegID);
     
-    // Pack localBuffer into Protocol Buffer
-    EventBuffer *pendingChangeBuffer = new EventBuffer;
-    participantID = [[self client] participantID];
-    if ([newlyInsertedChars length] > 0)
+    @synchronized(globalLock)
     {
-        assert(deletedLength >= 0);
-        if (deletedLength > 0)
+        requestLockIsSuccess = NO;
+        [requestLockCond unlock];
+        NSLog(@"Lock obtained. SubmissionID: %d", submissionRegID);
+        
+        // Pack localBuffer into Protocol Buffer
+        EventBuffer *pendingChangeBuffer = new EventBuffer;
+        participantID = [[self client] participantID];
+        if ([newlyInsertedChars length] > 0)
         {
-            startCursorPosition = startCursorPosition - deletedLength;
+            assert(deletedLength >= 0);
+            if (deletedLength > 0)
+            {
+                startCursorPosition = startCursorPosition - deletedLength;
+            }
+            pendingChangeBuffer->set_participantid(participantID);
+            pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_INSERT);
+            pendingChangeBuffer->set_startlocation(startCursorPosition);
+            pendingChangeBuffer->set_contents([newlyInsertedChars UTF8String]);
+            pendingChangeBuffer->set_lengthused([newlyInsertedChars length]);
         }
-        pendingChangeBuffer->set_participantid(participantID);
-        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_INSERT);
-        pendingChangeBuffer->set_startlocation(startCursorPosition);
-        pendingChangeBuffer->set_contents([newlyInsertedChars UTF8String]);
-        pendingChangeBuffer->set_lengthused([newlyInsertedChars length]);
-    }
-    else
-    {
-        assert([newlyInsertedChars length] == 0);
-        if (!isFromUndoStack)
+        else
         {
-            assert(startCursorPosition - deletedLength >= 0);
+            assert([newlyInsertedChars length] == 0);
+            if (!isFromUndoStack)
+            {
+                assert(startCursorPosition - deletedLength >= 0);
+            }
+            pendingChangeBuffer->set_participantid(participantID);
+            pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
+            pendingChangeBuffer->set_startlocation(startCursorPosition);
+            pendingChangeBuffer->set_contents([deletedChars UTF8String]);
+            pendingChangeBuffer->set_lengthused(deletedLength);
         }
-        pendingChangeBuffer->set_participantid(participantID);
-        pendingChangeBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_DELETE);
-        pendingChangeBuffer->set_startlocation(startCursorPosition);
-        pendingChangeBuffer->set_contents([deletedChars UTF8String]);
-        pendingChangeBuffer->set_lengthused(deletedLength);
+        
+        // Serialzie Protocol buffer
+        char * dataForSubmissionStr = (char *)malloc(pendingChangeBuffer->ByteSize());
+        pendingChangeBuffer->SerializeToArray(dataForSubmissionStr, pendingChangeBuffer->ByteSize());
+        NSData * serializedData = [NSData dataWithBytesNoCopy:dataForSubmissionStr length:pendingChangeBuffer->ByteSize()];
+        
+        // Clear local storage
+        [newlyInsertedChars setString:@""];
+        [deletedChars setString:@""];
+        deletedLength = 0;
+        startCursorPosition = -1;
+        
+        // Push Protocol Buffer onto undo stack;
+        if (!isFromUndoStack) {
+            EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
+            [undoStack insertObject:pendingBufferWrapper atIndex:0];
+        }
+        isFromUndoStack = NO;
+        
+        // Broadcast Event
+        int32_t submissionRegistrationID = -1;
+        if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_DELETE)
+        {
+            submissionRegistrationID = [[self client] broadcast:serializedData eventType:DELETE_EVENT];
+        }
+        else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_INSERT)
+        {
+            submissionRegistrationID = [[self client] broadcast:serializedData eventType:INSERT_EVENT];
+        }
+        else
+        {
+            NSLog(@"Other event type: %d", pendingChangeBuffer->eventtype());
+        }
+        
+        NSLog(@"SubmissionID: %d", submissionRegistrationID);
     }
-
-    // Serialzie Protocol buffer
-    char * dataForSubmissionStr = (char *)malloc(pendingChangeBuffer->ByteSize());
-    pendingChangeBuffer->SerializeToArray(dataForSubmissionStr, pendingChangeBuffer->ByteSize());
-    NSData * serializedData = [NSData dataWithBytesNoCopy:dataForSubmissionStr length:pendingChangeBuffer->ByteSize()];
-    
-    // Clear local storage
-    [newlyInsertedChars setString:@""];
-    [deletedChars setString:@""];
-    deletedLength = 0;
-    startCursorPosition = -1;
-    
-    // Push Protocol Buffer onto undo stack;
-    if (!isFromUndoStack) {
-        EventBufferWrapper *pendingBufferWrapper = [[EventBufferWrapper alloc] initWithBuffer:pendingChangeBuffer];
-        [undoStack insertObject:pendingBufferWrapper atIndex:0];
-    }
-    isFromUndoStack = NO;
-    
-    // Broadcast Event
-    int32_t submissionRegistrationID = -1;
-    if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_DELETE)
-    {
-        submissionRegistrationID = [[self client] broadcast:serializedData eventType:DELETE_EVENT];
-    }
-    else if (pendingChangeBuffer->eventtype() == wewriteapp::EventBuffer_EventType_INSERT)
-    {
-        submissionRegistrationID = [[self client] broadcast:serializedData eventType:INSERT_EVENT];
-    }
-    else
-    {
-        NSLog(@"Other event type: %d", pendingChangeBuffer->eventtype());
-    }
-
-    NSLog(@"SubmissionID: %d", submissionRegistrationID);
     
     return YES; // UPDATE HERE to reflect actual submission status
 }
@@ -484,6 +508,7 @@ using namespace wewriteapp;
     EventBuffer bufferReceived;
     bufferReceived.ParseFromArray([data bytes], [data length]);
     NSLog(@"parsedResult: %d, %s, %d, %d, %d", bufferReceived.participantid(), bufferReceived.contents().c_str(), bufferReceived.lengthused(), bufferReceived.eventtype(), bufferReceived.startlocation());
+ 
     if(bufferReceived.participantid() == participantID)
     {
         // user's own event
@@ -540,86 +565,125 @@ using namespace wewriteapp;
     }
     else
     {
-        // other user's event
-        if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
+        @synchronized(globalLock)
         {
-            NSLog(@"Other Insert event received");
-            if (bufferReceived.startlocation() >= 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    // Update UI with other users' changes
-                    _textViewForUser.scrollEnabled = NO;
-                    _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                             [_textViewForUser.text substringToIndex:bufferReceived.startlocation()],
-                                             [NSString stringWithFormat:@"%s", bufferReceived.contents().substr(0, bufferReceived.lengthused()).c_str()],
-                                             [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
-                    _textViewForUser.scrollEnabled = YES;
-                });
-
-                // Update offsets in undo and redo stacks
-                [self updateStackOffset:bufferReceived.startlocation()
-                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
-                          withEventType:bufferReceived.eventtype()
-                               forStack:undoStack];
-                [self updateStackOffset:bufferReceived.startlocation()
-                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
-                          withEventType:bufferReceived.eventtype()
-                               forStack:redoStack];
+            // other user's event
+            NSLog(@"TextView text length: %d, bufferReceived Start Location: %d", [_textViewForUser.text length], bufferReceived.startlocation());
+            if (bufferReceived.startlocation() < 0)
+            {
+                // Not a legal packet;
+                return;
             }
-        }
-        else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
-        {
-            NSLog(@"Other Delete event received");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update UI with other users' changes
+            assert([_textViewForUser.text length] >= bufferReceived.startlocation());
+            if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
+            {
+                NSLog(@"Other Insert event received");
                 if (bufferReceived.startlocation() >= 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // Update UI with other users' changes
                         _textViewForUser.scrollEnabled = NO;
-                        _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
-                                                 [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-bufferReceived.lengthused()],
-                                                 [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
+                        NSString *middlePartString = [NSString stringWithUTF8String:bufferReceived.contents().c_str()];
+                        if (bufferReceived.startlocation() == [_textViewForUser.text length])
+                        {
+                            // insert at the end of current text
+                            NSString *firstPartString = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-1];
+                            _textViewForUser.text = [firstPartString stringByAppendingString:middlePartString];
+                        }
+                        else
+                        {
+                            NSString *firstPartString = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()];
+                            _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                                     firstPartString,
+                                                     middlePartString,
+                                                     [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
+                        }
                         _textViewForUser.scrollEnabled = YES;
                     });
+                    
+                    if ((bufferReceived.startlocation() <= startCursorPosition) && (startCursorPosition >= 0))
+                    {
+                        startCursorPosition += bufferReceived.lengthused();
+                    }
+                    
+                    // Update offsets in undo and redo stacks
+                    [self updateStackOffset:bufferReceived.startlocation()
+                               withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                              withEventType:bufferReceived.eventtype()
+                                   forStack:undoStack];
+                    [self updateStackOffset:bufferReceived.startlocation()
+                               withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                              withEventType:bufferReceived.eventtype()
+                                   forStack:redoStack];
                 }
-                
-                // Update offsets in undo and redo stacks
-                [self updateStackOffset:bufferReceived.startlocation()
-                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
-                          withEventType:bufferReceived.eventtype()
-                               forStack:undoStack];
-                [self updateStackOffset:bufferReceived.startlocation()
-                           withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
-                          withEventType:bufferReceived.eventtype()
-                               forStack:redoStack];
-            });
-        }
-        else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
-        {
-            NSLog(@"Other Lock request event received");
-            [requestLockCond lock];
-            if (isWaitingForLockRequestResponse)
-            {
-                // User waiting for its lock and received some other user's request first
-                otherUserHasRequestLockEarlier = YES;
             }
-            [requestLockCond unlock];
-        }
-        else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
-        {
-            NSLog(@"Other Event Receipt confirmation event received");
-        }
-        else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
-        {
-            NSLog(@"Other Undo Event Received");
-        }
-        else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
-        {
-            NSLog(@"Other Redo Event Received");
-        }
-        else
-        {
-            assert(bufferReceived.eventtype() == EventBuffer_EventType_UNKNOWN);
-            NSLog(@"Other Unknown Event Received");
+            else if (bufferReceived.eventtype() == EventBuffer_EventType_DELETE)
+            {
+                NSLog(@"Other Delete event received");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // Update UI with other users' changes
+                    if (bufferReceived.startlocation() >= 0) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            // Update UI with other users' changes
+                            _textViewForUser.scrollEnabled = NO;
+                            if (bufferReceived.startlocation() == [_textViewForUser.text length])
+                            {
+                                // delete from the end of current text
+                                _textViewForUser.text = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-bufferReceived.lengthused()];
+                            }
+                            else
+                            {
+                                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                                         [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-bufferReceived.lengthused()],
+                                                         [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
+                            }
+                            _textViewForUser.scrollEnabled = YES;
+                        });
+                    }
+                    
+                    if ((bufferReceived.startlocation() <= startCursorPosition) && (startCursorPosition >= 0)) {
+                        assert(bufferReceived.lengthused() <= startCursorPosition);
+                        startCursorPosition -= bufferReceived.lengthused();
+                    }
+                    
+                    // Update offsets in undo and redo stacks
+                    [self updateStackOffset:bufferReceived.startlocation()
+                               withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                              withEventType:bufferReceived.eventtype()
+                                   forStack:undoStack];
+                    [self updateStackOffset:bufferReceived.startlocation()
+                               withContents:[NSString stringWithFormat:@"%s", bufferReceived.contents().c_str()]
+                              withEventType:bufferReceived.eventtype()
+                                   forStack:redoStack];
+                });
+            }
+            else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_REQUEST)
+            {
+                NSLog(@"Other Lock request event received");
+                [requestLockCond lock];
+                if (isWaitingForLockRequestResponse)
+                {
+                    // User waiting for its lock and received some other user's request first
+                    otherUserHasRequestLockEarlier = YES;
+                }
+                [requestLockCond unlock];
+            }
+            else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
+            {
+                NSLog(@"Other Event Receipt confirmation event received");
+            }
+            else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
+            {
+                NSLog(@"Other Undo Event Received");
+            }
+            else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
+            {
+                NSLog(@"Other Redo Event Received");
+            }
+            else
+            {
+                assert(bufferReceived.eventtype() == EventBuffer_EventType_UNKNOWN);
+                NSLog(@"Other Unknown Event Received");
+            }
         }
     }
 }
@@ -653,53 +717,59 @@ using namespace wewriteapp;
                                 withContents:(NSString *) contents
                               forEventBuffer:(EventBufferWrapper *)ebw
 {
-    if (ebw.buffer->eventtype() == EventBuffer_EventType_INSERT)
-    {
-        if(startLocation <= ebw.buffer->startlocation())
+    @try {
+        if (ebw.buffer->eventtype() == EventBuffer_EventType_INSERT)
         {
-            // insert before this insert chunk
-            ebw.buffer->set_startlocation(ebw.buffer->startlocation() + [contents length]);
-            return nil;
+            if(startLocation <= ebw.buffer->startlocation())
+            {
+                // insert before this insert chunk
+                ebw.buffer->set_startlocation(ebw.buffer->startlocation() + [contents length]);
+                return nil;
+            }
+            else if ((startLocation > ebw.buffer->startlocation()) &&
+                     (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+            {
+                // insert in the middle of this insert chunk
+                // we need to split on insert event into two
+                EventBuffer *secondHalfBuffer = new EventBuffer;
+                secondHalfBuffer->set_participantid(ebw.buffer->participantid());
+                secondHalfBuffer->set_eventtype(ebw.buffer->eventtype());
+                secondHalfBuffer->set_startlocation(startLocation+[contents length]);
+                secondHalfBuffer->set_contents(ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-1));
+                secondHalfBuffer->set_lengthused(ebw.buffer->lengthused() - startLocation);
+                
+                ebw.buffer->set_contents(ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation()-1));
+                ebw.buffer->set_lengthused(startLocation);
+                
+                EventBufferWrapper *splittedBufferSecondHalf = [[EventBufferWrapper alloc] initWithBuffer:secondHalfBuffer];
+                return splittedBufferSecondHalf;
+            }
+            else
+            {
+                // insert after this insert chunk. don't care.
+                return nil;
+            }
         }
-        else if ((startLocation > ebw.buffer->startlocation()) &&
-                 (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+        else // delete event
         {
-            // insert in the middle of this insert chunk
-            // we need to split on insert event into two
-            EventBuffer *secondHalfBuffer = new EventBuffer;
-            secondHalfBuffer->set_participantid(ebw.buffer->participantid());
-            secondHalfBuffer->set_eventtype(ebw.buffer->eventtype());
-            secondHalfBuffer->set_startlocation(startLocation+[contents length]);
-            secondHalfBuffer->set_contents(ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-1));
-            secondHalfBuffer->set_lengthused(ebw.buffer->lengthused() - startLocation);
-            
-            ebw.buffer->set_contents(ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation()-1));
-            ebw.buffer->set_lengthused(startLocation);
-            
-            EventBufferWrapper *splittedBufferSecondHalf = [[EventBufferWrapper alloc] initWithBuffer:secondHalfBuffer];
-            return splittedBufferSecondHalf;
-        }
-        else
-        {
-            // insert after this insert chunk. don't care.
-            return nil;
+            if (startLocation <= ebw.buffer->startlocation()) {
+                // delete before this insert chunk
+                ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
+                return nil;
+            }
+            else
+            {
+                // since it's delete, the contents are no longer on the screen.
+                // so no one can affect the deleted contents besides shifting the whole
+                // chunk forward or backward.
+                return nil;
+            }
         }
     }
-    else // delete event
-    {
-        if (startLocation <= ebw.buffer->startlocation()) {
-            // delete before this insert chunk
-            ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
-            return nil;
-        }
-        else
-        {
-            // since it's delete, the contents are no longer on the screen.
-            // so no one can affect the deleted contents besides shifting the whole
-            // chunk forward or backward.
-            return nil;
-        }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
     }
+
 }
 
 -(void)updateOffsetForDelete:(NSInteger) startLocation

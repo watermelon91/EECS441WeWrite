@@ -59,6 +59,7 @@
 		A70ABE6017E2B6A200AC31A9 /* LoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */; };
 		A70ABE6317E62D8E00AC31A9 /* userTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A70ABE6217E62D8E00AC31A9 /* userTextView.m */; };
 		A726BF8817ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = A726BF8617ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc */; };
+		A73B29CD17F1E77B002A65BB /* SingletonLock.m in Sources */ = {isa = PBXBuildFile; fileRef = A73B29CC17F1E77B002A65BB /* SingletonLock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +175,8 @@
 		A726BF8517ECE607003E1728 /* protocolBufferRawStructDefinition.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = protocolBufferRawStructDefinition.proto; sourceTree = "<group>"; };
 		A726BF8617ECE961003E1728 /* protocolBufferRawStructDefinition.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = protocolBufferRawStructDefinition.pb.cc; sourceTree = "<group>"; };
 		A726BF8717ECE961003E1728 /* protocolBufferRawStructDefinition.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocolBufferRawStructDefinition.pb.h; sourceTree = "<group>"; };
+		A73B29CB17F1E77B002A65BB /* SingletonLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonLock.h; sourceTree = "<group>"; };
+		A73B29CC17F1E77B002A65BB /* SingletonLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonLock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 				A70ABDCC17DA64E500AC31A9 /* MainStoryboard.storyboard */,
 				A70ABE6117E62D8E00AC31A9 /* userTextView.h */,
 				A70ABE6217E62D8E00AC31A9 /* userTextView.m */,
+				A73B29CB17F1E77B002A65BB /* SingletonLock.h */,
+				A73B29CC17F1E77B002A65BB /* SingletonLock.m */,
 				A70ABE5E17E2B6A200AC31A9 /* LoginViewController.h */,
 				A70ABE5F17E2B6A200AC31A9 /* LoginViewController.mm */,
 				A70ABDCF17DA64E500AC31A9 /* UserViewController.h */,
@@ -499,6 +504,7 @@
 				A70ABE5017DA656D00AC31A9 /* googletest.cc in Sources */,
 				A70ABE5117DA656D00AC31A9 /* text_format.cc in Sources */,
 				A70ABE5217DA656D00AC31A9 /* unknown_field_set.cc in Sources */,
+				A73B29CD17F1E77B002A65BB /* SingletonLock.m in Sources */,
 				A70ABE5317DA656D00AC31A9 /* wire_format.cc in Sources */,
 				A70ABE5417DA656D00AC31A9 /* wire_format_lite.cc in Sources */,
 				A70ABE5D17DFE4FC00AC31A9 /* CustomDatatype.m in Sources */,
