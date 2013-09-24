@@ -583,15 +583,19 @@ using namespace wewriteapp;
                         // Update UI with other users' changes
                         _textViewForUser.scrollEnabled = NO;
                         NSString *middlePartString = [NSString stringWithUTF8String:bufferReceived.contents().c_str()];
-                        if (bufferReceived.startlocation() == [_textViewForUser.text length])
+                        NSLog(@"bufferStart: %d, exisingTextL: %d", bufferReceived.startlocation(),([_textViewForUser.text length]-1));
+                        assert(bufferReceived.startlocation() <= ([_textViewForUser.text length]));
+                        if (bufferReceived.startlocation() == ([_textViewForUser.text length]-1))
                         {
                             // insert at the end of current text
-                            NSString *firstPartString = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-1];
+                            NSString *firstPartString = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()];
+                            NSLog(@"firstPart Equal: %@", firstPartString);
                             _textViewForUser.text = [firstPartString stringByAppendingString:middlePartString];
                         }
                         else
                         {
                             NSString *firstPartString = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()];
+                            NSLog(@"firstPart NOT Equal: %@; bufferEventStart: %d, existingTextLength: %d", firstPartString, bufferReceived.startlocation(), [_textViewForUser.text length]);
                             _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
                                                      firstPartString,
                                                      middlePartString,
@@ -625,7 +629,8 @@ using namespace wewriteapp;
                         dispatch_async(dispatch_get_main_queue(), ^{
                             // Update UI with other users' changes
                             _textViewForUser.scrollEnabled = NO;
-                            if (bufferReceived.startlocation() == [_textViewForUser.text length])
+                            assert(bufferReceived.startlocation() <= [_textViewForUser.text length]);
+                            if (bufferReceived.startlocation() == ([_textViewForUser.text length] - 1))
                             {
                                 // delete from the end of current text
                                 _textViewForUser.text = [_textViewForUser.text substringToIndex:bufferReceived.startlocation()-bufferReceived.lengthused()];
@@ -703,7 +708,9 @@ using namespace wewriteapp;
         {
             possibleSplittedBuffer = [self updateOffsetForInsert:startLocation withContents:contents forEventBuffer:ebw];
             if (possibleSplittedBuffer != nil) {
+                NSLog(@"Inserted at index: %d", i);
                 [stack insertObject:possibleSplittedBuffer atIndex:i];
+                i++;
             }
         }
         else
@@ -727,7 +734,7 @@ using namespace wewriteapp;
                 return nil;
             }
             else if ((startLocation > ebw.buffer->startlocation()) &&
-                     (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+                     (startLocation < (ebw.buffer->startlocation() + ebw.buffer->lengthused()-1)))
             {
                 // insert in the middle of this insert chunk
                 // we need to split on insert event into two
@@ -735,10 +742,16 @@ using namespace wewriteapp;
                 secondHalfBuffer->set_participantid(ebw.buffer->participantid());
                 secondHalfBuffer->set_eventtype(ebw.buffer->eventtype());
                 secondHalfBuffer->set_startlocation(startLocation+[contents length]);
-                secondHalfBuffer->set_contents(ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-1));
-                secondHalfBuffer->set_lengthused(ebw.buffer->lengthused() - startLocation);
+                NSLog(@"%d", __LINE__);
+                std::string temp1 = ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-(startLocation-ebw.buffer->startlocation()));
+                NSLog(@"temp1: %s", temp1.c_str());
+                secondHalfBuffer->set_contents(temp1);
+                secondHalfBuffer->set_lengthused(temp1.length());
                 
-                ebw.buffer->set_contents(ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation()-1));
+                NSLog(@"%d", __LINE__);
+                std::string temp2 = ebw.buffer->contents().substr(0, startLocation-ebw.buffer->startlocation()-1);
+                NSLog(@"temp2: %s", temp2.c_str());
+                ebw.buffer->set_contents(temp2);
                 ebw.buffer->set_lengthused(startLocation);
                 
                 EventBufferWrapper *splittedBufferSecondHalf = [[EventBufferWrapper alloc] initWithBuffer:secondHalfBuffer];
@@ -783,7 +796,7 @@ using namespace wewriteapp;
             ebw.buffer->set_startlocation(ebw.buffer->startlocation() + [contents length]);
         }
         else if ((startLocation > ebw.buffer->startlocation()) &&
-                 (startLocation <= (ebw.buffer->startlocation() + ebw.buffer->lengthused())))
+                 (startLocation < (ebw.buffer->startlocation() + ebw.buffer->lengthused()-1)))
         {
             // delete in the middle of this insert chunk
             std::string firstHalf;
@@ -795,7 +808,7 @@ using namespace wewriteapp;
             {
                 firstHalf = "";
             }
-            std::string secondHalf = ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused());
+            std::string secondHalf = ebw.buffer->contents().substr(startLocation-ebw.buffer->startlocation(), ebw.buffer->lengthused()-startLocation);
             ebw.buffer->set_contents(firstHalf.append(secondHalf));
             ebw.buffer->set_lengthused(ebw.buffer->contents().length());
         }
