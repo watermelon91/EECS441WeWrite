@@ -216,7 +216,7 @@ using namespace wewriteapp;
         if (originalEvent->eventtype() == EventBuffer_EventType_INSERT)
         {
             // Change to delete event
-            startCursorPosition = originalEvent->startlocation();
+            startCursorPosition = originalEvent->startlocation() + originalEvent->lengthused();
             deletedLength = originalEvent->lengthused();
             deletedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
             
@@ -225,8 +225,8 @@ using namespace wewriteapp;
                 // Update UI with other users' changes
                 _textViewForUser.scrollEnabled = NO;
                 _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
-                                         [_textViewForUser.text substringToIndex:startCursorPosition],
-                                         [_textViewForUser.text substringFromIndex:startCursorPosition + deletedLength]];
+                                         [_textViewForUser.text substringToIndex:startCursorPosition - deletedLength],
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition]];
                 _textViewForUser.scrollEnabled = YES;
             }
             
@@ -234,15 +234,24 @@ using namespace wewriteapp;
         else if (originalEvent->eventtype() == EventBuffer_EventType_DELETE)
         {
             // Change to insert event
-            startCursorPosition = originalEvent->startlocation();
+            startCursorPosition = originalEvent->startlocation() - originalEvent->lengthused();
             newlyInsertedChars = [NSMutableString stringWithFormat:@"%s", originalEvent->contents().c_str()];
             
             // Update UI
             _textViewForUser.scrollEnabled = NO;
-            _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                     [_textViewForUser.text substringToIndex:startCursorPosition],
-                                     newlyInsertedChars,
-                                     [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            if (startCursorPosition == 0)
+            {
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                         newlyInsertedChars,
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            }
+            else
+            {
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                         [_textViewForUser.text substringToIndex:startCursorPosition-1],
+                                         newlyInsertedChars,
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            }
             _textViewForUser.scrollEnabled = YES;
         }
         else

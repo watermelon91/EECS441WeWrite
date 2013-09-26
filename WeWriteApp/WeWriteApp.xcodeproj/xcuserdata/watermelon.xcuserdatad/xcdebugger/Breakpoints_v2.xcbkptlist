@@ -6,279 +6,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/protocoalBufferRawDefinition.pb.h"
-            timestampString = "401139983.740951"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
+            timestampString = "401850853.620591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "880"
-            endingLineNumber = "880"
-            landmarkName = "-constrcutLockEvent:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController client:encounteredError:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401508967.300384"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "429"
-                  endingLineNumber = "429"
-                  offsetFromSymbolStart = "89">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController client:encounteredError:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401508967.30062"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "429"
-                  endingLineNumber = "429"
-                  offsetFromSymbolStart = "207">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "718"
-            endingLineNumber = "718"
-            landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController requestLock]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401502846.303164"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "326"
-                  endingLineNumber = "326"
-                  offsetFromSymbolStart = "328">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController requestLock]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401502846.303359"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "326"
-                  endingLineNumber = "326"
-                  offsetFromSymbolStart = "536">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController viewDidLoad]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401403151.330145"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "874">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController viewDidLoad]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401403151.330469"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "1629">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
             landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
-            landmarkName = "-client:receivedEventWithOrderID:submissionRegistrationID:eventType:data:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController parseReceivedEvent:data:]"
+                  symbolName = "-[UserViewController submitLastPacketOfChanges]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731091.625763"
+                  timestampString = "401850990.191025"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "503"
-                  endingLineNumber = "503"
-                  offsetFromSymbolStart = "283">
+                  startingLineNumber = "449"
+                  endingLineNumber = "449"
+                  offsetFromSymbolStart = "1245">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController parseReceivedEvent:data:]"
+                  symbolName = "-[UserViewController submitLastPacketOfChanges]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731091.626151"
+                  timestampString = "401850990.191247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "503"
-                  endingLineNumber = "503"
-                  offsetFromSymbolStart = "532">
+                  startingLineNumber = "449"
+                  endingLineNumber = "449"
+                  offsetFromSymbolStart = "1396">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
-            landmarkName = "-constrcutLockEvent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "871"
-            endingLineNumber = "871"
-            landmarkName = "-constrcutLockEvent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "870"
-            endingLineNumber = "870"
-            landmarkName = "-constrcutLockEvent:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,208 +56,40 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
+            timestampString = "401849906.463192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "885"
-            endingLineNumber = "885"
-            landmarkName = "-client:encounteredError:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController client:encounteredError:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.030846"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "855"
-                  endingLineNumber = "855"
-                  offsetFromSymbolStart = "89">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController client:encounteredError:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.031069"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "855"
-                  endingLineNumber = "855"
-                  offsetFromSymbolStart = "207">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController textView:shouldChangeTextInRange:replacementText:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401514940.541951"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "86">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController textView:shouldChangeTextInRange:replacementText:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401514940.542343"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "1252">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController textView:shouldChangeTextInRange:replacementText:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401514940.542698"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "1316">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "-undoButtonPressed:"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[UserViewController undoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.064121"
+                  timestampString = "401850990.191464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192"
-                  offsetFromSymbolStart = "61">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController undoButtonPressed:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.064637"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192"
-                  offsetFromSymbolStart = "384">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "-submitLastPacketOfChanges"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-redoButtonPressed:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController redoButtonPressed:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731740.356682"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
                   offsetFromSymbolStart = "87">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__40-[UserViewController redoButtonPressed:]_block_invoke"
+                  symbolName = "__40-[UserViewController undoButtonPressed:]_block_invoke"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731740.356877"
+                  timestampString = "401850990.19167"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
                   offsetFromSymbolStart = "18">
                </Location>
             </Locations>
@@ -498,325 +98,45 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "724"
-            endingLineNumber = "724"
-            landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
+            timestampString = "401849910.812174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "815"
-            endingLineNumber = "815"
-            landmarkName = "-updateOffsetForDelete:withContents:forEventBuffer:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "805"
-            endingLineNumber = "805"
-            landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.031499"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "783"
-                  endingLineNumber = "783"
-                  offsetFromSymbolStart = "3399">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.031701"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "783"
-                  endingLineNumber = "783"
-                  offsetFromSymbolStart = "3482">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "750"
-            endingLineNumber = "750"
-            landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.031921"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "728"
-                  endingLineNumber = "728"
-                  offsetFromSymbolStart = "125">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.032114"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "728"
-                  endingLineNumber = "728"
-                  offsetFromSymbolStart = "519">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/SingletonLock.m"
-            timestampString = "401729876.292303"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "+initialize"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "-textViewDidChangeSelection:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
-            landmarkName = "-submitLastPacketOfChanges"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-undoButtonPressed:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController undoButtonPressed:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.069485"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "199"
-                  endingLineNumber = "199"
-                  offsetFromSymbolStart = "233">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController undoButtonPressed:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.069968"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "199"
-                  endingLineNumber = "199"
-                  offsetFromSymbolStart = "299">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "715"
-            endingLineNumber = "715"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController parseReceivedEvent:data:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.070955"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "689"
-                  endingLineNumber = "689"
-                  offsetFromSymbolStart = "5114">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController parseReceivedEvent:data:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731678.071405"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "689"
-                  endingLineNumber = "689"
-                  offsetFromSymbolStart = "5238">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-redoButtonPressed:"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[UserViewController redoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731740.358582"
+                  timestampString = "401850990.19189"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "132"
-                  endingLineNumber = "132"
-                  offsetFromSymbolStart = "233">
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "61">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[UserViewController redoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401731740.358806"
+                  timestampString = "401850990.192091"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "132"
-                  endingLineNumber = "132"
-                  offsetFromSymbolStart = "299">
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "384">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -828,305 +148,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
+            timestampString = "401850943.640868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "763"
-            endingLineNumber = "763"
-            landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "-undoButtonPressed:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.032527"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "741"
-                  endingLineNumber = "741"
-                  offsetFromSymbolStart = "814">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.032742"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "741"
-                  endingLineNumber = "741"
-                  offsetFromSymbolStart = "2897">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "771"
-            endingLineNumber = "771"
-            landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.032977"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "749"
-                  endingLineNumber = "749"
-                  offsetFromSymbolStart = "1943">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateOffsetForInsert:withContents:forEventBuffer:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.03317"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "749"
-                  endingLineNumber = "749"
-                  offsetFromSymbolStart = "2092">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "731"
-            endingLineNumber = "731"
-            landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateStackOffset:withContents:withEventType:forStack:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.033372"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "709"
-                  endingLineNumber = "709"
-                  offsetFromSymbolStart = "483">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserViewController updateStackOffset:withContents:withEventType:forStack:]"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.033568"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "709"
-                  endingLineNumber = "709"
-                  offsetFromSymbolStart = "665">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "734"
-            endingLineNumber = "734"
-            landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "605"
-            endingLineNumber = "605"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.033974"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "591"
-                  endingLineNumber = "591"
-                  offsetFromSymbolStart = "1098">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.034165"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "591"
-                  endingLineNumber = "591"
-                  offsetFromSymbolStart = "1598">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "622"
-            endingLineNumber = "622"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "612"
-            endingLineNumber = "612"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.034578"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "597"
-                  endingLineNumber = "597"
-                  offsetFromSymbolStart = "1739">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.034768"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "597"
-                  endingLineNumber = "597"
-                  offsetFromSymbolStart = "2674">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401847676.349156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
-            landmarkName = "-parseReceivedEvent:data:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.034973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "586"
-                  endingLineNumber = "586"
-                  offsetFromSymbolStart = "301">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[UserViewController parseReceivedEvent:data:]_block_invoke"
-                  moduleName = "WeWriteApp"
-                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401748348.035161"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "586"
-                  endingLineNumber = "586"
-                  offsetFromSymbolStart = "757">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
