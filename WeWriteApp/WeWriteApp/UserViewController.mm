@@ -48,6 +48,7 @@ using namespace wewriteapp;
     self.textViewForUser.delegate = self;
     currentCursorPosition = 0;
     startCursorPosition = -1;
+    localCursorPosition = -1;
     deletedLength = 0;
     newlyInsertedChars = [[NSMutableString alloc] init];
     deletedChars = [[NSMutableString alloc] init];
@@ -615,6 +616,7 @@ using namespace wewriteapp;
                 if (bufferReceived.startlocation() >= 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // Update UI with other users' changes
+                        localCursorPosition = _textViewForUser.selectedRange.location;
                         _textViewForUser.scrollEnabled = NO;
                         NSString *middlePartString = [NSString stringWithUTF8String:bufferReceived.contents().c_str()];
                         NSLog(@"bufferStart: %d, exisingTextL: %d", bufferReceived.startlocation(),([_textViewForUser.text length]-1));
@@ -636,6 +638,7 @@ using namespace wewriteapp;
                                                      [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
                         }
                         _textViewForUser.scrollEnabled = YES;
+                        _textViewForUser.selectedRange = NSMakeRange(localCursorPosition, 0);
                     });
                     
                     if ((bufferReceived.startlocation() <= startCursorPosition) && (startCursorPosition >= 0))
@@ -662,6 +665,7 @@ using namespace wewriteapp;
                     if (bufferReceived.startlocation() >= 0) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             // Update UI with other users' changes
+                            localCursorPosition = _textViewForUser.selectedRange.location;
                             _textViewForUser.scrollEnabled = NO;
                             assert(bufferReceived.startlocation() <= [_textViewForUser.text length]);
                             if (bufferReceived.startlocation() == ([_textViewForUser.text length] - 1))
@@ -676,6 +680,7 @@ using namespace wewriteapp;
                                                          [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
                             }
                             _textViewForUser.scrollEnabled = YES;
+                            _textViewForUser.selectedRange = NSMakeRange(localCursorPosition, 0);
                         });
                     }
                     

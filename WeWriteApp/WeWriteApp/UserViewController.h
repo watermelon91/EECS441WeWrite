@@ -45,6 +45,8 @@ using namespace wewriteapp;
     BOOL isFromUndoStack; // main, submit
     BOOL lockIsFree;
     
+    NSInteger localCursorPosition;
+    
     SingletonLock *globalLock;
 }
 
