@@ -150,10 +150,20 @@ using namespace wewriteapp;
             
             // Update UI
             _textViewForUser.scrollEnabled = NO;
-            _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
-                                     [_textViewForUser.text substringToIndex:startCursorPosition],
-                                     newlyInsertedChars,
-                                     [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            if (startCursorPosition == 0)
+            {
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@",
+                                         newlyInsertedChars,
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            }
+            else
+            {
+                _textViewForUser.text = [NSString stringWithFormat:@"%@%@%@",
+                                         [_textViewForUser.text substringToIndex:startCursorPosition],
+                                         newlyInsertedChars,
+                                         [_textViewForUser.text substringFromIndex:startCursorPosition]];
+            }
+            
             _textViewForUser.scrollEnabled = YES;
             
             
