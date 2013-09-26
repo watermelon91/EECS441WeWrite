@@ -637,6 +637,19 @@ using namespace wewriteapp;
                                                      middlePartString,
                                                      [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
                         }
+                        // preserve cursor position
+                        if (bufferReceived.startlocation() >= localCursorPosition)
+                        {
+                            // Do nothing. local cursor position not affected
+                        }
+                        else if ((bufferReceived.startlocation() < localCursorPosition) && (bufferReceived.startlocation() + bufferReceived.lengthused() >= localCursorPosition))
+                        {
+                            localCursorPosition = bufferReceived.startlocation() + bufferReceived.lengthused();
+                        }
+                        else
+                        {
+                            localCursorPosition += bufferReceived.lengthused();
+                        }
                         _textViewForUser.scrollEnabled = YES;
                         _textViewForUser.selectedRange = NSMakeRange(localCursorPosition, 0);
                     });
@@ -680,6 +693,22 @@ using namespace wewriteapp;
                                                          [_textViewForUser.text substringFromIndex:bufferReceived.startlocation()]];
                             }
                             _textViewForUser.scrollEnabled = YES;
+                            
+                            // preserve cursor position
+                            NSInteger endPosition = bufferReceived.startlocation()-bufferReceived.lengthused();
+                            assert(endPosition >= 0);
+                            if (endPosition >= localCursorPosition)
+                            {
+                                // Do nothing. local cursor position not affected
+                            }
+                            else if ((endPosition < localCursorPosition) && (bufferReceived.startlocation() >= localCursorPosition))
+                            {
+                                localCursorPosition = endPosition;
+                            }
+                            else
+                            {
+                                localCursorPosition -= bufferReceived.lengthused();
+                            }
                             _textViewForUser.selectedRange = NSMakeRange(localCursorPosition, 0);
                         });
                     }
