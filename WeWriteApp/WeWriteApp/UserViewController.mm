@@ -71,7 +71,7 @@ using namespace wewriteapp;
     otherUserHasRequestLockEarlier = NO;
     lockIsFree = YES;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:100000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     sessionIDLabel.text = [NSString stringWithFormat:@"%lld", [client currentSessionID]];
