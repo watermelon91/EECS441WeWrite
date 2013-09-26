@@ -15,7 +15,7 @@ message EventBuffer
         UNDO = 3;
         REDO = 4;
         LOCK_REQUEST = 5;
-        RECEIPT_CONFIRMATION = 6;
+        LOCK_RELEASE = 6;
     }
     
     optional EventType eventType = 5 [default = UNKNOWN];

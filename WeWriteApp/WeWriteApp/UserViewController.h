@@ -43,6 +43,7 @@ using namespace wewriteapp;
     BOOL isWaitingForLockRequestResponse;
     BOOL otherUserHasRequestLockEarlier;
     BOOL isFromUndoStack; // main, submit
+    BOOL lockIsFree;
     
     SingletonLock *globalLock;
 }

@@ -43,11 +43,11 @@ enum EventBuffer_EventType {
   EventBuffer_EventType_UNDO = 3,
   EventBuffer_EventType_REDO = 4,
   EventBuffer_EventType_LOCK_REQUEST = 5,
-  EventBuffer_EventType_RECEIPT_CONFIRMATION = 6
+  EventBuffer_EventType_LOCK_RELEASE = 6
 };
 bool EventBuffer_EventType_IsValid(int value);
 const EventBuffer_EventType EventBuffer_EventType_EventType_MIN = EventBuffer_EventType_UNKNOWN;
-const EventBuffer_EventType EventBuffer_EventType_EventType_MAX = EventBuffer_EventType_RECEIPT_CONFIRMATION;
+const EventBuffer_EventType EventBuffer_EventType_EventType_MAX = EventBuffer_EventType_LOCK_RELEASE;
 const int EventBuffer_EventType_EventType_ARRAYSIZE = EventBuffer_EventType_EventType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EventBuffer_EventType_descriptor();
@@ -121,7 +121,7 @@ class EventBuffer : public ::google::protobuf::Message {
   static const EventType UNDO = EventBuffer_EventType_UNDO;
   static const EventType REDO = EventBuffer_EventType_REDO;
   static const EventType LOCK_REQUEST = EventBuffer_EventType_LOCK_REQUEST;
-  static const EventType RECEIPT_CONFIRMATION = EventBuffer_EventType_RECEIPT_CONFIRMATION;
+  static const EventType LOCK_RELEASE = EventBuffer_EventType_LOCK_RELEASE;
   static inline bool EventType_IsValid(int value) {
     return EventBuffer_EventType_IsValid(value);
   }

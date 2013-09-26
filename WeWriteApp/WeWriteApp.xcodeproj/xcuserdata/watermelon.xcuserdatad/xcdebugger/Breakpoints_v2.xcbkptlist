@@ -24,12 +24,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "850"
-            endingLineNumber = "850"
-            landmarkName = "-requestLock"
+            startingLineNumber = "880"
+            endingLineNumber = "880"
+            landmarkName = "-constrcutLockEvent:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -70,11 +70,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
+            startingLineNumber = "718"
+            endingLineNumber = "718"
             landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
             landmarkType = "5">
             <Locations>
@@ -162,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
          </BreakpointContent>
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731677.782573"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "-client:receivedEventWithOrderID:submissionRegistrationID:eventType:data:"
             landmarkType = "5">
          </BreakpointContent>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731677.782573"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "510"
-            endingLineNumber = "510"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
             <Locations>
@@ -240,12 +240,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "836"
-            endingLineNumber = "836"
-            landmarkName = "-requestLock"
+            startingLineNumber = "858"
+            endingLineNumber = "858"
+            landmarkName = "-constrcutLockEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -256,12 +256,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "841"
-            endingLineNumber = "841"
-            landmarkName = "-requestLock"
+            startingLineNumber = "871"
+            endingLineNumber = "871"
+            landmarkName = "-constrcutLockEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -272,12 +272,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "840"
-            endingLineNumber = "840"
-            landmarkName = "-requestLock"
+            startingLineNumber = "870"
+            endingLineNumber = "870"
+            landmarkName = "-constrcutLockEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -288,11 +288,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "855"
-            endingLineNumber = "855"
+            startingLineNumber = "885"
+            endingLineNumber = "885"
             landmarkName = "-client:encounteredError:"
             landmarkType = "5">
             <Locations>
@@ -334,11 +334,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
             landmarkType = "5">
             <Locations>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "-undoButtonPressed:"
             landmarkType = "5">
             <Locations>
@@ -440,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731075.907589"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-redoButtonPressed:"
             landmarkType = "5">
             <Locations>
@@ -502,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
+            startingLineNumber = "724"
+            endingLineNumber = "724"
             landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "793"
-            endingLineNumber = "793"
+            startingLineNumber = "815"
+            endingLineNumber = "815"
             landmarkName = "-updateOffsetForDelete:withContents:forEventBuffer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "783"
-            endingLineNumber = "783"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
             landmarkType = "5">
             <Locations>
@@ -580,11 +580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "728"
-            endingLineNumber = "728"
+            startingLineNumber = "750"
+            endingLineNumber = "750"
             landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
             landmarkType = "5">
             <Locations>
@@ -642,11 +642,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731292.444384"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "-textViewDidChangeSelection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -658,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731677.782573"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
          </BreakpointContent>
@@ -674,11 +674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731315.90546"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-undoButtonPressed:"
             landmarkType = "5">
             <Locations>
@@ -720,11 +720,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731318.848865"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
             landmarkType = "5">
          </BreakpointContent>
@@ -736,11 +736,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "693"
-            endingLineNumber = "693"
+            startingLineNumber = "715"
+            endingLineNumber = "715"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
             <Locations>
@@ -782,11 +782,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401731326.819242"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-redoButtonPressed:"
             landmarkType = "5">
             <Locations>
@@ -828,11 +828,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "741"
-            endingLineNumber = "741"
+            startingLineNumber = "763"
+            endingLineNumber = "763"
             landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
             landmarkType = "5">
             <Locations>
@@ -874,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "749"
-            endingLineNumber = "749"
+            startingLineNumber = "771"
+            endingLineNumber = "771"
             landmarkName = "-updateOffsetForInsert:withContents:forEventBuffer:"
             landmarkType = "5">
             <Locations>
@@ -920,11 +920,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "709"
-            endingLineNumber = "709"
+            startingLineNumber = "731"
+            endingLineNumber = "731"
             landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
             landmarkType = "5">
             <Locations>
@@ -966,11 +966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "712"
-            endingLineNumber = "712"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "-updateStackOffset:withContents:withEventType:forStack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -982,11 +982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "590"
-            endingLineNumber = "590"
+            startingLineNumber = "605"
+            endingLineNumber = "605"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
             <Locations>
@@ -1028,11 +1028,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "607"
-            endingLineNumber = "607"
+            startingLineNumber = "622"
+            endingLineNumber = "622"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1044,11 +1044,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748007.794413"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
             <Locations>
@@ -1090,11 +1090,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401748075.985383"
+            timestampString = "401847676.349156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "586"
-            endingLineNumber = "586"
+            startingLineNumber = "601"
+            endingLineNumber = "601"
             landmarkName = "-parseReceivedEvent:data:"
             landmarkType = "5">
             <Locations>

@@ -69,6 +69,7 @@ using namespace wewriteapp;
     requestLockIsSuccess = NO;
     isWaitingForLockRequestResponse = NO;
     otherUserHasRequestLockEarlier = NO;
+    lockIsFree = YES;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:100000000 target:self selector:@selector(timerTriggeredSubmission) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -405,25 +406,30 @@ using namespace wewriteapp;
         }
         
         // Request for lock
-        serialziedLockRequest = [self requestLock];
-        [requestLockCond lock];
+        serialziedLockRequest = [self constrcutLockEvent:YES];
         submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
     }
     
+    [requestLockCond lock];
+    while (!lockIsFree)
+    {
+        [requestLockCond wait];
+    }
     while (!requestLockIsSuccess) {
         isWaitingForLockRequestResponse = YES;
         if (otherUserHasRequestLockEarlier) {
+            
             // Broadcast request for lock
             submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
             otherUserHasRequestLockEarlier = NO;
         }
         [requestLockCond wait];
     }
+    requestLockIsSuccess = NO;
+    [requestLockCond unlock];
     
     @synchronized(globalLock)
     {
-        requestLockIsSuccess = NO;
-        [requestLockCond unlock];
         NSLog(@"Lock obtained. SubmissionID: %d", submissionRegID);
         
         // Pack localBuffer into Protocol Buffer
@@ -490,6 +496,14 @@ using namespace wewriteapp;
         }
         
         NSLog(@"SubmissionID: %d", submissionRegistrationID);
+        
+        NSData *freeLockReq = [self constrcutLockEvent:NO];
+        int32_t subID = [[self client] broadcast:freeLockReq eventType:LOCK_RELEASE_EVENT];
+        NSLog(@"Lock release. Submission id: %d.", subID);
+        
+        [requestLockCond lock];
+        requestLockIsSuccess = YES;
+        [requestLockCond unlock];
     }
     
     return YES; // UPDATE HERE to reflect actual submission status
@@ -528,6 +542,7 @@ using namespace wewriteapp;
             [requestLockCond lock];
             if (otherUserHasRequestLockEarlier)
             {
+                // Other user requested or holding the lock
                 // Need to wait for the next event
                 requestLockIsSuccess = NO;
                 isWaitingForLockRequestResponse = NO;
@@ -542,9 +557,9 @@ using namespace wewriteapp;
             }
             [requestLockCond unlock];
         }
-        else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
+        else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_RELEASE)
         {
-            NSLog(@"Own Event Receipt confirmation event received");
+            NSLog(@"Own Event Lock Release event received");
             // Do nothing. Only counts receipts from other users.
         }
         else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
@@ -669,20 +684,27 @@ using namespace wewriteapp;
                 {
                     // User waiting for its lock and received some other user's request first
                     otherUserHasRequestLockEarlier = YES;
+                    lockIsFree = NO;
                 }
                 [requestLockCond unlock];
             }
-            else if (bufferReceived.eventtype() == EventBuffer_EventType_RECEIPT_CONFIRMATION)
+            else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_RELEASE)
             {
-                NSLog(@"Other Event Receipt confirmation event received");
+                NSLog(@"Other Event Lock Release event received");
+                [requestLockCond lock];
+                lockIsFree = YES;
+                [requestLockCond broadcast];
+                [requestLockCond unlock];
             }
             else if(bufferReceived.eventtype() == EventBuffer_EventType_UNDO)
             {
                 NSLog(@"Other Undo Event Received");
+                // Not used.
             }
             else if (bufferReceived.eventtype() == EventBuffer_EventType_REDO)
             {
                 NSLog(@"Other Redo Event Received");
+                // Not used.
             }
             else
             {
@@ -830,12 +852,20 @@ using namespace wewriteapp;
     }
 }
 
-- (NSData *) requestLock
+- (NSData *) constrcutLockEvent:(BOOL) isRequest
 {
     // Construct lock buffer
     EventBuffer *lockReqBuffer = new EventBuffer;
     lockReqBuffer->set_participantid(participantID);
-    lockReqBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_LOCK_REQUEST);
+    if (isRequest)
+    {
+        lockReqBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_LOCK_REQUEST);
+    }
+    else
+    {
+        lockReqBuffer->set_eventtype(EventBuffer::EventType::EventBuffer_EventType_LOCK_RELEASE);
+    }
+
     lockReqBuffer->set_startlocation(-1);
     lockReqBuffer->set_contents("");
     lockReqBuffer->set_lengthused(0);

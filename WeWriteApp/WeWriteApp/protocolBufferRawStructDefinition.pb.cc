@@ -85,14 +85,14 @@ void protobuf_AddDesc_protocolBufferRawStructDefinition_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\'protocolBufferRawStructDefinition.prot"
-    "o\022\nwewriteapp\"\222\002\n\013EventBuffer\022\025\n\rpartici"
+    "o\022\nwewriteapp\"\212\002\n\013EventBuffer\022\025\n\rpartici"
     "pantID\030\001 \002(\005\022\025\n\rstartLocation\030\002 \002(\005\022\020\n\010c"
     "ontents\030\003 \001(\t\022\022\n\nlengthUsed\030\004 \001(\005\022=\n\teve"
     "ntType\030\005 \001(\0162!.wewriteapp.EventBuffer.Ev"
-    "entType:\007UNKNOWN\"p\n\tEventType\022\013\n\007UNKNOWN"
+    "entType:\007UNKNOWN\"h\n\tEventType\022\013\n\007UNKNOWN"
     "\020\000\022\n\n\006INSERT\020\001\022\n\n\006DELETE\020\002\022\010\n\004UNDO\020\003\022\010\n\004"
-    "REDO\020\004\022\020\n\014LOCK_REQUEST\020\005\022\030\n\024RECEIPT_CONF"
-    "IRMATION\020\006", 330);
+    "REDO\020\004\022\020\n\014LOCK_REQUEST\020\005\022\020\n\014LOCK_RELEASE"
+    "\020\006", 322);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "protocolBufferRawStructDefinition.proto", &protobuf_RegisterTypes);
   EventBuffer::default_instance_ = new EventBuffer();
@@ -135,7 +135,7 @@ const EventBuffer_EventType EventBuffer::DELETE;
 const EventBuffer_EventType EventBuffer::UNDO;
 const EventBuffer_EventType EventBuffer::REDO;
 const EventBuffer_EventType EventBuffer::LOCK_REQUEST;
-const EventBuffer_EventType EventBuffer::RECEIPT_CONFIRMATION;
+const EventBuffer_EventType EventBuffer::LOCK_RELEASE;
 const EventBuffer_EventType EventBuffer::EventType_MIN;
 const EventBuffer_EventType EventBuffer::EventType_MAX;
 const int EventBuffer::EventType_ARRAYSIZE;
