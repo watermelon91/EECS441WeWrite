@@ -615,7 +615,7 @@ using namespace wewriteapp;
                 // Not a legal packet;
                 return;
             }
-            assert([_textViewForUser.text length] >= bufferReceived.startlocation());
+            assert([_textViewForUser.text length] >= bufferReceived.startlocation()-1);
             if (bufferReceived.eventtype() == EventBuffer_EventType_INSERT)
             {
                 NSLog(@"Other Insert event received");
@@ -846,10 +846,15 @@ using namespace wewriteapp;
         }
         else // delete event
         {
-            if (startLocation <= ebw.buffer->startlocation()) {
+            if (startLocation <= ebw.buffer->startlocation())
+            {
                 // delete before this insert chunk
                 ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
                 return nil;
+            }
+            else if ((startLocation-[contents length]) <= ebw.buffer->startlocation())
+            {
+                ebw.buffer->set_startlocation(startLocation - [contents length]);
             }
             else
             {
@@ -900,9 +905,15 @@ using namespace wewriteapp;
     }
     else // delete event
     {
-        if (startLocation <= ebw.buffer->startlocation()) {
+        if (startLocation <= ebw.buffer->startlocation())
+        {
             // delete before this delete chunk
             ebw.buffer->set_startlocation(ebw.buffer->startlocation() - [contents length]);
+        }
+        else if ((startLocation-[contents length]) <= ebw.buffer->startlocation())
+        {
+            // delete past the start point of this delete chunk
+            ebw.buffer->set_startlocation(startLocation - [contents length]);
         }
         else
         {
