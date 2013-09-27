@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeWriteApp/UserViewController.mm"
-            timestampString = "401853140.111916"
+            timestampString = "402001954.206684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
             landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
             <Locations>
@@ -25,11 +25,11 @@
                   symbolName = "-[UserViewController submitLastPacketOfChanges]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.191025"
+                  timestampString = "402001259.323216"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
                   offsetFromSymbolStart = "1245">
                </Location>
                <Location
@@ -39,11 +39,11 @@
                   symbolName = "-[UserViewController submitLastPacketOfChanges]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.191247"
+                  timestampString = "402001259.323446"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
                   offsetFromSymbolStart = "1396">
                </Location>
             </Locations>
@@ -71,11 +71,11 @@
                   symbolName = "-[UserViewController undoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.191464"
+                  timestampString = "402001259.32368"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
                   offsetFromSymbolStart = "87">
                </Location>
                <Location
@@ -85,11 +85,11 @@
                   symbolName = "__40-[UserViewController undoButtonPressed:]_block_invoke"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.19167"
+                  timestampString = "402001259.323885"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
                   offsetFromSymbolStart = "18">
                </Location>
             </Locations>
@@ -117,11 +117,11 @@
                   symbolName = "-[UserViewController redoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.19189"
+                  timestampString = "402001259.324142"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
                   offsetFromSymbolStart = "61">
                </Location>
                <Location
@@ -131,11 +131,11 @@
                   symbolName = "-[UserViewController redoButtonPressed:]"
                   moduleName = "WeWriteApp"
                   urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
-                  timestampString = "401850990.192091"
+                  timestampString = "402001259.324447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
                   offsetFromSymbolStart = "384">
                </Location>
             </Locations>
@@ -154,6 +154,98 @@
             startingLineNumber = "227"
             endingLineNumber = "227"
             landmarkName = "-undoButtonPressed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeWriteApp/UserViewController.mm"
+            timestampString = "401854336.770299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-exitSessionButtonPressed:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UserViewController exitSessionButtonPressed:]"
+                  moduleName = "WeWriteApp"
+                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
+                  timestampString = "401854377.447023"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "55">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UserViewController exitSessionButtonPressed:]"
+                  moduleName = "WeWriteApp"
+                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
+                  timestampString = "401854377.447332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "358">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[UserViewController exitSessionButtonPressed:]_block_invoke"
+                  moduleName = "WeWriteApp"
+                  urlString = "file://localhost/Users/watermelon/Dropbox/EECS441/EECS441WeWrite/WeWriteApp/WeWriteApp/UserViewController.mm"
+                  timestampString = "401854377.447534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeWriteApp/UserViewController.mm"
+            timestampString = "401854349.810784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-exitSessionButtonPressed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeWriteApp/UserViewController.mm"
+            timestampString = "402001954.206684"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
+            landmarkName = "-submitLastPacketOfChanges"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

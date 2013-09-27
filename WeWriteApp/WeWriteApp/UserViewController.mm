@@ -426,7 +426,7 @@ using namespace wewriteapp;
         }
         
         // Request for lock
-        serialziedLockRequest = [self constrcutLockEvent:YES];
+        serialziedLockRequest = [self constructLockEvent:YES];
         submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
     }
     
@@ -445,7 +445,10 @@ using namespace wewriteapp;
         }
         [requestLockCond wait];
     }
+    lockIsFree = NO;
     requestLockIsSuccess = NO;
+    isWaitingForLockRequestResponse = NO;
+    otherUserHasRequestLockEarlier = NO;
     [requestLockCond unlock];
     
     @synchronized(globalLock)
@@ -517,12 +520,15 @@ using namespace wewriteapp;
         
         NSLog(@"SubmissionID: %d", submissionRegistrationID);
         
-        NSData *freeLockReq = [self constrcutLockEvent:NO];
+        NSData *freeLockReq = [self constructLockEvent:NO];
         int32_t subID = [[self client] broadcast:freeLockReq eventType:LOCK_RELEASE_EVENT];
         NSLog(@"Lock release. Submission id: %d.", subID);
         
         [requestLockCond lock];
-        requestLockIsSuccess = YES;
+        lockIsFree = YES;
+        requestLockIsSuccess = NO;
+        isWaitingForLockRequestResponse = NO;
+        otherUserHasRequestLockEarlier = NO;
         [requestLockCond unlock];
     }
     
@@ -737,8 +743,8 @@ using namespace wewriteapp;
                 {
                     // User waiting for its lock and received some other user's request first
                     otherUserHasRequestLockEarlier = YES;
-                    lockIsFree = NO;
                 }
+                lockIsFree = NO;
                 [requestLockCond unlock];
             }
             else if (bufferReceived.eventtype() == EventBuffer_EventType_LOCK_RELEASE)
@@ -905,7 +911,7 @@ using namespace wewriteapp;
     }
 }
 
-- (NSData *) constrcutLockEvent:(BOOL) isRequest
+- (NSData *) constructLockEvent:(BOOL) isRequest
 {
     // Construct lock buffer
     EventBuffer *lockReqBuffer = new EventBuffer;
