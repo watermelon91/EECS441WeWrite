@@ -427,21 +427,25 @@ using namespace wewriteapp;
         
         // Request for lock
         serialziedLockRequest = [self constructLockEvent:YES];
-        submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
     }
     
     [requestLockCond lock];
+RestartLockAquisition:
     while (!lockIsFree)
     {
         [requestLockCond wait];
     }
-    while (!requestLockIsSuccess) {
+    submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
+    while (!requestLockIsSuccess)
+    {
         isWaitingForLockRequestResponse = YES;
-        if (otherUserHasRequestLockEarlier) {
-            
-            // Broadcast request for lock
-            submissionRegID = [[self client] broadcast:serialziedLockRequest eventType:LOCK_REQUEST_EVENT];
+        if (otherUserHasRequestLockEarlier)
+        {
+            lockIsFree = NO;
+            requestLockIsSuccess = NO;
+            isWaitingForLockRequestResponse = NO;
             otherUserHasRequestLockEarlier = NO;
+            goto RestartLockAquisition;
         }
         [requestLockCond wait];
     }
